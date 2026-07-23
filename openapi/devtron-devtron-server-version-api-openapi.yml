@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Devtron Server version API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Devtron Server version
+  x-displayName: Devtron Server version
+paths:
+  /version:
+    get:
+      summary: Get Devtron server version information
+      security: []
+      responses:
+        '200':
+          description: meta info about devtron server
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gitCommit:
+                    type: string
+                    example: d252aa3e
+                    description: git hash from which code was compiled
+                  buildTime:
+                    type: string
+                    format: date-time
+                    example: '2021-12-15T05:44:05Z'
+                    description: time when code was complied
+                  serverMode:
+                    type: string
+                    example: FULL
+                    description: server mode FULL/EA_ONLY
+                    enum:
+                    - FULL
+                    - EA_ONLY
+      tags:
+      - Devtron Server version
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

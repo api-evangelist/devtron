@@ -1,0 +1,274 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications bulk_other API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: bulk_other
+  x-displayName: BulkGetData
+paths:
+  /batch/{apiVersion}/{kind}/readme:
+    get:
+      summary: Get Readme for Bulk Update
+      description: Returns Readme for bulk update for different resource in the url
+      operationId: FindBulkUpdateReadme
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: apiVersion
+        in: path
+        required: true
+        description: apiVersion of the resource
+        schema:
+          type: string
+      - name: kind
+        in: path
+        required: true
+        description: kind of the resource
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful GET operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkUpdateSeeExampleResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - bulk_other
+  /batch/v1beta1/application/dryrun:
+    post:
+      summary: Dry Run for Bulk Application Update
+      description: Returns details(id, name, envId) of all apps to be impacted with bulk update
+      operationId: GetBulkAppName
+      security: []
+      requestBody:
+        description: A JSON object containing information by which apps will be filtered
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkUpdateScript'
+      responses:
+        '200':
+          description: Successfully return all impacted app details.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImpactedObjectsResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+      - bulk_other
+components:
+  schemas:
+    ImpactedObjectsResponse:
+      type: object
+      properties:
+        deploymentTemplate:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeploymentTemplateImpactedObjectsResponseForOneApp'
+        configMap:
+          type: array
+          items:
+            $ref: '#/components/schemas/CmAndSecretImpactedObjectsResponseForOneApp'
+        secret:
+          type: array
+          items:
+            $ref: '#/components/schemas/CmAndSecretImpactedObjectsResponseForOneApp'
+    DeploymentTemplateImpactedObjectsResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the impacted app
+        appName:
+          type: string
+          description: Name of the impacted app
+        envId:
+          type: string
+          description: Env Id of the impacted app
+    BulkUpdateScript:
+      type: object
+      required:
+      - ApiVersion
+      - Kind
+      - Spec
+      properties:
+        apiVersion:
+          type: string
+          description: Api version from url
+          example:
+          - v1beta1
+        kind:
+          type: string
+          description: Kind
+          example:
+          - application
+        spec:
+          $ref: '#/components/schemas/BulkUpdatePayload'
+    Spec:
+      type: object
+      properties:
+        patchData:
+          type: string
+          description: string with details of the patch to be used for updating
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    BulkUpdatePayload:
+      type: object
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        envIds:
+          type: array
+          items:
+            type: integer
+          description: All Env Id's for updating dependent apps
+        global:
+          type: boolean
+          description: Global flag for updating dependent apps
+        DeploymentTemplate:
+          $ref: '#/components/schemas/Tasks'
+        ConfigMaps:
+          type: object
+          properties:
+            names:
+              type: array
+              items:
+                type: string
+                description: Name of All ConfigMaps to be updated
+            tasks:
+              $ref: '#/components/schemas/Spec'
+        Secrets:
+          type: object
+          properties:
+            names:
+              type: array
+              items:
+                type: string
+                description: Name of All Secrets to be updated
+            tasks:
+              $ref: '#/components/schemas/Spec'
+    CmAndSecretImpactedObjectsResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the impacted app
+        appName:
+          type: string
+          description: Name of the impacted app
+        envId:
+          type: string
+          description: Env Id of the impacted app
+        names:
+          type: array
+          items:
+            type: string
+            description: Names of all configmaps/secrets impacted
+    BulkUpdateSeeExampleResponse:
+      type: object
+      required:
+      - Script
+      properties:
+        resource:
+          type: string
+          description: Resource from url path, i.e. {apiVersion} & {kind}
+        script:
+          $ref: '#/components/schemas/BulkUpdateScript'
+          description: Input Script for bulk update
+        readMe:
+          type: string
+          description: Readme for bulk update
+    NameIncludesExcludes:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+          description: All strings of app names to be included/excluded
+    Tasks:
+      type: object
+      properties:
+        spec:
+          $ref: '#/components/schemas/Spec'
+          description: Spec of the Task
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

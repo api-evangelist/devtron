@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications List Applications API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: List Applications
+  x-displayName: List Applications
+  description: Application listing
+paths:
+  /orchestrator/app/autocomplete:
+    get:
+      summary: List application autocomplete
+      operationId: listAppAutocomplete
+      description: list of namespaces group by clusters
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - in: query
+        name: appName
+        example: abc
+        description: app name, wildcard query
+        required: false
+        allowEmptyValue: true
+        schema:
+          type: string
+      - in: query
+        name: teamId
+        example: '1'
+        description: project id
+        required: false
+        allowEmptyValue: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: list response
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: integer
+                    description: status code
+                  status:
+                    type: string
+                    description: status
+                  result:
+                    type: array
+                    description: app list
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - List Applications
+      security: []
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

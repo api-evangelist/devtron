@@ -1,0 +1,210 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Workflow Management API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Workflow Management
+  x-displayName: Workflow Management
+paths:
+  /app/workflow:
+    post:
+      summary: Create an application workflow
+      description: Creates a new workflow for a given application.
+      operationId: CreateAppWorkflow
+      security: []
+      tags:
+      - Workflow Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppWorkflowDto'
+      responses:
+        '200':
+          description: Successfully created workflow.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppWorkflowDto'
+        '400':
+          description: Bad Request. Validation error or wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden. User does not have permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /app/workflow/{app-wf-id}/app/{app-id}:
+    delete:
+      summary: Delete an application workflow
+      description: Deletes an existing workflow for a given application.
+      operationId: DeleteAppWorkflow
+      security: []
+      tags:
+      - Workflow Management
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: app-wf-id
+        in: path
+        required: true
+        description: ID of the application workflow to delete.
+        schema:
+          type: integer
+      - name: app-id
+        in: path
+        required: true
+        description: ID of the application.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully deleted workflow.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+        '400':
+          description: Bad Request. Invalid path parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden. User does not have permission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    AppWorkflowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the workflow.
+          readOnly: true
+        name:
+          type: string
+          description: Name of the workflow.
+        appId:
+          type: integer
+          description: ID of the application this workflow belongs to.
+        tree:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppWorkflowMappingDto'
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    AppWorkflowMappingDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the workflow mapping.
+          readOnly: true
+        appWorkflowId:
+          type: integer
+          description: ID of the parent application workflow.
+        type:
+          type: string
+          description: Type of the component (e.g., CI_PIPELINE, CD_PIPELINE).
+        componentId:
+          type: integer
+          description: ID of the component (e.g., CiPipelineId, CdPipelineId).
+        parentId:
+          type: integer
+          description: ID of the parent component in the workflow tree.
+        parentType:
+          type: string
+          description: Type of the parent component in the workflow tree.
+        deploymentAppDeleteRequest:
+          type: boolean
+          description: Indicates if a deployment app delete request is associated.
+        isLast:
+          type: boolean
+          description: Indicates if this is the last node in its branch of the tree.
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

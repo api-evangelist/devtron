@@ -1,0 +1,185 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Cluster Environment API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Cluster Environment
+  description: Operations related to clusters and environments
+  x-displayName: Cluster Environment
+paths:
+  /env/clusters:
+    get:
+      summary: List clusters with their environments
+      description: Provides a list of all clusters and the environments within each.
+      operationId: getClustersWithEnvironments
+      security: []
+      tags:
+      - Cluster Environment
+      responses:
+        '200':
+          description: Successfully retrieved list of clusters and environments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClusterWithEnvironments'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cluster/{cluster_id}/env:
+    get:
+      summary: List environments for a specific cluster
+      description: Provides a list of all environments for a given cluster ID.
+      operationId: getEnvironmentsForCluster
+      security: []
+      tags:
+      - Cluster Environment
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: cluster_id
+        in: path
+        required: true
+        description: ID of the cluster
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved list of environments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Environment'
+        '400':
+          description: Bad Request. Invalid cluster ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Cluster not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    ClusterWithEnvironments:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Cluster ID
+        cluster_name:
+          type: string
+          description: Name of the cluster
+        server_url:
+          type: string
+          description: Server URL of the cluster
+        active:
+          type: boolean
+          description: Whether the cluster is active
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Environment'
+        prometheus_url:
+          type: string
+          description: URL for Prometheus monitoring
+        k8sVersion:
+          type: string
+          description: Kubernetes version of the cluster
+    Environment:
+      type: object
+      properties:
+        environmentId:
+          type: integer
+          description: Environment ID
+        environmentName:
+          type: string
+          description: Name of the environment
+        environmentIdentifier:
+          type: string
+          description: Unique identifier for the environment
+        namespace:
+          type: string
+          description: Namespace associated with the environment
+        active:
+          type: boolean
+          description: Whether the environment is active
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

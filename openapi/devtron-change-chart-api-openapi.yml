@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Change Chart API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Change Chart
+  x-displayName: ChangeChartType
+paths:
+  /app/env/patch:
+    patch:
+      summary: Patch Application Environment
+      description: change the deployment template for an app and environment
+      operationId: PatchAppEnv
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                envId:
+                  type: integer
+                  description: Environment Id
+                appId:
+                  type: integer
+                  description: Application Id
+                targetChartRefId:
+                  type: integer
+                  description: Chart ref Id of template
+      responses:
+        '200':
+          description: patched data
+        '422':
+          description: bad request
+      tags:
+      - Change Chart
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

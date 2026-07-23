@@ -1,0 +1,275 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Metadata API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Metadata
+  description: Application metadata and information retrieval
+  x-displayName: Application Metadata
+paths:
+  /orchestrator/app/labels/list:
+    get:
+      summary: List all app labels
+      description: This API will return all the labels available in the database.
+      operationId: listAppLabels
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: list response
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: integer
+                    description: status code
+                  status:
+                    type: string
+                    description: status
+                  result:
+                    allOf:
+                    - type: object
+                      properties:
+                        appId:
+                          type: integer
+                          description: unique application id
+                      required:
+                      - appId
+                    - $ref: '#/components/schemas/AppLabel'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Metadata
+  /orchestrator/app/meta/info/{appId}:
+    get:
+      summary: Get application meta info
+      description: Application basic info, projects and labels
+      operationId: getAppMetaInfo
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: appId
+        in: path
+        description: application id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: application basic info, projects and labels
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: integer
+                    description: status code
+                  status:
+                    type: string
+                    description: status
+                  result:
+                    type: object
+                    description: meta info project name and labels
+                    $ref: '#/components/schemas/AppMetaInfo'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Metadata
+  /orchestrator/helm/meta/info/{appId}:
+    get:
+      summary: Get Helm application meta info
+      description: Application info for all types of Helm apps
+      operationId: getHelmAppMetaInfo
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: appId
+        in: path
+        description: application id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Helm application basic info
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: integer
+                    description: status code
+                  status:
+                    type: string
+                    description: status
+                  result:
+                    type: object
+                    description: meta info project name and labels
+                    $ref: '#/components/schemas/AppMetaInfo'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Metadata
+components:
+  schemas:
+    AppMetaInfo:
+      type: object
+      required:
+      - appId
+      - projectId
+      - appName
+      - projectName
+      - createdOn
+      - createdBy
+      - labels
+      properties:
+        appId:
+          type: integer
+          description: app id
+        projectId:
+          type: integer
+          description: team/project id
+        appName:
+          type: string
+          description: app name
+        projectName:
+          type: string
+          description: team/project name
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppLabel'
+        createdOn:
+          type: string
+          description: app creation date
+        createdBy:
+          type: string
+          description: app created by
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+    AppLabel:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+          description: label key
+        value:
+          type: string
+          description: label value
+        propagate:
+          type: boolean
+          description: Whether to propagate to kubernetes resources
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

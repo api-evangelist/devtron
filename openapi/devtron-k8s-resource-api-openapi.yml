@@ -1,0 +1,788 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications K8s Resource API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: K8s Resource
+  description: APIs for managing Kubernetes resources (get, create, update, delete, list).
+  x-displayName: K8s Resource
+paths:
+  /k8s/resource:
+    post:
+      summary: Get Resource Manifest
+      description: This API is used for fetching the manifest of a specified Kubernetes resource.
+      operationId: getResourceManifest
+      security: []
+      requestBody:
+        description: JSON payload specifying the resource to fetch.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully retrieved the resource manifest.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Status code of the response.
+                  status:
+                    type: string
+                    description: Status message of the response.
+                  result:
+                    $ref: '#/components/schemas/ResourceGetResponse'
+      tags:
+      - K8s Resource
+    put:
+      summary: Update Resource Manifest
+      description: This API is used for editing the manifest of a specified Kubernetes resource.
+      operationId: updateResourceManifest
+      security: []
+      requestBody:
+        description: JSON payload containing the resource identifier and the patch.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully updated the resource manifest.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Status code of the response.
+                  status:
+                    type: string
+                    description: Status message of the response.
+                  result:
+                    $ref: '#/components/schemas/ResourceGetResponse'
+      tags:
+      - K8s Resource
+  /k8s/resource/create:
+    post:
+      summary: Create Resource
+      description: This API is used for applying a desired manifest to create a Kubernetes resource.
+      operationId: createResource
+      security: []
+      requestBody:
+        description: JSON payload containing the resource manifest to apply.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully created the resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Status code of the response.
+                  status:
+                    type: string
+                    description: Status message of the response.
+                  result:
+                    $ref: '#/components/schemas/ResourceGetResponse'
+      tags:
+      - K8s Resource
+  /k8s/resource/delete:
+    post:
+      summary: Delete Resource
+      description: This API is used for deleting a specified Kubernetes resource.
+      operationId: deleteResource
+      security: []
+      requestBody:
+        description: JSON payload specifying the resource to delete.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully deleted the resource.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Status code of the response.
+                  status:
+                    type: string
+                    description: Status message of the response.
+                  result:
+                    $ref: '#/components/schemas/ResourceGetResponse'
+      tags:
+      - K8s Resource
+  /k8s/events:
+    post:
+      summary: Get Resource Events
+      description: This API is used for fetching events for Kubernetes resources.
+      operationId: getResourceEvents
+      security: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully retrieved resource events. The response is a stream of events.
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/EventsResponseObject'
+      tags:
+      - K8s Resource
+  /k8s/pods/logs/{podName}:
+    get:
+      summary: Get Pod Logs
+      description: This API is used for fetching logs for a specified container within a pod.
+      operationId: getPodLogs
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: podName
+        in: path
+        required: true
+        description: Name of the pod.
+        schema:
+          type: string
+      - name: containerName
+        in: query
+        required: true
+        description: Name of the container within the pod.
+        schema:
+          type: string
+      - name: appId
+        in: query
+        required: false
+        description: Application ID.
+        schema:
+          type: string
+      - name: clusterId
+        in: query
+        required: false
+        description: Cluster ID.
+        schema:
+          type: integer
+      - name: namespace
+        in: query
+        description: Namespace of the pod. Required if clusterId is passed.
+        required: false
+        schema:
+          type: string
+      - name: follow
+        in: query
+        description: Whether to follow the log stream.
+        schema:
+          type: boolean
+          default: false
+      - name: sinceSeconds
+        in: query
+        description: Return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs.
+        schema:
+          type: integer
+      - name: tailLines
+        in: query
+        description: If set, the number of lines from the end of the logs to show.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved pod logs. The response is a stream of log lines.
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/LogsResponseObject'
+      tags:
+      - K8s Resource
+  /k8s/pod/exec/session/{identifier}/{namespace}/{pod}/{shell}/{container}:
+    get:
+      summary: Get Pod Exec Session
+      description: This API establishes a session for executing commands in a pod's container (terminal access).
+      operationId: getPodExecSession
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: identifier
+        in: path
+        required: true
+        description: Application ID or Cluster ID. Example '2|devtroncd|devtron' or '3'.
+        schema:
+          type: string
+      - name: namespace
+        in: path
+        required: true
+        description: Namespace of the pod.
+        schema:
+          type: string
+          example: devtroncd
+      - name: pod
+        in: path
+        required: true
+        description: Name of the pod.
+        schema:
+          type: string
+          example: inception-58d44d99fd-tfw4s
+      - name: shell
+        in: path
+        required: true
+        description: Shell to invoke.
+        schema:
+          type: string
+          enum:
+          - bash
+          - sh
+          - powershell
+          - cmd
+          example: bash
+      - name: container
+        in: path
+        required: true
+        description: Name of the container.
+        schema:
+          type: string
+          example: devtron
+      responses:
+        '200':
+          description: Successfully established exec session.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TerminalMessage'
+      tags:
+      - K8s Resource
+  /k8s/api-resources/{clusterId}:
+    get:
+      summary: Get API Resources
+      description: Get all available API resources for a given cluster ID.
+      operationId: getApiResources
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: clusterId
+        in: path
+        description: ID of the cluster.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Successfully fetched all API resources for the given cluster ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllApiResourcesResponse'
+      tags:
+      - K8s Resource
+  /k8s/resource/list:
+    post:
+      summary: List Resources
+      description: This API is used for fetching a list of Kubernetes resources based on the request criteria.
+      operationId: listResources
+      security: []
+      requestBody:
+        description: JSON payload specifying the criteria for listing resources.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Successfully retrieved the list of resources.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Status code of the response.
+                  status:
+                    type: string
+                    description: Status message of the response.
+                  result:
+                    type: array
+                    description: List of resources.
+                    items:
+                      $ref: '#/components/schemas/ClusterResourceListResponse'
+      tags:
+      - K8s Resource
+  /k8s/resources/rotate:
+    post:
+      summary: Rotates the Pods
+      description: This API is used to rotate (restart) pods for the provided resources.
+      operationId: K8sResourceForResources
+      security: []
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: appId
+        in: query
+        description: Application ID.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: JSON payload specifying the resources for which pods should be rotated.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RotatePodRequest'
+      responses:
+        '200':
+          description: Response array indicating the status of rotation for each resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RotatePodResponse'
+      tags:
+      - K8s Resource
+  /k8s/resources/apply:
+    post:
+      summary: Apply Resources
+      description: This API is used to apply (create or update) Kubernetes resources in a cluster.
+      operationId: applyResources
+      security: []
+      requestBody:
+        description: JSON payload containing the manifest of resources to apply.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplyResourcesRequest'
+      responses:
+        '200':
+          description: Response array indicating the status of application for each resource.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApplyResourcesResponse'
+      tags:
+      - K8s Resource
+components:
+  schemas:
+    RotatePodRequest:
+      type: object
+      properties:
+        clusterId:
+          type: number
+          description: ID of the cluster where resources reside.
+          example: 1
+        resources:
+          type: array
+          items:
+            type: object
+            properties:
+              groupVersionKind:
+                $ref: '#/components/schemas/GroupVersionKind'
+              namespace:
+                type: string
+                description: Namespace of the resource.
+                example: production
+              name:
+                type: string
+                description: Name of the resource (e.g., Deployment, StatefulSet name).
+                example: my-app-deployment
+            required:
+            - name
+            - groupVersionKind
+            - namespace
+      required:
+      - clusterId
+      - resources
+    K8sApiResource:
+      type: object
+      properties:
+        gvk:
+          $ref: '#/components/schemas/GroupVersionKind'
+        namespaced:
+          type: boolean
+          description: Whether this API resource is namespace-scoped or cluster-scoped.
+          example: true
+    K8sManifest:
+      type: object
+      description: Kubernetes manifest of the resource
+      additionalProperties: true
+    TerminalMessage:
+      type: object
+      properties:
+        Op:
+          type: string
+          description: Operation type for the terminal session.
+          example: stdin
+        Data:
+          type: string
+          description: Data for the terminal session (e.g., command or output).
+          example: ls -l
+        SessionID:
+          type: string
+          description: ID of the terminal session.
+          example: unique-session-id-123
+    ManifestResponse:
+      type: object
+      required:
+      - manifest
+      properties:
+        recommendedManifest:
+          $ref: '#/components/schemas/K8sManifest'
+        manifest:
+          $ref: '#/components/schemas/K8sManifest'
+    GroupVersionKind:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
+    ObjectReference:
+      type: object
+      properties:
+        kind:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+        apiVersion:
+          type: string
+        resourceVersion:
+          type: string
+    RotatePodResponse:
+      type: object
+      properties:
+        containsError:
+          type: boolean
+          description: True if any error occurred during the rotation of one or more pods.
+          example: false
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              groupVersionKind:
+                $ref: '#/components/schemas/GroupVersionKind'
+              namespace:
+                type: string
+                description: Namespace of the resource.
+              name:
+                type: string
+                description: Name of the resource.
+              errorResponse:
+                type: string
+                nullable: true
+                description: Error message if rotation failed for this specific resource. Otherwise null.
+                example: failed to find resource
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
+    GetAllApiResourcesResponse:
+      type: object
+      properties:
+        apiResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/K8sApiResource'
+        allowedAll:
+          type: boolean
+          description: Whether all API resources are allowed for this user.
+          example: true
+    ApplyResourcesRequest:
+      type: object
+      properties:
+        clusterId:
+          type: number
+          description: ID of the cluster where resources will be applied.
+          example: 1
+        manifest:
+          type: string
+          description: 'A string containing one or more Kubernetes resource manifests, separated by ''---''.
+
+            '
+          example: "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: my-cm\ndata:\n  key: value\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: my-app\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: my-app\n  template:\n    metadata:\n      labels:\n        app: my-app\n    spec:\n      containers:\n      - name: nginx\n        image: nginx\n"
+      required:
+      - clusterId
+      - manifest
+    ResourceRequestObject:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
+    EventSource:
+      type: object
+      properties:
+        component:
+          type: string
+        host:
+          type: string
+    LogsResponseObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the log entry (if provided by the stream).
+        type:
+          type: string
+          description: Type of the log entry (e.g., 'stdout', 'stderr').
+        data:
+          type: string
+          description: The actual log line content.
+        time:
+          type: string
+          format: date-time
+          description: Timestamp of the log entry.
+    ObjectMeta:
+      type: object
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+        uid:
+          type: string
+        resourceVersion:
+          type: string
+        creationTimestamp:
+          type: string
+          format: date-time
+    ClusterResourceListResponse:
+      type: object
+      description: Represents a list of resources with dynamic headers and corresponding data.
+      properties:
+        headers:
+          type: array
+          items:
+            type: string
+          description: An array of strings representing the column headers for the resource list.
+          example:
+          - NAME
+          - NAMESPACE
+          - KIND
+          - AGE
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+            description: 'An array of objects. Each object represents a resource, and its keys correspond to the ''headers''. The values are the resource''s data for those headers.
+
+              '
+            example:
+            - NAME: my-pod-1
+              NAMESPACE: default
+              KIND: Pod
+              AGE: 2d
+            - NAME: my-service-abc
+              NAMESPACE: kube-system
+              KIND: Service
+              AGE: 10h
+    ResourceGetResponse:
+      type: object
+      properties:
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
+          type: boolean
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
+    ApplyResourcesResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: Kind of the resource that was applied.
+          example: Deployment
+        name:
+          type: string
+          description: Name of the resource that was applied.
+          example: my-app
+        error:
+          type: string
+          nullable: true
+          description: Error message if applying this specific resource failed. Otherwise null.
+          example: null
+        isUpdate:
+          type: boolean
+          description: True if the resource was updated, false if it was created (or no change).
+          example: true
+      required:
+      - kind
+      - name
+      - isUpdate
+    EventsResponseObject:
+      type: object
+      description: Represents a Kubernetes Event object.
+      properties:
+        metadata:
+          $ref: '#/components/schemas/ObjectMeta'
+        involvedObject:
+          $ref: '#/components/schemas/ObjectReference'
+        reason:
+          type: string
+          description: Short, machine-understandable string that describes the reason for the transition into the object's current status.
+          example: Scheduled
+        message:
+          type: string
+          description: A human-readable description of the status of this operation.
+          example: Successfully assigned default/my-pod to node-1
+        source:
+          $ref: '#/components/schemas/EventSource'
+        firstTimestamp:
+          type: string
+          format: date-time
+          description: The time at which the event was first recorded.
+        lastTimestamp:
+          type: string
+          format: date-time
+          description: The time at which the most recent occurrence of this event was recorded.
+        count:
+          type: integer
+          format: int32
+          description: The number of times this event has occurred.
+        type:
+          type: string
+          description: Type of this event (Normal, Warning), new types could be added in the future.
+          example: Normal
+        eventTime:
+          type: string
+          format: date-time
+          nullable: true
+          description: MicroTime is version of Time with microsecond level precision.
+        reportingComponent:
+          type: string
+          example: kubelet
+        reportingInstance:
+          type: string
+          example: node-1
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

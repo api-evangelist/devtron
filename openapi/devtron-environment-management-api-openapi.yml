@@ -1,0 +1,356 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Environment Management API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Environment Management
+  description: Operations for creating, updating, and deleting environments
+  x-displayName: Environment Management
+paths:
+  /env:
+    post:
+      summary: Create Environment
+      description: Create a new environment within a cluster.
+      operationId: CreateEnvironment
+      security: []
+      tags:
+      - Environment Management
+      requestBody:
+        description: Environment details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvironmentCreateRequest'
+      responses:
+        '200':
+          description: Successfully created environment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentDetail'
+        '400':
+          description: Bad Request (e.g., validation error)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update Environment
+      description: Update an existing environment.
+      operationId: UpdateEnvironment
+      security: []
+      tags:
+      - Environment Management
+      requestBody:
+        description: Environment details to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvironmentUpdateRequest'
+      responses:
+        '200':
+          description: Successfully updated environment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentDetail'
+        '400':
+          description: Bad Request (e.g., validation error, or ID not found)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: Get Environment by ID
+      description: Get detailed information for a specific environment by its ID.
+      operationId: GetEnvironmentById
+      security: []
+      tags:
+      - Environment Management
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: id
+        in: query
+        required: true
+        description: ID of the environment
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully retrieved environment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentDetail'
+        '400':
+          description: Bad Request (e.g., invalid ID)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Environment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /env/delete:
+    post:
+      summary: Delete Environment (via POST)
+      description: Delete an existing environment using POST method.
+      operationId: DeleteEnvironmentViaPost
+      security: []
+      tags:
+      - Environment Management
+      requestBody:
+        description: A JSON object containing the env config (primarily ID is used for deletion)
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnvironmentDetail'
+      responses:
+        '200':
+          description: Successfully deleted the environment
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Environment deleted successfully.
+        '400':
+          description: Bad Request. Input Validation(decode) error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    EnvironmentUpdateRequest:
+      type: object
+      required:
+      - id
+      - environment_name
+      - cluster_id
+      properties:
+        id:
+          type: integer
+        environment_name:
+          type: string
+          description: Name of the Environment
+          maxLength: 50
+        cluster_id:
+          type: integer
+          description: Id of the target Cluster
+        active:
+          type: boolean
+        default:
+          type: boolean
+        prometheus_endpoint:
+          type: string
+          description: Prometheus Endpoint of cluster
+        namespace:
+          type: string
+          description: Name of the Namespace pointing to environment
+          maxLength: 50
+        isClusterCdActive:
+          type: boolean
+        description:
+          type: string
+          maxLength: 40
+        isVirtualEnvironment:
+          type: boolean
+        allowedDeploymentTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - helm
+            - argo_cd
+    EnvironmentDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+        environment_name:
+          type: string
+          description: Name of the Environment
+        cluster_id:
+          type: integer
+          description: Id of the target Cluster
+        cluster_name:
+          type: string
+          description: Name of the cluster
+        active:
+          type: boolean
+        default:
+          type: boolean
+        prometheus_endpoint:
+          type: string
+          description: Prometheus Endpoint of cluster
+        namespace:
+          type: string
+          description: Name of the Namespace pointing to environment
+        isClusterCdActive:
+          type: boolean
+        environmentIdentifier:
+          type: string
+        description:
+          type: string
+        appCount:
+          type: integer
+        isVirtualEnvironment:
+          type: boolean
+        allowedDeploymentTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - helm
+            - argo_cd
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    EnvironmentCreateRequest:
+      type: object
+      required:
+      - environment_name
+      - cluster_id
+      properties:
+        environment_name:
+          type: string
+          maxLength: 50
+          description: Name of the Environment
+        cluster_id:
+          type: integer
+          description: Id of the target Cluster
+        active:
+          type: boolean
+          default: true
+        default:
+          type: boolean
+          default: false
+        prometheus_endpoint:
+          type: string
+          description: Prometheus Endpoint of cluster
+        namespace:
+          type: string
+          description: Name of the Namespace which will point to environment
+          maxLength: 50
+        isClusterCdActive:
+          type: boolean
+        description:
+          type: string
+          maxLength: 40
+        isVirtualEnvironment:
+          type: boolean
+          default: false
+        allowedDeploymentTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - helm
+            - argo_cd
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

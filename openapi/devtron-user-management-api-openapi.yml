@@ -1,0 +1,579 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications User Management API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: User Management
+  description: Operations related to user accounts (CRUD, listing, bulk actions).
+  x-displayName: User Management
+paths:
+  /user/v2:
+    get:
+      tags:
+      - User Management
+      summary: List Users (V2 - Paginated, Filtered)
+      operationId: GetAllUsersV2
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/SearchKeyQuery'
+      - $ref: '#/components/parameters/SortOrderQuery'
+      - $ref: '#/components/parameters/SortByQueryUser'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/SizeQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserListingResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    post:
+      tags:
+      - User Management
+      summary: Create User (V2)
+      operationId: CreateUserV2
+      requestBody:
+        $ref: '#/components/requestBodies/UserInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    put:
+      tags:
+      - User Management
+      summary: Update User (V2)
+      operationId: UpdateUserV2
+      requestBody:
+        $ref: '#/components/requestBodies/UserInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user:
+    get:
+      tags:
+      - User Management
+      summary: List All Users (V1)
+      operationId: GetAllUsers
+      responses:
+        '200':
+          description: List of all users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfo'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    post:
+      tags:
+      - User Management
+      summary: Create User
+      operationId: CreateUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    put:
+      tags:
+      - User Management
+      summary: Update User
+      operationId: UpdateUser
+      requestBody:
+        $ref: '#/components/requestBodies/UserInfo'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/{id}:
+    get:
+      tags:
+      - User Management
+      summary: Get User by ID
+      operationId: GetUserById
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    delete:
+      tags:
+      - User Management
+      summary: Delete User by ID
+      operationId: DeleteUser
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/v2/{id}:
+    get:
+      tags:
+      - User Management
+      summary: Get User by ID (V2)
+      operationId: GetUserByIdV2
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/UserInfoResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/bulk:
+    delete:
+      tags:
+      - User Management
+      summary: Bulk Delete Users
+      operationId: BulkDeleteUsers
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/detail/get:
+    get:
+      tags:
+      - User Management
+      summary: List All Detailed Users
+      operationId: GetAllDetailedUsers
+      responses:
+        '200':
+          description: List of all users with detailed information.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfo'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+components:
+  responses:
+    UserListingResponse:
+      description: Paginated list of users.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              users:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfo'
+              totalCount:
+                type: integer
+                format: int32
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad request. Invalid input parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UserInfoResponse:
+      description: Response containing User Information.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserInfo'
+    GenericSuccess:
+      description: Generic success response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+    Forbidden:
+      description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotAcceptable:
+      description: Not Acceptable. Request cannot be processed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    SizeQuery:
+      name: size
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 20
+    OffsetQuery:
+      name: offset
+      in: query
+      required: false
+      description: Offset for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    SortByQueryUser:
+      name: sortBy
+      in: query
+      required: false
+      description: Field to sort users by (e.g., email_id, last_login).
+      schema:
+        type: string
+        enum:
+        - email_id
+        - last_login
+    SortOrderQuery:
+      name: sortOrder
+      in: query
+      required: false
+      description: Sort order (ASC or DESC).
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    SearchKeyQuery:
+      name: searchKey
+      in: query
+      required: false
+      description: Search term.
+      schema:
+        type: string
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Identifier (typically integer ID).
+      schema:
+        type: integer
+        format: int32
+  schemas:
+    UserInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: User ID. Should not be set for new user creation if auto-generated. Not allowed to be system-admin-userid (1 or 2) by validation.
+        email_id:
+          type: string
+          format: email
+          description: User's email address. Cannot be system admin user email by validation.
+        roles:
+          type: array
+          items:
+            type: string
+          description: List of direct roles assigned to the user (deprecated in favor of roleFilters and userRoleGroups).
+          nullable: true
+        accessToken:
+          type: string
+          description: Access token for the user (typically not part of create/update payload, but in response).
+          readOnly: true
+          nullable: true
+        roleFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleFilter'
+        groups:
+          type: array
+          items:
+            type: string
+          description: Deprecated field for user groups. Use userRoleGroups instead.
+          nullable: true
+        userRoleGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRoleGroup'
+          nullable: true
+        superAdmin:
+          type: boolean
+          description: Indicates if the user has super admin privileges.
+        lastLoginTime:
+          type: string
+          format: date-time
+          readOnly: true
+          description: The time the user last logged in.
+      required:
+      - email_id
+    RoleFilter:
+      type: object
+      description: Defines a specific permission filter for a role.
+      properties:
+        entity:
+          type: string
+          description: The type of entity this filter applies to (e.g., apps, jobs, chart-group, cluster).
+          enum:
+          - apps
+          - jobs
+          - chart-group
+          - cluster
+        team:
+          type: string
+          description: Team associated with this permission. Can be empty for some global entities.
+          nullable: true
+        entityName:
+          type: string
+          description: Name of the specific entity (e.g., application name, job name, chart group name). Can be empty for 'all' access.
+          nullable: true
+        environment:
+          type: string
+          description: Environment associated with this permission. Can be empty if not applicable.
+          nullable: true
+        action:
+          type: string
+          description: Action permitted (e.g., get, create, update, delete, trigger, *).
+        accessType:
+          type: string
+          description: Access type, typically for distinguishing app types like devtron-app or helm-app.
+          enum:
+          - devtron-app
+          - helm-app
+          - ''
+          nullable: true
+        cluster:
+          type: string
+          description: Cluster name for cluster-scoped permissions.
+          nullable: true
+        namespace:
+          type: string
+          description: Namespace for cluster-scoped permissions.
+          nullable: true
+        group:
+          type: string
+          description: API group for K8s resources.
+          nullable: true
+        kind:
+          type: string
+          description: Kind of K8s resource.
+          nullable: true
+        resource:
+          type: string
+          description: Specific K8s resource name.
+          nullable: true
+        workflow:
+          type: string
+          description: Workflow name, applicable if entity is 'jobs'.
+          nullable: true
+      required:
+      - entity
+      - action
+    RoleGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          readOnly: true
+        name:
+          type: string
+          description: Name of the Role group
+        description:
+          type: string
+          description: Descrition fo Role group
+          nullable: true
+        roleFilters:
+          type: array
+          description: Role filters
+          items:
+            $ref: '#/components/schemas/RoleFilter'
+        superAdmin:
+          type: boolean
+          description: Indicates if this role group grants super admin privileges.
+      required:
+      - name
+      - roleFilters
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+    UserRoleGroup:
+      type: object
+      description: Associates a user with a role group.
+      properties:
+        roleGroup:
+          $ref: '#/components/schemas/RoleGroup'
+  requestBodies:
+    UserInfo:
+      description: User Information object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserInfo'
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

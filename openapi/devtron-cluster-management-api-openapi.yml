@@ -1,0 +1,498 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Cluster Management API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Cluster Management
+  description: Operations related to cluster creation, update, and validation
+  x-displayName: Cluster Management
+paths:
+  /cluster/delete:
+    post:
+      summary: Delete Cluster
+      description: Delete an existing cluster.
+      operationId: DeleteCluster
+      security: []
+      tags:
+      - Cluster Management
+      requestBody:
+        description: A JSON object containing the cluster config (primarily ID is used for deletion)
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClusterBean'
+      responses:
+        '200':
+          description: Successfully deleted the cluster
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Cluster deleted successfully.
+        '400':
+          description: Bad Request. Input Validation(decode) error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cluster:
+    put:
+      summary: Update Cluster
+      description: Update an existing cluster's configuration.
+      operationId: UpdateCluster
+      security: []
+      tags:
+      - Cluster Management
+      requestBody:
+        description: A JSON object containing the cluster config
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClusterBean'
+      responses:
+        '200':
+          description: Successfully updated the cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterBean'
+        '400':
+          description: Bad Request. Input Validation(decode) error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: Get Cluster
+      description: Get details of a specific cluster by ID.
+      operationId: GetCluster
+      security: []
+      tags:
+      - Cluster Management
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: id
+        in: query
+        description: cluster id.
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successfully get cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterBean'
+        '400':
+          description: Bad Request. Input Validation(decode) error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cluster/auth-list:
+    get:
+      summary: List Accessible Clusters
+      description: list of clusters accessible to the authenticated user.
+      operationId: GetAuthClusterList
+      security: []
+      tags:
+      - Cluster Management
+      responses:
+        '200':
+          description: cluster list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: status code
+                  status:
+                    type: string
+                    description: status
+                  result:
+                    type: array
+                    description: namespace list group by cluster
+                    items:
+                      $ref: '#/components/schemas/ClusterAuthDetail'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /cluster/validate:
+    post:
+      summary: Validate Cluster Configuration
+      description: Validate a cluster configuration using kubeconfig.
+      operationId: ValidateCluster
+      security: []
+      tags:
+      - Cluster Management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kubeconfig:
+                  $ref: '#/components/schemas/Kubeconfig'
+              required:
+              - kubeconfig
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateClusterBean'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cluster/saveClusters:
+    post:
+      summary: Save Multiple Clusters
+      description: Save configurations for multiple clusters.
+      operationId: SaveClusters
+      security: []
+      tags:
+      - Cluster Management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ValidateClusterBean'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValidateClusterBean'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    DefaultClusterComponentAdd:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        status:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/ComponentConfiguration'
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+    UserInfos:
+      type: object
+      properties:
+        userName:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        errorInConnecting:
+          type: string
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    DefaultClusterComponentGet:
+      type: object
+      properties:
+        name:
+          type: string
+        appId:
+          type: integer
+        installedAppId:
+          type: integer
+        envId:
+          type: integer
+        envname:
+          type: string
+        status:
+          type: string
+    ComponentConfiguration:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - yaml
+          - json
+    PrometheusAuthAdd:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - basic
+          - bearer
+        basic:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+        bearer:
+          type: object
+          properties:
+            token:
+              type: string
+    PrometheusAuthGet:
+      type: object
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+        tlsClientCert:
+          type: string
+        tlsClientKey:
+          type: string
+    ClusterAuthDetail:
+      type: object
+      properties:
+        clusterId:
+          type: integer
+          description: cluster id
+        clusterName:
+          type: string
+          description: cluster name
+        errorInConnecting:
+          type: string
+          description: error message if cluster failed to connect
+    ValidateClusterBean:
+      type: object
+      required:
+      - cluster_name
+      - server_url
+      properties:
+        userInfos:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UserInfos'
+        id:
+          type: integer
+          description: Cluster Id
+        cluster_name:
+          type: string
+          description: Name of the cluster
+        server_url:
+          type: string
+          description: Server Url of the cluster
+        prometheus_url:
+          type: string
+          description: Prometheus Endpoint of the cluster
+        active:
+          type: boolean
+        config:
+          type: object
+          properties:
+            bearer_token:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+            tls_key:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+            cert_data:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+            cert_auth_data:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+        prometheusAuth:
+          $ref: '#/components/schemas/PrometheusAuthAdd'
+        defaultClusterComponent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefaultClusterComponentAdd'
+        agentInstallationStage:
+          type: integer
+        k8sVersion:
+          type: string
+          description: K8s version of the cluster
+        userName:
+          type: string
+        insecure-skip-tls-verify:
+          type: boolean
+    ClusterBean:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Id of the cluster
+        cluster_name:
+          type: string
+          description: Name of the cluster
+        server_url:
+          type: string
+          description: Server Url of the cluster
+        prometheus_url:
+          type: string
+          description: Prometheus Endpoint of cluster
+        active:
+          type: boolean
+        config:
+          type: object
+          properties:
+            bearer_token:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+        prometheusAuth:
+          $ref: '#/components/schemas/PrometheusAuthGet'
+        defaultClusterComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefaultClusterComponentGet'
+        k8sversion:
+          type: string
+          description: K8s version of the cluster
+    Kubeconfig:
+      type: object
+      description: Kube config of target cluster
+      properties:
+        config:
+          type: string
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

@@ -1,0 +1,296 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Authentication API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Authentication
+  description: Core authentication endpoints including login, token refresh, and auth verification.
+  x-displayName: Authentication
+paths:
+  /api/v1/session:
+    post:
+      tags:
+      - Authentication
+      summary: User Login
+      description: Authenticates a user and returns a session token.
+      operationId: LoginHandler
+      requestBody:
+        description: Username and password for login.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Username
+                  example: admin
+                password:
+                  type: string
+                  description: Password
+                  format: password
+                  example: password123
+              required:
+              - username
+              - password
+      responses:
+        '200':
+          description: Login successful, token returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+          headers:
+            Set-Cookie:
+              description: Sets the argocd.token cookie.
+              schema:
+                type: string
+                example: argocd.token=yourtokenvalue; Path=/
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          description: Invalid username or password.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security: []
+  /refresh:
+    get:
+      tags:
+      - Authentication
+      summary: Refresh Session Token
+      operationId: RefreshTokenHandler
+      description: Handles token refresh (details depend on OIDC/OAuth flow).
+      responses:
+        '200':
+          description: Token refreshed successfully.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      security: []
+  /devtron/auth/verify:
+    get:
+      tags:
+      - Authentication
+      summary: Verify Authentication Status
+      operationId: AuthVerification
+      responses:
+        '200':
+          description: Authentication status.
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /devtron/auth/verify/v2:
+    get:
+      tags:
+      - Authentication
+      summary: Verify Authentication Status (V2)
+      operationId: AuthVerificationV2
+      responses:
+        '200':
+          description: Detailed authentication status including super admin flag.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isSuperAdmin:
+                    type: boolean
+                  isVerified:
+                    type: boolean
+                  emailId:
+                    type: string
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/check/roles:
+    get:
+      tags:
+      - Authentication
+      summary: Check Logged-in User's Roles
+      operationId: CheckUserRoles
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: appName
+        in: query
+        required: false
+        description: Optional application name to filter roles for.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User roles information.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  role:
+                    type: string
+                    nullable: true
+                  roles:
+                    type: array
+                    items:
+                      type: string
+                  superAdmin:
+                    type: boolean
+                    nullable: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /login:
+    get:
+      tags:
+      - Authentication
+      summary: OIDC Login Redirect (Informational)
+      description: Initiates OIDC login flow. Handled by the OIDC client library.
+      operationId: HandleOIDCLogin
+      responses:
+        '302':
+          description: Redirect to OIDC provider.
+      security: []
+  /auth/login:
+    get:
+      tags:
+      - Authentication
+      summary: OIDC Login Redirect (Informational - Alternate Path)
+      description: Initiates OIDC login flow. Handled by the OIDC client library.
+      operationId: HandleOIDCAuthLogin
+      responses:
+        '302':
+          description: Redirect to OIDC provider.
+      security: []
+  /auth/callback:
+    get:
+      tags:
+      - Authentication
+      summary: OIDC Callback (Informational)
+      description: Handles the callback from the OIDC provider. Handled by the OIDC client library.
+      operationId: HandleOIDCCallback
+      responses:
+        '302':
+          description: Redirect after successful authentication.
+        '400':
+          description: Error during OIDC callback.
+        '500':
+          description: Server error during OIDC callback.
+      security: []
+  /api/dex/{path}:
+    get:
+      tags:
+      - Authentication
+      summary: Dex Proxy (Informational)
+      description: Proxies requests to the Dex IdP. Handled by the Dex proxy mechanism.
+      operationId: DexProxyHandler
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: path
+        in: path
+        required: true
+        description: Path to be proxied to Dex.
+        schema:
+          type: string
+      responses:
+        default:
+          description: Response from Dex.
+      security: []
+components:
+  responses:
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad request. Invalid input parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

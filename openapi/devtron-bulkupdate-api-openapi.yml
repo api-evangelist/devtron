@@ -1,0 +1,531 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications BulkUpdate API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: BulkUpdate
+  x-displayName: BulkUpdate
+paths:
+  /batch/v1beta1/hibernate:
+    post:
+      summary: Bulk Hibernate Applications
+      description: Bulk Hibernates applications
+      operationId: BulkHibernate
+      security: []
+      tags:
+      - BulkUpdate
+      requestBody:
+        description: A JSON object containing information about applications and environments to hibernate.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkActionRequest'
+      responses:
+        '200':
+          description: Successfully hibernated applications.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkActionResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /batch/v1beta1/unhibernate:
+    post:
+      summary: Bulk Un-Hibernate Applications
+      description: Bulk Un-Hibernates applications
+      operationId: BulkUnHibernate
+      security: []
+      tags:
+      - BulkUpdate
+      requestBody:
+        description: A JSON object containing information about applications and environments to un-hibernate.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkActionRequest'
+      responses:
+        '200':
+          description: Successfully un-hibernated applications.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkActionResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /batch/v1beta1/deploy:
+    post:
+      summary: Bulk Deploy Applications
+      description: Bulk Triggers deployment of applications
+      operationId: BulkDeploy
+      security: []
+      tags:
+      - BulkUpdate
+      requestBody:
+        description: A JSON object containing information for bulk deployment.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDeployRequest'
+      responses:
+        '200':
+          description: Successfully triggered bulk deployment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkActionResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /batch/v1beta1/build:
+    post:
+      summary: Bulk Trigger Application Builds
+      description: Bulk Triggers build of applications
+      operationId: BulkBuildTrigger
+      security: []
+      tags:
+      - BulkUpdate
+      requestBody:
+        description: A JSON object containing information for bulk build trigger.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBuildTriggerRequest'
+      responses:
+        '200':
+          description: Successfully triggered bulk build.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkActionResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /batch/v1beta1/application:
+    post:
+      summary: Bulk Edit Applications
+      description: Bulk Updates (Edit) all impacted apps. This endpoint can be used for bulk editing application configurations like deployment templates, configmaps, and secrets.
+      operationId: BulkUpdate
+      security: []
+      tags:
+      - BulkUpdate
+      requestBody:
+        description: A JSON object containing information about update changes and by which apps will be filtered for bulk editing.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkUpdateScript'
+      responses:
+        '200':
+          description: Successfully updated all impacted apps.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkUpdateResponse'
+        '400':
+          description: Bad Request. Validation error/wrong request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Unauthorized User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    CmAndSecretBulkUpdateResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the concerned app
+        appName:
+          type: string
+          description: Name of the concerned app
+        envId:
+          type: integer
+          description: Env ID of the concerned app
+        names:
+          type: array
+          items:
+            type: string
+          description: Names of all configmaps/secrets
+        message:
+          type: string
+          description: App-level message for the concerned app
+    DeploymentTemplateBulkUpdateResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the concerned app
+        appName:
+          type: string
+          description: Name of the concerned app
+        envId:
+          type: integer
+          description: Env ID of the concerned app
+        message:
+          type: string
+          description: App-level message for the concerned app
+    CmAndSecretBulkUpdateResponse:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: string
+          description: All top-level messages in response of bulk update action
+        failure:
+          type: array
+          items:
+            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update failed
+        successful:
+          type: array
+          items:
+            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update applied successfully
+    BulkActionSuccessDetail:
+      type: object
+      properties:
+        appId:
+          type: integer
+        appName:
+          type: string
+        envId:
+          type: integer
+        message:
+          type: string
+    BulkUpdateResponse:
+      type: object
+      properties:
+        deploymentTemplate:
+          $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponse'
+        configMap:
+          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
+        secret:
+          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
+    BulkDeployRequest:
+      type: object
+      required:
+      - envIds
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        envIds:
+          type: array
+          items:
+            type: integer
+          description: All Env Id's for the bulk deployment
+        appIds:
+          type: array
+          items:
+            type: integer
+          description: All App Id's for the bulk deployment (alternative to includes/excludes by name)
+        projectIds:
+          type: array
+          items:
+            type: integer
+          description: All Project Id's for the bulk deployment
+        artifactId:
+          type: integer
+          description: ID of the CI artifact to be deployed
+        releaseId:
+          type: integer
+          description: ID of the release to be deployed
+        deploymentStrategy:
+          type: string
+          description: Deployment strategy to use (e.g., blue-green, canary, recreate)
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    BulkUpdateScript:
+      type: object
+      required:
+      - ApiVersion
+      - Kind
+      - Spec
+      properties:
+        apiVersion:
+          type: string
+          description: Api version from url
+          example:
+          - v1beta1
+        kind:
+          type: string
+          description: Kind
+          example:
+          - application
+        spec:
+          $ref: '#/components/schemas/BulkUpdatePayload'
+    Spec:
+      type: object
+      properties:
+        patchData:
+          type: string
+          description: string with details of the patch to be used for updating
+    BulkBuildTriggerRequest:
+      type: object
+      required:
+      - ciPipelineId
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        appIds:
+          type: array
+          items:
+            type: integer
+          description: All App Id's for the bulk build trigger (alternative to includes/excludes by name)
+        projectIds:
+          type: array
+          items:
+            type: integer
+          description: All Project Id's for the bulk build trigger
+        ciPipelineId:
+          type: integer
+          description: ID of the CI pipeline to trigger builds for
+    BulkUpdatePayload:
+      type: object
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        envIds:
+          type: array
+          items:
+            type: integer
+          description: All Env Id's for updating dependent apps
+        global:
+          type: boolean
+          description: Global flag for updating dependent apps
+        DeploymentTemplate:
+          $ref: '#/components/schemas/Tasks'
+        ConfigMaps:
+          type: object
+          properties:
+            names:
+              type: array
+              items:
+                type: string
+                description: Name of All ConfigMaps to be updated
+            tasks:
+              $ref: '#/components/schemas/Spec'
+        Secrets:
+          type: object
+          properties:
+            names:
+              type: array
+              items:
+                type: string
+                description: Name of All Secrets to be updated
+            tasks:
+              $ref: '#/components/schemas/Spec'
+    Tasks:
+      type: object
+      properties:
+        spec:
+          $ref: '#/components/schemas/Spec'
+          description: Spec of the Task
+    NameIncludesExcludes:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+          description: All strings of app names to be included/excluded
+    BulkActionFailureDetail:
+      type: object
+      properties:
+        appId:
+          type: integer
+        appName:
+          type: string
+        envId:
+          type: integer
+        message:
+          type: string
+    BulkActionResponse:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: string
+          description: Top-level messages in response of the bulk action
+        failure:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkActionFailureDetail'
+          description: Details of all items on which the bulk action failed
+        successful:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkActionSuccessDetail'
+          description: Details of all items on which the bulk action applied successfully
+    DeploymentTemplateBulkUpdateResponse:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: string
+          description: All top-level messages in response of bulk update action
+        failure:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update failed
+        successful:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update applied successfully
+    BulkActionRequest:
+      type: object
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        envIds:
+          type: array
+          items:
+            type: integer
+          description: All Env Id's for the bulk action
+        appIds:
+          type: array
+          items:
+            type: integer
+          description: All App Id's for the bulk action (alternative to includes/excludes by name)
+        projectIds:
+          type: array
+          items:
+            type: integer
+          description: All Project Id's for the bulk action
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

@@ -1,0 +1,526 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Role Group Management API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Role Group Management
+  description: Operations related to user role groups (CRUD, listing, bulk actions).
+  x-displayName: Role Group Management
+paths:
+  /user/role/group/v2:
+    get:
+      tags:
+      - Role Group Management
+      summary: List Role Groups (V2 - Paginated, Filtered)
+      operationId: FetchRoleGroupsV2
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/SearchKeyQuery'
+      - $ref: '#/components/parameters/SortOrderQuery'
+      - $ref: '#/components/parameters/SortByQueryRoleGroup'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/SizeQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupListingResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    post:
+      tags:
+      - Role Group Management
+      summary: Create Role Group (V2)
+      operationId: CreateRoleGroupV2
+      requestBody:
+        $ref: '#/components/requestBodies/RoleGroup'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    put:
+      tags:
+      - Role Group Management
+      summary: Update Role Group (V2)
+      operationId: UpdateRoleGroupV2
+      requestBody:
+        $ref: '#/components/requestBodies/RoleGroup'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group:
+    get:
+      tags:
+      - Role Group Management
+      summary: List All Role Groups (V1)
+      operationId: FetchRoleGroups
+      responses:
+        '200':
+          description: List of all role groups.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleGroup'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    post:
+      tags:
+      - Role Group Management
+      summary: Create Role Group
+      operationId: CreateRoleGroup
+      requestBody:
+        $ref: '#/components/requestBodies/RoleGroup'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    put:
+      tags:
+      - Role Group Management
+      summary: Update Role Group
+      operationId: UpdateRoleGroup
+      requestBody:
+        $ref: '#/components/requestBodies/RoleGroup'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group/{id}:
+    get:
+      tags:
+      - Role Group Management
+      summary: Get Role Group by ID
+      operationId: FetchRoleGroupById
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+    delete:
+      tags:
+      - Role Group Management
+      summary: Delete Role Group by ID
+      operationId: DeleteRoleGroup
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericSuccess'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group/v2/{id}:
+    get:
+      tags:
+      - Role Group Management
+      summary: Get Role Group by ID (V2)
+      operationId: FetchRoleGroupByIdV2
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/PathId'
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group/detailed/get:
+    get:
+      tags:
+      - Role Group Management
+      summary: List All Detailed Role Groups
+      operationId: FetchDetailedRoleGroups
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupListingResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group/search:
+    get:
+      tags:
+      - Role Group Management
+      summary: Search Role Groups by Name
+      operationId: FetchRoleGroupsByName
+      parameters:
+      - name: token
+        in: header
+        required: true
+        description: Authentication token.
+        schema:
+          type: string
+      - name: name
+        in: query
+        required: true
+        description: Name of the role group to search for.
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/RoleGroupResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+  /user/role/group/bulk:
+    delete:
+      tags:
+      - Role Group Management
+      summary: Bulk Delete Role Groups
+      operationId: BulkDeleteRoleGroups
+      responses:
+        '200':
+          $ref: '#/components/responses/GenericSuccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security: []
+components:
+  responses:
+    Forbidden:
+      description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RoleGroupListingResponse:
+      description: Paginated list of role groups.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              roleGroups:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleGroup'
+              totalCount:
+                type: integer
+                format: int32
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad request. Invalid input parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    GenericSuccess:
+      description: Generic success response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+    RoleGroupResponse:
+      description: Response containing Role Group information.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoleGroup'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type: object
+          nullable: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type: string
+                nullable: true
+              internalMessage:
+                type: string
+                nullable: true
+    RoleFilter:
+      type: object
+      description: Defines a specific permission filter for a role.
+      properties:
+        entity:
+          type: string
+          description: The type of entity this filter applies to (e.g., apps, jobs, chart-group, cluster).
+          enum:
+          - apps
+          - jobs
+          - chart-group
+          - cluster
+        team:
+          type: string
+          description: Team associated with this permission. Can be empty for some global entities.
+          nullable: true
+        entityName:
+          type: string
+          description: Name of the specific entity (e.g., application name, job name, chart group name). Can be empty for 'all' access.
+          nullable: true
+        environment:
+          type: string
+          description: Environment associated with this permission. Can be empty if not applicable.
+          nullable: true
+        action:
+          type: string
+          description: Action permitted (e.g., get, create, update, delete, trigger, *).
+        accessType:
+          type: string
+          description: Access type, typically for distinguishing app types like devtron-app or helm-app.
+          enum:
+          - devtron-app
+          - helm-app
+          - ''
+          nullable: true
+        cluster:
+          type: string
+          description: Cluster name for cluster-scoped permissions.
+          nullable: true
+        namespace:
+          type: string
+          description: Namespace for cluster-scoped permissions.
+          nullable: true
+        group:
+          type: string
+          description: API group for K8s resources.
+          nullable: true
+        kind:
+          type: string
+          description: Kind of K8s resource.
+          nullable: true
+        resource:
+          type: string
+          description: Specific K8s resource name.
+          nullable: true
+        workflow:
+          type: string
+          description: Workflow name, applicable if entity is 'jobs'.
+          nullable: true
+      required:
+      - entity
+      - action
+    RoleGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          readOnly: true
+        name:
+          type: string
+          description: Name of the Role group
+        description:
+          type: string
+          description: Descrition fo Role group
+          nullable: true
+        roleFilters:
+          type: array
+          description: Role filters
+          items:
+            $ref: '#/components/schemas/RoleFilter'
+        superAdmin:
+          type: boolean
+          description: Indicates if this role group grants super admin privileges.
+      required:
+      - name
+      - roleFilters
+  parameters:
+    SizeQuery:
+      name: size
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 20
+    OffsetQuery:
+      name: offset
+      in: query
+      required: false
+      description: Offset for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    SearchKeyQuery:
+      name: searchKey
+      in: query
+      required: false
+      description: Search term.
+      schema:
+        type: string
+    SortOrderQuery:
+      name: sortOrder
+      in: query
+      required: false
+      description: Sort order (ASC or DESC).
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    SortByQueryRoleGroup:
+      name: sortBy
+      in: query
+      required: false
+      description: Field to sort role groups by (e.g., name).
+      schema:
+        type: string
+        enum:
+        - name
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Identifier (typically integer ID).
+      schema:
+        type: integer
+        format: int32
+  requestBodies:
+    RoleGroup:
+      description: Role Group object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoleGroup'
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications

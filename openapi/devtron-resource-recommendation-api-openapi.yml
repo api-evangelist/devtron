@@ -1,0 +1,262 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Devtron APIs Specs Applications Resource Recommendation API
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  description: Application management operations including creation, listing, and updates
+servers:
+- url: http://localhost/orchestrator
+  description: Local development server
+tags:
+- name: Resource Recommendation
+  x-displayName: Resource Recommendation (ENT)
+  description: Operations related to resource recommendations for Kubernetes workloads.
+paths:
+  /k8s/resource/recommendation/sync:
+    post:
+      summary: Sync Cluster Resource Recommendations
+      description: This API will be used to sync resource recommendations for a cluster
+      operationId: SyncClusterResourceRecommendations
+      security: []
+      requestBody:
+        description: A JSON object containing the details required to sync cluster resource recommendations
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyncResourceRecommendation'
+      responses:
+        '200':
+          description: Cluster resource recommendation sync response
+          content:
+            application/json:
+              schema:
+                type: string
+                description: A message indicating the sync status
+      tags:
+      - Resource Recommendation
+  /k8s/resource/{clusterId}/recommendation/details:
+    get:
+      summary: Get Cluster Resource Recommendation Details
+      description: This API will fetch resource recommendations metadata for a cluster
+      operationId: GetClusterResourceRecommendationDetails
+      security: []
+      parameters:
+      - name: clusterId
+        in: path
+        required: true
+        description: ID of the target cluster
+        schema:
+          type: number
+      responses:
+        '200':
+          description: Cluster resource recommendation details response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceRecommendationDetails'
+      tags:
+      - Resource Recommendation
+  /k8s/resource/recommendation/list:
+    post:
+      summary: Get Cluster Resource Recommendation List
+      description: This API will be used for fetching all workloads and their resource recommendations
+      operationId: GetClusterResourceRecommendationList
+      security: []
+      requestBody:
+        description: A JSON object containing the details required to fetch cluster resource recommendations
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequestObject'
+      responses:
+        '200':
+          description: Cluster resource recommendation list response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterResourceRecommendationList'
+      tags:
+      - Resource Recommendation
+components:
+  schemas:
+    ResourceRequestObject:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
+    ResourceRecommendation:
+      type: object
+      description: Resource recommendation details for a workload
+      required:
+      - current
+      properties:
+        delta:
+          type: number
+          format: float64
+          description: percentage of change in resource recommendation
+        current:
+          type: string
+          description: current value of the resource recommendation
+        recommended:
+          type: string
+          description: recommended value of the resource recommendation
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
+    SyncResourceRecommendation:
+      type: object
+      description: Request object for syncing resource recommendations for a cluster
+      required:
+      - clusterId
+      properties:
+        clusterId:
+          type: number
+          description: ID of the target cluster
+    GroupVersionKind:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
+    ResourceRecommendationDetails:
+      type: object
+      description: Details of resource recommendations for a cluster
+      required:
+      - supportedGVKs
+      properties:
+        supportedGVKs:
+          type: array
+          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
+          items:
+            $ref: '#/components/schemas/GroupVersionKind'
+        lastScannedOn:
+          type: string
+          format: date-time
+          description: Timestamp of the last scan for resource recommendations
+    ClusterResourceRecommendationList:
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            type: string
+            enum:
+            - name
+            - namespace
+            - kind
+            - apiVersion
+            - containerName
+            - cpuRequest
+            - cpuLimit
+            - memoryRequest
+            - memoryLimit
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: name of the workload resource
+              namespace:
+                type: string
+                description: namespace of the workload resource
+              kind:
+                type: string
+                description: kind of the workload resource
+              apiVersion:
+                type: string
+                description: apiVersion of the workload resource
+              containerName:
+                type: string
+                description: name of the container in the workload resource
+              cpuRequest:
+                $ref: '#/components/schemas/ResourceRecommendation'
+              cpuLimit:
+                $ref: '#/components/schemas/ResourceRecommendation'
+              memoryRequest:
+                $ref: '#/components/schemas/ResourceRecommendation'
+              memoryLimit:
+                $ref: '#/components/schemas/ResourceRecommendation'
+x-tagGroups:
+- name: Common Devtron automation APIs
+  tags:
+  - Metadata
+  - Jobs
+  - Helm Charts
+  - List Applications
+  - Applications
+  - Labels
+  - bulk_other
+  - BulkUpdate
+  - SSO Configuration
+  - User Management
+  - Role Group Management
+  - RBAC
+  - Authentication
+  - Policy Management
+  - Cache Management
+  - Cluster Environment
+  - Cluster Management
+  - Environment Management
+  - Change Chart
+  - Clone Workflow
+  - Deployment History
+  - K8s Resource
+  - Resource Recommendation
+  - Workflow Management
+  - Devtron Server version
+  - GitOps Validation
+  - Notifications
