@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devtron-openapi-original.yml
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: openapi/devtron-openapi-original.yml is OpenAPI 3.0.0 with 110 operations
+- id: oauth2
+  conforms: false
+  evidence: API auth is a static API token (apiKey header "token"), not OAuth2
+- id: oidc
+  conforms: false
+  evidence: SSO/OIDC supported for UI login via Dex (SSO Configuration tag); the API itself uses token
+    auth
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use a custom ErrorResponse envelope, not application/problem+json
+- id: rbac
+  conforms: true
+  evidence: token-scoped RBAC (super-admin vs specific permissions); RBAC + Policy Management + Role Group
+    Management tags
+- id: kubernetes-api
+  conforms: true
+  evidence: orchestrates Kubernetes resources; K8s Resource tag proxies Kubernetes API operations
+- id: gitops-argocd-fluxcd
+  conforms: true
+  evidence: integrates GitOps via ArgoCD/FluxCD; GitOps Validation tag

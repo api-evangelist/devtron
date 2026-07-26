@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Devtron APIs
+  version: 1.0.0
+extends: openapi/devtron-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: devtron
+    x-apievangelist-category:
+    - devops
+    - kubernetes
+    - ci-cd
+    - platform-engineering
+    x-apievangelist-auth: apiKey header "token" (Devtron API token, RBAC-scoped)
+    x-apievangelist-status-note: servers[].url is the self-hosted default (http://localhost/orchestrator);
+      replace with your Devtron orchestrator host
+- target: $.servers
+  update:
+  - url: http://localhost/orchestrator
+    description: Local development server
+  - url: https://{devtronHost}/orchestrator
+    description: Self-hosted Devtron orchestrator (set devtronHost to your install)
+    variables:
+      devtronHost:
+        default: devtron.example.com

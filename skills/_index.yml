@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/devtron-openapi-original.yml
+note: >-
+  Packaged Agent Skills for marquee Devtron flows. Every step is grounded in a
+  real operationId verified against openapi/devtron-openapi-original.yml. No
+  provider-published AGENTS.md/skills were found (searched the devtron-labs org).
+skills:
+  - file: devtron-create-and-inspect-application.md
+    name: Create and inspect a Devtron application
+    api: openapi/devtron-openapi-original.yml
+    operations: [createApplication, listApplications, getAppMetaInfo, getAppLabels]
+  - file: devtron-bulk-deploy-and-hibernate.md
+    name: Bulk deploy and hibernate Devtron apps
+    api: openapi/devtron-openapi-original.yml
+    operations: [BulkDeploy, BulkHibernate, BulkUnHibernate, getDeploymentHistory]
+  - file: devtron-manage-jobs.md
+    name: Create and list Devtron jobs
+    api: openapi/devtron-openapi-original.yml
+    operations: [createOrCloneJob, listJobs, getJobCiPipelineList]

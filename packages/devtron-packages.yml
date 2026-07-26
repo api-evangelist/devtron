@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/devtron-labs
+note: >-
+  Devtron does not publish first-party language client SDK libraries for its API
+  (the docs recommend calling the orchestrator API directly with a "token"
+  header via Postman/Jmeter/Citrus). The official distributables are the Helm
+  chart (how you install Devtron) and Go modules that make up the platform.
+  Searched npm, PyPI and pkg.go.dev on 2026-07-18; no official API client SDK found.
+packages:
+  - language: helm
+    registry: helm
+    name: devtron
+    url: https://helm.devtron.ai/
+    install: helm repo add devtron https://helm.devtron.ai && helm install devtron devtron/devtron-operator
+    official: true
+    kind: install-chart
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/devtron-labs/devtron
+    url: https://pkg.go.dev/github.com/devtron-labs/devtron
+    install: go get github.com/devtron-labs/devtron
+    official: true
+    kind: platform-source
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/devtron-labs/central-api
+    url: https://pkg.go.dev/github.com/devtron-labs/central-api/api
+    install: go get github.com/devtron-labs/central-api
+    official: true
+    kind: platform-source

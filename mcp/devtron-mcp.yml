@@ -1,0 +1,558 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/devtron-openapi-original.yml
+note: No official Devtron MCP server was found (searched docs, npm @modelcontextprotocol, MCP registries)
+  as of 2026-07-18. This is a DERIVED candidate tool list, one tool per OpenAPI operation, for a future
+  MCP server over the Devtron orchestrator API.
+server:
+  name: devtron
+  transport: http
+tool_count: 109
+tools:
+- name: getDeploymentHistory
+  description: Get Deployment History
+  source_operation: openapi/devtron-openapi-original.yml#getDeploymentHistory
+  method: GET
+  path: /resource/history/deployment/cd-pipeline/v1
+- name: listAppLabels
+  description: List all app labels
+  source_operation: openapi/devtron-openapi-original.yml#listAppLabels
+  method: GET
+  path: /orchestrator/app/labels/list
+- name: getAppMetaInfo
+  description: Get application meta info
+  source_operation: openapi/devtron-openapi-original.yml#getAppMetaInfo
+  method: GET
+  path: /orchestrator/app/meta/info/{appId}
+- name: getHelmAppMetaInfo
+  description: Get Helm application meta info
+  source_operation: openapi/devtron-openapi-original.yml#getHelmAppMetaInfo
+  method: GET
+  path: /orchestrator/helm/meta/info/{appId}
+- name: createOrCloneJob
+  description: Create or clone a job
+  source_operation: openapi/devtron-openapi-original.yml#createOrCloneJob
+  method: POST
+  path: /orchestrator/job
+- name: listJobs
+  description: List jobs
+  source_operation: openapi/devtron-openapi-original.yml#listJobs
+  method: POST
+  path: /orchestrator/job/list
+- name: getJobCiPipelineList
+  description: Get job CI pipeline list
+  source_operation: openapi/devtron-openapi-original.yml#getJobCiPipelineList
+  method: GET
+  path: /orchestrator/job/ci-pipeline/list/{jobId}
+- name: listDeployedCharts
+  description: List deployed charts
+  source_operation: openapi/devtron-openapi-original.yml#listDeployedCharts
+  method: GET
+  path: /orchestrator/app-store/installed-app
+- name: fetchNotesTxt
+  description: Fetch notes.txt for deployed helm charts
+  source_operation: openapi/devtron-openapi-original.yml#fetchNotesTxt
+  method: GET
+  path: /orchestrator/app-store/installed-app/notes
+- name: listAppAutocomplete
+  description: List application autocomplete
+  source_operation: openapi/devtron-openapi-original.yml#listAppAutocomplete
+  method: GET
+  path: /orchestrator/app/autocomplete
+- name: createApplication
+  description: Create a new application
+  source_operation: openapi/devtron-openapi-original.yml#createApplication
+  method: POST
+  path: /orchestrator/app
+- name: updateApplicationProjectsAndLabels
+  description: Update application projects and labels
+  source_operation: openapi/devtron-openapi-original.yml#updateApplicationProjectsAndLabels
+  method: POST
+  path: /orchestrator/app/edit
+- name: listApplications
+  description: List applications
+  source_operation: openapi/devtron-openapi-original.yml#listApplications
+  method: POST
+  path: /orchestrator/app/list
+- name: updateProjectForApp
+  description: Update project for app
+  source_operation: openapi/devtron-openapi-original.yml#updateProjectForApp
+  method: POST
+  path: /orchestrator/app/edit/projects
+- name: getAppLabels
+  description: List Application Labels
+  source_operation: openapi/devtron-openapi-original.yml#getAppLabels
+  method: GET
+  path: /app/labels/list
+- name: FindBulkUpdateReadme
+  description: Get Readme for Bulk Update
+  source_operation: openapi/devtron-openapi-original.yml#FindBulkUpdateReadme
+  method: GET
+  path: /batch/{apiVersion}/{kind}/readme
+- name: GetBulkAppName
+  description: Dry Run for Bulk Application Update
+  source_operation: openapi/devtron-openapi-original.yml#GetBulkAppName
+  method: POST
+  path: /batch/v1beta1/application/dryrun
+- name: BulkHibernate
+  description: Bulk Hibernate Applications
+  source_operation: openapi/devtron-openapi-original.yml#BulkHibernate
+  method: POST
+  path: /batch/v1beta1/hibernate
+- name: BulkUnHibernate
+  description: Bulk Un-Hibernate Applications
+  source_operation: openapi/devtron-openapi-original.yml#BulkUnHibernate
+  method: POST
+  path: /batch/v1beta1/unhibernate
+- name: BulkDeploy
+  description: Bulk Deploy Applications
+  source_operation: openapi/devtron-openapi-original.yml#BulkDeploy
+  method: POST
+  path: /batch/v1beta1/deploy
+- name: BulkBuildTrigger
+  description: Bulk Trigger Application Builds
+  source_operation: openapi/devtron-openapi-original.yml#BulkBuildTrigger
+  method: POST
+  path: /batch/v1beta1/build
+- name: BulkUpdate
+  description: Bulk Edit Applications
+  source_operation: openapi/devtron-openapi-original.yml#BulkUpdate
+  method: POST
+  path: /batch/v1beta1/application
+- name: CreateSSOLoginConfig
+  description: Create SSO Login Configuration
+  source_operation: openapi/devtron-openapi-original.yml#CreateSSOLoginConfig
+  method: POST
+  path: /sso/create
+- name: UpdateSSOLoginConfig
+  description: Update SSO Login Configuration
+  source_operation: openapi/devtron-openapi-original.yml#UpdateSSOLoginConfig
+  method: PUT
+  path: /sso/update
+- name: GetAllSSOLoginConfig
+  description: Get All SSO Login Configurations
+  source_operation: openapi/devtron-openapi-original.yml#GetAllSSOLoginConfig
+  method: GET
+  path: /sso/list
+- name: GetSSOLoginConfig
+  description: Get SSO Login Configuration by ID
+  source_operation: openapi/devtron-openapi-original.yml#GetSSOLoginConfig
+  method: GET
+  path: /sso/{id}
+- name: GetSSOLoginConfigByName
+  description: Get SSO Login Configuration by Name
+  source_operation: openapi/devtron-openapi-original.yml#GetSSOLoginConfigByName
+  method: GET
+  path: /sso
+- name: GetAllDefaultRoles
+  description: Get All Default Roles
+  source_operation: openapi/devtron-openapi-original.yml#GetAllDefaultRoles
+  method: GET
+  path: /rbac/roles/default
+- name: LoginHandler
+  description: User Login
+  source_operation: openapi/devtron-openapi-original.yml#LoginHandler
+  method: POST
+  path: /api/v1/session
+- name: RefreshTokenHandler
+  description: Refresh Session Token
+  source_operation: openapi/devtron-openapi-original.yml#RefreshTokenHandler
+  method: GET
+  path: /refresh
+- name: AddDefaultPolicyAndRoles
+  description: Add Default Policy and Roles
+  source_operation: openapi/devtron-openapi-original.yml#AddDefaultPolicyAndRoles
+  method: POST
+  path: /admin/policy/default
+- name: AuthVerification
+  description: Verify Authentication Status
+  source_operation: openapi/devtron-openapi-original.yml#AuthVerification
+  method: GET
+  path: /devtron/auth/verify
+- name: AuthVerificationV2
+  description: Verify Authentication Status (V2)
+  source_operation: openapi/devtron-openapi-original.yml#AuthVerificationV2
+  method: GET
+  path: /devtron/auth/verify/v2
+- name: GetAllUsersV2
+  description: List Users (V2 - Paginated, Filtered)
+  source_operation: openapi/devtron-openapi-original.yml#GetAllUsersV2
+  method: GET
+  path: /user/v2
+- name: CreateUserV2
+  description: Create User (V2)
+  source_operation: openapi/devtron-openapi-original.yml#CreateUserV2
+  method: POST
+  path: /user/v2
+- name: UpdateUserV2
+  description: Update User (V2)
+  source_operation: openapi/devtron-openapi-original.yml#UpdateUserV2
+  method: PUT
+  path: /user/v2
+- name: GetAllUsers
+  description: List All Users (V1)
+  source_operation: openapi/devtron-openapi-original.yml#GetAllUsers
+  method: GET
+  path: /user
+- name: CreateUser
+  description: Create User
+  source_operation: openapi/devtron-openapi-original.yml#CreateUser
+  method: POST
+  path: /user
+- name: UpdateUser
+  description: Update User
+  source_operation: openapi/devtron-openapi-original.yml#UpdateUser
+  method: PUT
+  path: /user
+- name: GetUserById
+  description: Get User by ID
+  source_operation: openapi/devtron-openapi-original.yml#GetUserById
+  method: GET
+  path: /user/{id}
+- name: DeleteUser
+  description: Delete User by ID
+  source_operation: openapi/devtron-openapi-original.yml#DeleteUser
+  method: DELETE
+  path: /user/{id}
+- name: GetUserByIdV2
+  description: Get User by ID (V2)
+  source_operation: openapi/devtron-openapi-original.yml#GetUserByIdV2
+  method: GET
+  path: /user/v2/{id}
+- name: BulkDeleteUsers
+  description: Bulk Delete Users
+  source_operation: openapi/devtron-openapi-original.yml#BulkDeleteUsers
+  method: DELETE
+  path: /user/bulk
+- name: GetAllDetailedUsers
+  description: List All Detailed Users
+  source_operation: openapi/devtron-openapi-original.yml#GetAllDetailedUsers
+  method: GET
+  path: /user/detail/get
+- name: FetchRoleGroupsV2
+  description: List Role Groups (V2 - Paginated, Filtered)
+  source_operation: openapi/devtron-openapi-original.yml#FetchRoleGroupsV2
+  method: GET
+  path: /user/role/group/v2
+- name: CreateRoleGroupV2
+  description: Create Role Group (V2)
+  source_operation: openapi/devtron-openapi-original.yml#CreateRoleGroupV2
+  method: POST
+  path: /user/role/group/v2
+- name: UpdateRoleGroupV2
+  description: Update Role Group (V2)
+  source_operation: openapi/devtron-openapi-original.yml#UpdateRoleGroupV2
+  method: PUT
+  path: /user/role/group/v2
+- name: FetchRoleGroups
+  description: List All Role Groups (V1)
+  source_operation: openapi/devtron-openapi-original.yml#FetchRoleGroups
+  method: GET
+  path: /user/role/group
+- name: CreateRoleGroup
+  description: Create Role Group
+  source_operation: openapi/devtron-openapi-original.yml#CreateRoleGroup
+  method: POST
+  path: /user/role/group
+- name: UpdateRoleGroup
+  description: Update Role Group
+  source_operation: openapi/devtron-openapi-original.yml#UpdateRoleGroup
+  method: PUT
+  path: /user/role/group
+- name: FetchRoleGroupById
+  description: Get Role Group by ID
+  source_operation: openapi/devtron-openapi-original.yml#FetchRoleGroupById
+  method: GET
+  path: /user/role/group/{id}
+- name: DeleteRoleGroup
+  description: Delete Role Group by ID
+  source_operation: openapi/devtron-openapi-original.yml#DeleteRoleGroup
+  method: DELETE
+  path: /user/role/group/{id}
+- name: FetchRoleGroupByIdV2
+  description: Get Role Group by ID (V2)
+  source_operation: openapi/devtron-openapi-original.yml#FetchRoleGroupByIdV2
+  method: GET
+  path: /user/role/group/v2/{id}
+- name: FetchDetailedRoleGroups
+  description: List All Detailed Role Groups
+  source_operation: openapi/devtron-openapi-original.yml#FetchDetailedRoleGroups
+  method: GET
+  path: /user/role/group/detailed/get
+- name: FetchRoleGroupsByName
+  description: Search Role Groups by Name
+  source_operation: openapi/devtron-openapi-original.yml#FetchRoleGroupsByName
+  method: GET
+  path: /user/role/group/search
+- name: BulkDeleteRoleGroups
+  description: Bulk Delete Role Groups
+  source_operation: openapi/devtron-openapi-original.yml#BulkDeleteRoleGroups
+  method: DELETE
+  path: /user/role/group/bulk
+- name: CheckUserRoles
+  description: Check Logged-in User's Roles
+  source_operation: openapi/devtron-openapi-original.yml#CheckUserRoles
+  method: GET
+  path: /user/check/roles
+- name: SyncOrchestratorToCasbin
+  description: Sync Orchestrator to Casbin
+  source_operation: openapi/devtron-openapi-original.yml#SyncOrchestratorToCasbin
+  method: GET
+  path: /user/sync/orchestratortocasbin
+- name: UpdateTriggerPolicyForTerminalAccess
+  description: Update Trigger Policy for Terminal Access
+  source_operation: openapi/devtron-openapi-original.yml#UpdateTriggerPolicyForTerminalAccess
+  method: PUT
+  path: /user/update/trigger/terminal
+- name: GetRoleCacheDump
+  description: Get Role Cache Dump
+  source_operation: openapi/devtron-openapi-original.yml#GetRoleCacheDump
+  method: GET
+  path: /user/role/cache
+- name: InvalidateRoleCache
+  description: Invalidate Role Cache
+  source_operation: openapi/devtron-openapi-original.yml#InvalidateRoleCache
+  method: GET
+  path: /user/role/cache/invalidate
+- name: HandleOIDCLogin
+  description: OIDC Login Redirect (Informational)
+  source_operation: openapi/devtron-openapi-original.yml#HandleOIDCLogin
+  method: GET
+  path: /login
+- name: HandleOIDCAuthLogin
+  description: OIDC Login Redirect (Informational - Alternate Path)
+  source_operation: openapi/devtron-openapi-original.yml#HandleOIDCAuthLogin
+  method: GET
+  path: /auth/login
+- name: HandleOIDCCallback
+  description: OIDC Callback (Informational)
+  source_operation: openapi/devtron-openapi-original.yml#HandleOIDCCallback
+  method: GET
+  path: /auth/callback
+- name: DexProxyHandler
+  description: Dex Proxy (Informational)
+  source_operation: openapi/devtron-openapi-original.yml#DexProxyHandler
+  method: GET
+  path: /api/dex/{path}
+- name: CreateEnvironment
+  description: Create Environment
+  source_operation: openapi/devtron-openapi-original.yml#CreateEnvironment
+  method: POST
+  path: /env
+- name: UpdateEnvironment
+  description: Update Environment
+  source_operation: openapi/devtron-openapi-original.yml#UpdateEnvironment
+  method: PUT
+  path: /env
+- name: GetEnvironmentById
+  description: Get Environment by ID
+  source_operation: openapi/devtron-openapi-original.yml#GetEnvironmentById
+  method: GET
+  path: /env
+- name: DeleteCluster
+  description: Delete Cluster
+  source_operation: openapi/devtron-openapi-original.yml#DeleteCluster
+  method: POST
+  path: /cluster/delete
+- name: DeleteEnvironmentViaPost
+  description: Delete Environment (via POST)
+  source_operation: openapi/devtron-openapi-original.yml#DeleteEnvironmentViaPost
+  method: POST
+  path: /env/delete
+- name: getClustersWithEnvironments
+  description: List clusters with their environments
+  source_operation: openapi/devtron-openapi-original.yml#getClustersWithEnvironments
+  method: GET
+  path: /env/clusters
+- name: getEnvironmentsForCluster
+  description: List environments for a specific cluster
+  source_operation: openapi/devtron-openapi-original.yml#getEnvironmentsForCluster
+  method: GET
+  path: /cluster/{cluster_id}/env
+- name: UpdateCluster
+  description: Update Cluster
+  source_operation: openapi/devtron-openapi-original.yml#UpdateCluster
+  method: PUT
+  path: /cluster
+- name: GetCluster
+  description: Get Cluster
+  source_operation: openapi/devtron-openapi-original.yml#GetCluster
+  method: GET
+  path: /cluster
+- name: GetAuthClusterList
+  description: List Accessible Clusters
+  source_operation: openapi/devtron-openapi-original.yml#GetAuthClusterList
+  method: GET
+  path: /cluster/auth-list
+- name: ValidateCluster
+  description: Validate Cluster Configuration
+  source_operation: openapi/devtron-openapi-original.yml#ValidateCluster
+  method: POST
+  path: /cluster/validate
+- name: SaveClusters
+  description: Save Multiple Clusters
+  source_operation: openapi/devtron-openapi-original.yml#SaveClusters
+  method: POST
+  path: /cluster/saveClusters
+- name: PatchAppEnv
+  description: Patch Application Environment
+  source_operation: openapi/devtron-openapi-original.yml#PatchAppEnv
+  method: PATCH
+  path: /app/env/patch
+- name: CloneApplicationWorkflow
+  description: Clone Application Workflow
+  source_operation: openapi/devtron-openapi-original.yml#CloneApplicationWorkflow
+  method: POST
+  path: /app/workflow/clone
+- name: getResourceManifest
+  description: Get Resource Manifest
+  source_operation: openapi/devtron-openapi-original.yml#getResourceManifest
+  method: POST
+  path: /k8s/resource
+- name: updateResourceManifest
+  description: Update Resource Manifest
+  source_operation: openapi/devtron-openapi-original.yml#updateResourceManifest
+  method: PUT
+  path: /k8s/resource
+- name: createResource
+  description: Create Resource
+  source_operation: openapi/devtron-openapi-original.yml#createResource
+  method: POST
+  path: /k8s/resource/create
+- name: deleteResource
+  description: Delete Resource
+  source_operation: openapi/devtron-openapi-original.yml#deleteResource
+  method: POST
+  path: /k8s/resource/delete
+- name: getResourceEvents
+  description: Get Resource Events
+  source_operation: openapi/devtron-openapi-original.yml#getResourceEvents
+  method: POST
+  path: /k8s/events
+- name: getPodLogs
+  description: Get Pod Logs
+  source_operation: openapi/devtron-openapi-original.yml#getPodLogs
+  method: GET
+  path: /k8s/pods/logs/{podName}
+- name: getPodExecSession
+  description: Get Pod Exec Session
+  source_operation: openapi/devtron-openapi-original.yml#getPodExecSession
+  method: GET
+  path: /k8s/pod/exec/session/{identifier}/{namespace}/{pod}/{shell}/{container}
+- name: getApiResources
+  description: Get API Resources
+  source_operation: openapi/devtron-openapi-original.yml#getApiResources
+  method: GET
+  path: /k8s/api-resources/{clusterId}
+- name: listResources
+  description: List Resources
+  source_operation: openapi/devtron-openapi-original.yml#listResources
+  method: POST
+  path: /k8s/resource/list
+- name: K8sResourceForResources
+  description: Rotates the Pods
+  source_operation: openapi/devtron-openapi-original.yml#K8sResourceForResources
+  method: POST
+  path: /k8s/resources/rotate
+- name: applyResources
+  description: Apply Resources
+  source_operation: openapi/devtron-openapi-original.yml#applyResources
+  method: POST
+  path: /k8s/resources/apply
+- name: GetResourceRecommendation
+  description: Get Resource Recommendation for a particular resource
+  source_operation: openapi/devtron-openapi-original.yml#GetResourceRecommendation
+  method: POST
+  path: /k8s/resource/recommended
+- name: SyncClusterResourceRecommendations
+  description: Sync Cluster Resource Recommendations
+  source_operation: openapi/devtron-openapi-original.yml#SyncClusterResourceRecommendations
+  method: POST
+  path: /k8s/resource/recommendation/sync
+- name: GetClusterResourceRecommendationDetails
+  description: Get Cluster Resource Recommendation Details
+  source_operation: openapi/devtron-openapi-original.yml#GetClusterResourceRecommendationDetails
+  method: GET
+  path: /k8s/resource/{clusterId}/recommendation/details
+- name: GetClusterResourceRecommendationList
+  description: Get Cluster Resource Recommendation List
+  source_operation: openapi/devtron-openapi-original.yml#GetClusterResourceRecommendationList
+  method: POST
+  path: /k8s/resource/recommendation/list
+- name: CreateAppWorkflow
+  description: Create an application workflow
+  source_operation: openapi/devtron-openapi-original.yml#CreateAppWorkflow
+  method: POST
+  path: /app/workflow
+- name: DeleteAppWorkflow
+  description: Delete an application workflow
+  source_operation: openapi/devtron-openapi-original.yml#DeleteAppWorkflow
+  method: DELETE
+  path: /app/workflow/{app-wf-id}/app/{app-id}
+- name: GitOpsValidateDryRun
+  description: Validate gitops configuration by dry run
+  source_operation: openapi/devtron-openapi-original.yml#GitOpsValidateDryRun
+  method: POST
+  path: /validate
+- name: CreateGitOpsConfig
+  description: create/save new configuration and validate them before saving
+  source_operation: openapi/devtron-openapi-original.yml#CreateGitOpsConfig
+  method: POST
+  path: /config
+- name: UpdateGitOpsConfig
+  description: update configuration and validate them before saving(if last validation is within 30 seconds
+    then do not validate)
+  source_operation: openapi/devtron-openapi-original.yml#UpdateGitOpsConfig
+  method: PUT
+  path: /config
+- name: findNotificationSetting
+  description: Returns all notification settings
+  source_operation: openapi/devtron-openapi-original.yml#findNotificationSetting
+  method: GET
+  path: /notification
+- name: addNotificationSetting
+  description: Creates a new NotificationSetting
+  source_operation: openapi/devtron-openapi-original.yml#addNotificationSetting
+  method: POST
+  path: /notification
+- name: updateNotificationSetting
+  description: Update  NotificationSetting
+  source_operation: openapi/devtron-openapi-original.yml#updateNotificationSetting
+  method: PUT
+  path: /notification
+- name: DeleteNotificationSetting
+  description: Delete NotificationSetting
+  source_operation: openapi/devtron-openapi-original.yml#DeleteNotificationSetting
+  method: DELETE
+  path: /notification
+- name: deleteGroupPolicy
+  description: used to fetch providers(recipients)
+  source_operation: openapi/devtron-openapi-original.yml#deleteGroupPolicy
+  method: GET
+  path: /notification/recipient
+- name: findNotificationSettingConfig
+  description: get all NotificationSettingConfig list
+  source_operation: openapi/devtron-openapi-original.yml#findNotificationSettingConfig
+  method: GET
+  path: /notification/channel
+- name: addNotificationSettingConfig
+  description: Creates a new NotificationSettingConfig
+  source_operation: openapi/devtron-openapi-original.yml#addNotificationSettingConfig
+  method: POST
+  path: /notification/channel
+- name: FetchHistoryByDeployedConfigurationDetail
+  description: Fetch component history
+  source_operation: openapi/devtron-openapi-original.yml#FetchHistoryByDeployedConfigurationDetail
+  method: GET
+  path: /orchestrator/app/history/deployed-component/detail/{appId}/{pipelineId}/{id}
+- name: FetchHistoryListByDeployedConfigurationDetail
+  description: fetch deployed history details list
+  source_operation: openapi/devtron-openapi-original.yml#FetchHistoryListByDeployedConfigurationDetail
+  method: GET
+  path: /orchestrator/app/history/deployed-component/list/{appId}/{pipelineId}
+- name: FetchHistoryListForAllDeployedConfigurations
+  description: all deployed configuration history
+  source_operation: openapi/devtron-openapi-original.yml#FetchHistoryListForAllDeployedConfigurations
+  method: GET
+  path: /orchestrator/app/history/deployed-configuration/{appId}/{pipelineId}/{wfrId}

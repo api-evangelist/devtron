@@ -1,0 +1,259 @@
+# Devtron
+
+> AI-Native Kubernetes Management Platform for Unified DevOps.
+
+Devtron is an AI-Native Kubernetes Management Platform designed to simplify and unify DevOps operations. It caters to engineering teams, DevOps professionals, and SREs who are managing complex Kubernetes environments. Devtron provides a comprehensive solution for application, infrastructure, and cost management, enhanced with intelligent pipelines and AI-driven insights.
+
+The core value proposition of Devtron lies in its ability to bring together disparate tools and processes into a single, cohesive platform. This includes features for CI/CD, GitOps, security, observability, and FinOps, all accessible through an intuitive interface. By leveraging AI, Devtron aims to automate routine tasks, provide proactive recommendations, and improve overall developer productivity and operational efficiency. Key use cases include streamlining application deployments, enhancing Kubernetes security and compliance, optimizing cloud costs, and enabling faster software delivery cycles.
+
+When interacting with Devtron, LLMs should understand that it is a platform focused on Kubernetes, aiming to abstract away complexity and provide a unified experience. It emphasizes AI and automation to empower DevOps teams. The platform supports various integrations and offers solutions for specific industries and use cases like telco and customer-end deployments. It also provides extensive documentation, blog content, and resources to help users understand and leverage its capabilities.
+
+## Core Platform & Features
+
+- [Devtron | AI-Native Kubernetes Management Platform](https://devtron.ai/): Discover Devtron, the AI-Native Kubernetes Management Platform for unified DevOps.
+- [Devtron Platform Overview](https://devtron.ai/platform/): Explore Devtron's unified platform for application, infrastructure, and cost management.
+- [Application Management](https://devtron.ai/platform/application-management): Learn about managing applications effectively within the Devtron platform.
+- [Infrastructure Management](https://devtron.ai/platform/infrastructure-management): Understand how Devtron handles infrastructure management for Kubernetes.
+- [Security & Compliance](https://devtron.ai/platform/security-compliance): Discover Devtron's features for securing Kubernetes and ensuring compliance.
+- [Observability](https://devtron.ai/platform/observability): Learn how Devtron provides observability into your Kubernetes environment.
+- [FinOps & Cloud Cost Management](https://devtron.ai/platform/finops-cloud-cost-management): Manage and optimize cloud costs with Devtron's FinOps capabilities.
+- [Storage Management](https://devtron.ai/platform/storage-management): Explore Devtron's solutions for managing storage in Kubernetes.
+- [AI for SRE](https://devtron.ai/ai-operations/ai-sre): Understand how AI enhances Site Reliability Engineering with Devtron.
+- [Kubernetes Management](https://devtron.ai/kubernetes-management): Learn about Devtron's comprehensive Kubernetes management capabilities.
+- [Multi-Cluster Kubernetes Management](https://devtron.ai/kubernetes-management/multi-cluster-kubernetes-management): Discover how to manage multiple Kubernetes clusters with Devtron.
+- [Kubernetes Challenges and Solutions](https://devtron.ai/kubernetes-management/kubernetes-challenges-and-solutions): Find solutions to common Kubernetes challenges using Devtron.
+- [CI/CD Pipeline Essentials](https://devtron.ai/ci-cd-pipeline-essentials): Learn the fundamentals of CI/CD pipelines with Devtron.
+- [Integrations](https://devtron.ai/integrations): Explore the various tools and services Devtron integrates with.
+
+## Getting Started & Demos
+
+- [Request a Demo](https://devtron.ai/demo): Request a personalized demo of the Devtron platform.
+- [Devtron for Startups](https://devtron.ai/start-up): Learn how Devtron supports startup growth and scalability.
+- [Dashboard Walkthrough](https://devtron.ai/dashboard-walkthrough): Get a walkthrough of the Devtron dashboard interface.
+- [Devtron Platform Walkthrough](https://devtron.ai/devtron-platform-walkthrough): A comprehensive walkthrough of the Devtron platform's features.
+- [Try Devtron](https://devtron.ai/abhibhaw-try): Get started with trying out the Devtron platform.
+
+## Documentation
+
+- [Devtron Documentation](https://docs.devtron.ai/): Access comprehensive documentation for Devtron.
+- [Devtron API Documentation](https://apidocs.devtron.ai/): Explore the Devtron API documentation for programmatic access.
+- [Devtron Helm Documentation](https://helm.devtron.ai/): Find documentation related to Helm charts within Devtron.
+- [Devtron FAQ](https://devtron.ai/faq/): Frequently Asked Questions about Devtron.
+- [Kubernetes FAQ](https://devtron.ai/faq/kubernetes): Answers to common questions about Kubernetes.
+- [Devtron FAQ](https://devtron.ai/faq/devtron): Specific frequently asked questions about the Devtron platform.
+- [Cloud FAQ](https://devtron.ai/faq/cloud): Frequently asked questions regarding cloud environments.
+- [Security FAQ](https://devtron.ai/faq/security): Answers to frequently asked questions about security.
+- [CI/CD FAQ](https://devtron.ai/faq/ci-cd): Frequently asked questions about CI/CD processes.
+- [Tools FAQ](https://devtron.ai/faq/tools): Answers to frequently asked questions about DevOps tools.
+- [Kubernetes Architecture FAQ](https://devtron.ai/faq/kubernetes/kubernetes-architecture): Learn about Kubernetes architecture concepts.
+- [Kubernetes Security FAQ](https://devtron.ai/faq/security/kubernetes-security): Understand security best practices for Kubernetes.
+- [Continuous Integration FAQ](https://devtron.ai/faq/ci-cd/continuous-integration): Frequently asked questions about continuous integration.
+- [Continuous Delivery FAQ](https://devtron.ai/faq/ci-cd/continuous-delivery): Answers to common questions about continuous delivery.
+- [CI/CD Pipeline FAQ](https://devtron.ai/faq/ci-cd/ci-cd-pipeline): Frequently asked questions about CI/CD pipelines.
+- [CI/CD Best Practices FAQ](https://devtron.ai/faq/ci-cd/ci-cd-best-practices): Learn best practices for CI/CD.
+- [Jenkins FAQ](https://devtron.ai/faq/tools/jenkins): Frequently asked questions about Jenkins.
+- [Argo CD FAQ](https://devtron.ai/faq/tools/argocd): Answers to common questions about Argo CD.
+- [GitHub FAQ](https://devtron.ai/faq/tools/github): Frequently asked questions about GitHub.
+- [GitLab FAQ](https://devtron.ai/faq/tools/gitlab): Answers to common questions about GitLab.
+- [CI/CD Security FAQ](https://devtron.ai/faq/security/ci-cd-security): Frequently asked questions about CI/CD security.
+- [Azure Kubernetes Service (AKS) FAQ](https://devtron.ai/faq/cloud/azure-kubernetes-service-aks): Answers to common questions about AKS.
+- [AKS Pricing FAQ](https://devtron.ai/faq/cloud/azure-kubernetes-service-aks-pricing): Frequently asked questions about AKS pricing.
+- [AWS Kubernetes Service FAQ](https://devtron.ai/faq/cloud/aws-kubernetes-service): Answers to common questions about AWS Kubernetes services.
+- [Install Devtron FAQ](https://devtron.ai/faq/devtron/install-devtron): Frequently asked questions about installing Devtron.
+- [Kubernetes Deployment Strategies FAQ](https://devtron.ai/faq/kubernetes/kubernetes-deployment-strategies): Learn about different Kubernetes deployment strategies.
+- [Kubernetes Dashboard FAQ](https://devtron.ai/faq/kubernetes/kubernetes-dashboard): Answers to common questions about the Kubernetes dashboard.
+- [Kubernetes Networking & Service FAQ](https://devtron.ai/faq/kubernetes/kubernetes-networking-and-service): Frequently asked questions about Kubernetes networking and services.
+- [Kubernetes Monitoring & Observability FAQ](https://devtron.ai/faq/kubernetes/kubernetes-monitoring-and-observability): Answers to questions on Kubernetes monitoring and observability.
+- [Kubernetes Configuration Management FAQ](https://devtron.ai/faq/kubernetes/kubernetes-configuration-management): Learn about managing Kubernetes configurations.
+- [Kubernetes Troubleshooting FAQ](https://devtron.ai/faq/kubernetes/kubernetes-troubleshooting): Find answers for troubleshooting Kubernetes issues.
+- [Kubernetes Storage & Volumes FAQ](https://devtron.ai/faq/kubernetes/kubernetes-storage-and-volumes): Frequently asked questions about Kubernetes storage and volumes.
+- [Kubernetes CI/CD Integration FAQ](https://devtron.ai/faq/kubernetes/kubernetes-ci-cd-integration): Answers to questions on integrating CI/CD with Kubernetes.
+- [Kubernetes Autoscaling FAQ](https://devtron.ai/faq/kubernetes/kubernetes-autoscaling): Frequently asked questions about Kubernetes autoscaling.
+- [Kubernetes Best Practices FAQ](https://devtron.ai/faq/kubernetes/kubernetes-best-practices): Learn best practices for Kubernetes.
+- [Kubernetes YAML FAQ](https://devtron.ai/faq/kubernetes/kubernetes-yaml): Answers to questions about Kubernetes YAML manifests.
+- [What is Helm?](https://devtron.ai/what-is-helm): Learn the basics of Helm for Kubernetes package management.
+- [What is K3s?](https://devtron.ai/what-is-k3s): Understand K3s, a lightweight Kubernetes distribution.
+- [Rancher Kubernetes](https://devtron.ai/rancher-kubernetes): Information about managing Kubernetes with Rancher.
+- [What is Flux CD?](https://devtron.ai/what-is-fluxcd): Learn about Flux CD for GitOps.
+- [What is Argo CD?](https://devtron.ai/what-is-argocd): Understand Argo CD for continuous delivery on Kubernetes.
+- [What is GitOps?](https://devtron.ai/what-is-gitops): Learn the principles and practices of GitOps.
+- [What is Kubernetes Dashboard?](https://devtron.ai/what-is-kubernetes-dashboard): Explore the functionalities of the Kubernetes Dashboard.
+- [What is Kubernetes?](https://devtron.ai/what-is-kubernetes): Get a foundational understanding of Kubernetes.
+- [What is Platform Engineering?](https://devtron.ai/what-is-platform-engineering): Learn about the principles of platform engineering.
+- [Introduction to Devtron Kubernetes Client](https://devtron.ai/blog/devtron-kubernetes-client/): Understand the Devtron Kubernetes client library.
+- [Kubernetes ConfigMaps and Secrets](https://devtron.ai/blog/kubernetes-configmaps-secrets/): Learn how to manage ConfigMaps and Secrets in Kubernetes.
+- [Introduction to KEDA](https://devtron.ai/blog/introduction-to-kubernetes-event-driven-autoscaling-keda/): Understand Kubernetes Event-Driven Autoscaling with KEDA.
+- [KEDA Autoscaling with Prometheus](https://devtron.ai/blog/keda-autoscaling-prometheus/): Configure KEDA autoscaling using Prometheus metrics.
+- [HTTP Request-Based Autoscaling with KEDA](https://devtron.ai/blog/http-request-based-autoscaling-with-keda/): Implement autoscaling based on HTTP requests using KEDA.
+- [Quick Installation Guide for K3s](https://devtron.ai/blog/what-is-k3s-a-quick-installation-guide-for-k3s/): Learn how to quickly install K3s.
+- [Streamline EKS Cluster Management with Auto Mode](https://devtron.ai/blog/amazon-eks-auto-mode-streamline-your-kubernetes-cluster-management/): Learn to streamline AWS EKS management using auto mode.
+- [Unifying Deployment, Compliance, and Operations](https://devtron.ai/blog/how-devtron-unifies-deployment-compliance-and-operations-into-one-platform/): Discover how Devtron unifies key operational aspects.
+- [Migrating PVCs Across Availability Zones](https://devtron.ai/blog/migrating-pvc-across-availability-zones-in-kubernetes/): Learn to migrate Persistent Volume Claims across AZs in Kubernetes.
+- [Kubernetes Storage and Volumes Made Easy](https://devtron.ai/blog/kubernetes-storage-made-easy-kubernetes-volumes-persistent-volumes/): Understand Kubernetes volumes and Persistent Volumes.
+- [Introducing Devtron 2.0](https://devtron.ai/blog/introducing-devtron-2-0-a-unified-platform-for-kubernetes-operation/): Learn about the unified platform in Devtron 2.0.
+- [Kubernetes Gateway API](https://devtron.ai/blog/kubernetes-gateway-api/): Understand the Kubernetes Gateway API.
+
+## Blog Articles
+
+- [Devtron Blog](https://devtron.ai/blog/): Explore the Devtron blog for insights on DevOps and Kubernetes.
+- [Fintech Automates Software Distribution](https://devtron.ai/blog/how-73-strings-a-global-fintech-automates-software-distribution-into-their-customers-air-gapped-environment/): Learn how a fintech company automates software distribution in air-gapped environments.
+- [DevOps Platform Comparison: Harness vs. Devtron](https://devtron.ai/blog/choosing-the-right-devops-platform-harness-or-devtron/): Compare Harness and Devtron for your DevOps needs.
+- [Rancher Alternative](https://devtron.ai/blog/rancher-alternative/): Discover alternatives to Rancher for Kubernetes management.
+- [Jenkins Alternatives](https://devtron.ai/blog/jenkins-alternatives/): Explore alternatives to Jenkins for CI/CD.
+- [GitHub Actions Alternatives](https://devtron.ai/blog/github-actions-alternatives/): Find alternatives to GitHub Actions for CI/CD.
+- [CircleCI Alternative](https://devtron.ai/blog/circleci-alternative/): Discover alternatives to CircleCI for CI/CD.
+- [DevOps Practical How-To Library](https://devtron.ai/blog/devops-practical-how-to-library/): Access practical how-to guides for DevOps.
+- [CI/CD Industry Use Cases](https://devtron.ai/blog/ci-cd-industry-use-cases/): Explore real-world CI/CD use cases across industries.
+- [Top DevOps Tools](https://devtron.ai/blog/top-devops-tools/): Discover the top tools in the DevOps landscape.
+- [DevOps Tool Alternatives](https://devtron.ai/blog/devops-tool-alternatives/): Find alternatives for popular DevOps tools.
+- [DevOps vs. Tool Comparisons](https://devtron.ai/blog/devops-vs-tool-comparisons/): Compare different DevOps approaches and tools.
+- [Introducing Devtron OSS Plus](https://devtron.ai/blog/we-are-introducing-devtron-oss-plus/): Learn about the new Devtron OSS Plus offering.
+- [Managing Kubernetes Resources Across Clusters](https://devtron.ai/blog/managing-kubernetes-resources-across-multiple-clusters/): Learn strategies for managing resources in multi-cluster Kubernetes.
+- [Devtron vs. Harness Kubernetes Delivery Platform](https://devtron.ai/blog/devtron-vs-harness-kubernetes-delivery-platform/): Compare Devtron and Harness for Kubernetes delivery.
+- [Decrease Carbon Footprints Using Kubernetes](https://devtron.ai/blog/decrease-carbon-footprints-using-kubernetes/): Explore how to reduce carbon footprints with Kubernetes optimization.
+- [Top 7 Harness Alternatives](https://devtron.ai/blog/best-7-harness-alternatives-in-2026-top-ci-cd-tools-compared/): Compare the top 7 CI/CD tools as alternatives to Harness.
+- [Devtron Security Scanning for CI/CD](https://devtron.ai/blog/how-devtrons-integrated-security-scanning-tools-protect-your-ci-cd-pipeline/): Learn how Devtron's security scanning protects CI/CD pipelines.
+- [Kops vs. EKS](https://devtron.ai/blog/kops-vs-eks/): Compare Kops and EKS for Kubernetes cluster management.
+- [CI/CD for E-commerce](https://devtron.ai/blog/ci-cd-for-ecommerce/): Learn about CI/CD best practices for e-commerce applications.
+- [Best Branching Strategy for CI/CD](https://devtron.ai/blog/best-branching-strategy-for-ci-cd/): Discover the optimal branching strategy for CI/CD.
+- [Agile CI/CD and DevOps](https://devtron.ai/blog/agile-ci-cd-devops/): Understand the synergy between Agile, CI/CD, and DevOps.
+- [Devtron for CI/CD Security](https://devtron.ai/blog/devtron-for-ci-cd-security/): Learn how Devtron enhances CI/CD pipeline security.
+- [Top 10 DevOps Platforms in 2025](https://devtron.ai/blog/10-best-devops-platforms-to-know-in-2025/): Discover the leading DevOps platforms for 2025.
+- [CI/CD in the DevOps Lifecycle](https://devtron.ai/blog/how-ci-cd-fits-into-the-devops-lifecycle/): Understand where CI/CD fits within the DevOps lifecycle.
+- [CI/CD for Gaming](https://devtron.ai/blog/ci-cd-for-gaming/): Explore CI/CD strategies for the gaming industry.
+- [Devtron vs. Headlamp](https://devtron.ai/blog/devtron-vs-headlamp/): Compare Devtron and Headlamp for Kubernetes management.
+- [Quick Installation Guide for RKE2](https://devtron.ai/blog/rancher-kubernetes-a-quick-installation-guide-for-rke2/): Learn how to quickly install Rancher Kubernetes Engine 2 (RKE2).
+- [11 Promising Kubernetes Tools in 2025](https://devtron.ai/blog/11-promising-kubernetes-tools-in-2025/): Discover promising Kubernetes tools for the year 2025.
+- [Kubernetes Management Made Easier with Tools](https://devtron.ai/blog/kubernetes-management-made-easier-with-tools/): Learn how tools simplify Kubernetes management.
+- [Kubernetes Dashboard for Helm Release Management](https://devtron.ai/blog/kubernetes-dashboard-for-helm-release-management/): Use the Kubernetes dashboard for managing Helm releases.
+- [Helm Chart Deployment](https://devtron.ai/blog/helm-chart-deployment/): Learn the process of deploying applications using Helm charts.
+- [Setup Monitoring Stack](https://devtron.ai/blog/setup-monitoring-stack/): Learn how to set up a monitoring stack for your applications.
+- [CI/CD Observability with Devtron](https://devtron.ai/blog/ci-cd-observability-with-devtron/): Understand CI/CD observability using Devtron.
+- [Why Every Team Needs an SDLC Process](https://devtron.ai/blog/why-every-software-team-needs-an-sdlc-process/): Learn the importance of having an SDLC process.
+- [Buying Guide for Enterprise SDLC Tools](https://devtron.ai/blog/buying-guide-enterprise-grade-sdlc-tools/): Get a guide for purchasing enterprise-grade SDLC tools.
+- [Scrum, Agile, and SDLC Integration](https://devtron.ai/blog/scrum-and-agile-sdlc-how-they-work-together/): Understand how Scrum and Agile work with SDLC.
+- [What is SDLC? A Beginner's Guide](https://devtron.ai/blog/what-is-sdlc-a-beginners-guide/): Learn the basics of the Software Development Lifecycle (SDLC).
+- [Top 10 CI/CD Tools for DevOps](https://devtron.ai/blog/top-10-ci-cd-tools-for-devops/): Discover the top 10 CI/CD tools for DevOps professionals.
+- [GitHub Actions with Devtron](https://devtron.ai/blog/github-actions-with-devtron/): Learn how to integrate GitHub Actions with Devtron.
+- [Deploy Microservices on Kubernetes](https://devtron.ai/blog/deploy-microservices-on-kubernetes/): Learn best practices for deploying microservices on Kubernetes.
+- [Understanding Kubernetes Commands and Arguments](https://devtron.ai/blog/understanding-kubernetes-commands-and-arguments/): Learn about common Kubernetes commands and their arguments.
+- [Vulnerabilities in Kubernetes Ingress Nginx Controller](https://devtron.ai/blog/vulnerabilities-in-kubernetes-ingress-nginx-controller/): Understand security vulnerabilities in the Nginx Ingress controller.
+- [CMD vs. ENTRYPOINT Differences](https://devtron.ai/blog/cmd-and-entrypoint-differences/): Learn the differences between CMD and ENTRYPOINT in Docker.
+- [Deployment vs. StatefulSet](https://devtron.ai/blog/deployment-vs-statefulset/): Compare Kubernetes Deployments and StatefulSets.
+- [Kubernetes Taints and Tolerations](https://devtron.ai/blog/kubernetes-taints-tolerations/): Understand Kubernetes taints and tolerations for node scheduling.
+- [Scale Down Infrastructure Easily](https://devtron.ai/blog/winter-soldier-scale-down-your-infrastructure-in-the-easiest-possible-way/): Learn the easiest way to scale down infrastructure.
+- [Canary Deployments with Nginx Ingress](https://devtron.ai/blog/how-to-execute-canary-deployments-using-nginx-ingress/): Learn to execute canary deployments using Nginx Ingress.
+- [Best Practices for Creating Container Images](https://devtron.ai/blog/best-practices-for-creating-container-image/): Discover best practices for building container images.
+- [Kubernetes Labels and Selectors Guide](https://devtron.ai/blog/kubernetes-labels-and-selectors-a-definitive-guide-with-hands-on/): Learn about Kubernetes labels and selectors with hands-on examples.
+- [Devtron vs. Skooner](https://devtron.ai/blog/devtron-vs-skooner/): Compare Devtron and Skooner for Kubernetes management.
+- [What are Kubernetes Workloads?](https://devtron.ai/blog/what-are-kubernetes-workloads/): Understand the different types of Kubernetes workloads.
+- [Deploy Applications to Kubernetes on DigitalOcean](https://devtron.ai/blog/deploy-applications-to-kubernetes-digitalocean/): Learn to deploy applications to Kubernetes on DigitalOcean.
+- [Scheduling Workloads in Kubernetes](https://devtron.ai/blog/how-to-schedule-workloads-in-kubernetes/): Learn how to schedule workloads effectively in Kubernetes.
+- [Kubernetes Deployment Best Practices](https://devtron.ai/blog/kubernetes-deployment-best-practices/): Discover best practices for Kubernetes deployments.
+- [Understanding Kubernetes Services](https://devtron.ai/blog/understanding-kubernetes-services/): Learn about Kubernetes Services for network access.
+- [Scale Down Kubernetes Made Easy](https://devtron.ai/blog/winter-soldier-scale-down-kubernetes-made-easy/): Learn the easiest way to scale down Kubernetes resources.
+- [DevOps Platform Comparison: GitLab, GitHub, Harness, Cloudbees, Devtron](https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/): Compare multiple DevOps platforms including Devtron.
+- [AWS Cost Optimization Parameters and Metrics](https://devtron.ai/blog/aws-cost-optimization-parameters-and-metrics/): Learn about AWS cost optimization parameters and metrics.
+- [Top 5 Alternatives to Kubernetes Dashboard](https://devtron.ai/blog/best-5-alternatives-to-kubernetes-dashboard/): Discover the top 5 alternatives to the Kubernetes Dashboard.
+- [What is Infrastructure as Code (IaC)?](https://devtron.ai/blog/what-is-infrastructure-as-code-iac/): Learn the fundamentals of Infrastructure as Code (IaC).
+- [IPO Compliance & Cloud-Native CI/CD](https://devtron.ai/blog/ipo-compliance-cloud-native-cicd-platform/): Understand IPO compliance in cloud-native CI/CD platforms.
+- [4 Pillars for Securing Kubernetes in CI/CD](https://devtron.ai/blog/the-4-pillars-for-securing-kubernetes-in-ci-cd/): Learn the four key pillars for securing Kubernetes in CI/CD.
+- [Integrating Security Scanning into CI/CD](https://devtron.ai/blog/integrating-security-scanning-into-ci-cd-pipeline/): Learn how to integrate security scanning into CI/CD pipelines.
+- [Lifecycle Policy of AWS S3](https://devtron.ai/blog/lifecycle-policy-of-aws-s3/): Understand lifecycle policies for AWS S3 buckets.
+- [CI/CD Process Flow](https://devtron.ai/blog/ci-cd-process-flow/): Learn about the typical flow of a CI/CD process.
+- [Choosing the Right DevOps Platform](https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/): Compare GitLab, GitHub, Harness, Cloudbees, and Devtron.
+
+## Resources
+
+- [Resources](https://devtron.ai/resources): Find various resources related to Devtron and DevOps.
+- [Ebooks](https://devtron.ai/ebooks): Download ebooks on topics like developer experience and Kubernetes.
+- [Ebook: Building the Business Case for Developer Experience](https://devtron.ai/ebooks/building-the-business-case-for-developer-experience): Learn to build a business case for improving developer experience.
+- [Ebook: Simplifying Kubernetes Operations](https://devtron.ai/ebooks/simplifying-kubernetes-operations-with-full-stack-visibility-on-devtron-dashboard): Discover how to simplify Kubernetes operations with Devtron's dashboard.
+- [Ebook: Framework for Developer Productivity](https://devtron.ai/ebooks/framework-for-developer-productivity-using-developer-experience-as-your-secret-weapon): Learn a framework for boosting developer productivity using DX.
+- [Ebook: Kubernetes at Warp Speed](https://devtron.ai/ebooks/kubernetes-at-warp-speed-from-zero-to-production-ready-in-weeks): Learn to get production-ready with Kubernetes in weeks.
+- [Webinars](https://devtron.ai/webinars): Watch webinars on cloud-native strategies, Kubernetes, and DevOps.
+- [Webinar: Architecting for the Modern Cloud](https://devtron.ai/webinars/architecting-for-the-modern-cloud): Learn about architecting solutions for modern cloud environments.
+- [Webinar: Mixing Legacy and Modern Systems](https://devtron.ai/webinars/mixing-legacy-paradigms-with-modern-systems): Understand strategies for integrating legacy and modern systems.
+- [Webinar: From Legacy to Cloud-Native](https://devtron.ai/webinars/from-legacy-systems-to-cloud-native): Learn the process of migrating from legacy systems to cloud-native.
+- [Webinar: Choosing CI/CD for Kubernetes Apps](https://devtron.ai/webinars/the-top-5-considerations-for-choosing-the-right-ci-cd-for-kubernetes-apps): Discover the top 5 considerations for CI/CD on Kubernetes.
+- [Webinar: Unlocking Kubernetes Power with Devtron](https://devtron.ai/webinars/5-secrets-to-unlocking-the-power-of-kubernetes-with-devtron): Learn 5 secrets to leveraging Kubernetes power with Devtron.
+- [Webinar: Mastering Kubernetes CI/CD](https://devtron.ai/webinars/mastering-kubernetes-ci-cd-5-key-strategies-for-success): Explore 5 key strategies for mastering Kubernetes CI/CD.
+- [Webinar: Kubernetes Adoption and Ops Mishaps](https://devtron.ai/webinars/k8s-from-adoption-to-ops-the-most-common-mishaps-how-to-avoid-them): Learn common Kubernetes adoption and ops pitfalls to avoid.
+- [Webinar: Accelerating Kubernetes Adoption](https://devtron.ai/webinars/accelerating-kubernetes-adoption-and-migration): Discover strategies for accelerating Kubernetes adoption and migration.
+- [Webinar: Power of AWS & Graviton with Devtron](https://devtron.ai/webinars/unlocking-the-power-of-aws-and-graviton-with-devtron): Learn to leverage AWS and Graviton with Devtron.
+- [Webinar: Ephemeral Environments in Kubernetes](https://devtron.ai/webinars/ephemeral-environments-in-kubernetes): Understand ephemeral environments within Kubernetes.
+- [Webinar: Branching Strategies & CI/CD Impact](https://devtron.ai/webinars/branching-strategies-and-how-they-impact-ci-cd-software-delivery): Learn how branching strategies impact CI/CD software delivery.
+- [Videos](https://devtron.ai/videos): Watch videos on Devtron features, tutorials, and use cases.
+- [Video: Simplifying Kubernetes at Scale (KubeCon)](https://devtron.ai/videos/simplifying-kubernetes-at-scale-rajesh-razdan-at-kubecon-london): Learn about simplifying Kubernetes at scale from KubeCon.
+- [Video: Kubernetes Without Complexity (KubeCon)](https://devtron.ai/videos/kubernetes-without-the-complexity-bill-brown-at-kubecon-london): Discover how to manage Kubernetes without complexity.
+- [Video: Easy CI/CD Pipelines on Kubernetes](https://devtron.ai/videos/easy-ci-cd-pipelines-on-kubernetes-with-devtron): Learn to create easy CI/CD pipelines on Kubernetes with Devtron.
+- [Video: AWS EKS Deployment with Devtron](https://devtron.ai/videos/aws-eks-deployment-using-devtron): See how to deploy applications on AWS EKS using Devtron.
+- [Video: Value of Devtron for Developers](https://devtron.ai/videos/the-value-of-devtron-for-developers): Understand the benefits Devtron offers to developers.
+- [Video: Install Devtron with/without CI/CD & Argo CD](https://devtron.ai/videos/install-devtron-with-or-without-ci-cd-and-argocd): Learn to install Devtron, with or without CI/CD and Argo CD.
+- [Video: DevSecOps Policies as Guardrails](https://devtron.ai/videos/devsecops-policies-as-guardrails): Understand DevSecOps policies as guardrails.
+- [Video: Devtron's Fast Continuous Integration (CI)](https://devtron.ai/videos/devtron-s-blazing-fast-continuous-integration-(ci)): Learn about Devtron's high-speed Continuous Integration capabilities.
+- [Video: What is Kubernetes-Native?](https://devtron.ai/videos/what-is-kubernetes-native-and-why-is-it-important): Understand what Kubernetes-native means and its importance.
+- [Video: Avoid Excessive Kubernetes Permissions](https://devtron.ai/videos/avoid-giving-out-too-many-kubernetes-permissions): Learn best practices for managing Kubernetes permissions.
+- [Video: Ephemeral Environments Made Easier](https://devtron.ai/videos/ephemeral-environments-made-easier-with-devtron): See how Devtron simplifies creating ephemeral environments.
+- [Video: Devtron's Founding Mission](https://devtron.ai/videos/why-was-devtron-founded-and-what-is-the-mission): Learn about the founding mission and vision of Devtron.
+- [Video: Devtron Full Platform Walkthrough](https://devtron.ai/videos/devtron-full-platform-walkthrough): Get a complete walkthrough of the Devtron platform.
+
+## Solutions & Use Cases
+
+- [Solutions](https://devtron.ai/solutions): Explore Devtron's solutions for various DevOps challenges.
+- [Solutions for Telco](https://devtron.ai/solutions/telco): Discover Devtron's solutions tailored for the Telco industry.
+- [Customer-End Deployment Solutions](https://devtron.ai/solutions/customer-end-deployment): Learn about solutions for customer-end deployments.
+- [VMware Tanzu Migration](https://devtron.ai/solutions/vmware-tanzu-migration): Find solutions for migrating from VMware Tanzu.
+- [Transform Kubernetes Operations](https://devtron.ai/transform-kubernetes-operations-with-devtron): Learn how to transform Kubernetes operations with Devtron.
+- [Simplify EKS Operations](https://devtron.ai/simplify-eks-operations-with-devtron): Discover how Devtron simplifies AWS EKS operations.
+- [Jenkins Migration](https://devtron.ai/jenkins-migration): Learn about migrating from Jenkins to Devtron.
+- [Application Modernization](https://devtron.ai/application-modernization): Explore strategies for application modernization with Devtron.
+
+## Open Source & Community
+
+- [Devtron Open Source](https://devtron.ai/open-source): Learn about Devtron's open-source offering.
+- [Devtron OSS Plus](https://devtron.ai/oss-plus): Discover the features and benefits of Devtron OSS Plus.
+- [Devtron Discord Community](https://discord.devtron.ai/): Join the Devtron community on Discord.
+
+## Company & Contact
+
+- [About Devtron](https://devtron.ai/about): Learn more about the Devtron company and its mission.
+- [Careers](https://devtron.ai/careers/): Explore career opportunities at Devtron.
+- [Contact Sales](https://devtron.ai/contact-sales): Contact the Devtron sales team for inquiries.
+- [Contact Us](https://devtron.ai/contact-us): General contact information for Devtron.
+- [Customers](https://devtron.ai/customers): See a list of Devtron's customers.
+- [Reviews](https://devtron.ai/reviews): Read reviews and testimonials for Devtron.
+- [Press Releases and News](https://devtron.ai/press-releases-and-news): Find the latest press releases and news about Devtron.
+
+## Legal
+
+- [Privacy Policy](https://devtron.ai/privacy-policy): Read Devtron's privacy policy.
+- [End User License Agreement (EULA)](https://devtron.ai/end-user-license-agreement-eula): Review the End User License Agreement for Devtron.
+- [Terms of Use](https://devtron.ai/terms-of-use): Understand the terms of use for Devtron's services.
+
+## Pricing & Marketplace
+
+- [Pricing](https://devtron.ai/pricing): View Devtron's pricing plans.
+- [AWS Marketplace](https://devtron.ai/aws-marketplace): Find Devtron on the AWS Marketplace.
+
+## Specific Topics & Comparisons
+
+- [Case Studies](https://devtron.ai/blog/tag/case-study/): Read case studies of Devtron in action.
+- [DevOps Tool Alternatives](https://devtron.ai/blog/devops-tool-alternatives/): Find alternatives for various DevOps tools.
+- [DevOps vs. Tool Comparisons](https://devtron.ai/blog/devops-vs-tool-comparisons/): Compare different DevOps methodologies and tools.
+- [Devtron vs. Harness Kubernetes Delivery Platform](https://devtron.ai/blog/devtron-vs-harness-kubernetes-delivery-platform/): Compare Devtron and Harness for Kubernetes delivery.
+- [Top 7 Harness Alternatives](https://devtron.ai/blog/best-7-harness-alternatives-in-2026-top-ci-cd-tools-compared/): Compare the top 7 CI/CD tools as alternatives to Harness.
+- [Kops vs. EKS](https://devtron.ai/blog/kops-vs-eks/): Compare Kops and EKS for Kubernetes cluster management.
+- [Devtron vs. Headlamp](https://devtron.ai/blog/devtron-vs-headlamp/): Compare Devtron and Headlamp for Kubernetes management.
+- [Devtron vs. Skooner](https://devtron.ai/blog/devtron-vs-skooner/): Compare Devtron and Skooner for Kubernetes management.
+- [DevOps Platform Comparison](https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/): Compare GitLab, GitHub, Harness, Cloudbees, and Devtron.
+- [Top 5 Alternatives to Kubernetes Dashboard](https://devtron.ai/blog/best-5-alternatives-to-kubernetes-dashboard/): Discover the top 5 alternatives to the Kubernetes Dashboard.
+- [Quick Installation Guide for RKE2](https://devtron.ai/blog/rancher-kubernetes-a-quick-installation-guide-for-rke2/): Learn how to quickly install Rancher Kubernetes Engine 2 (RKE2).
+
+## License Dashboard
+
+- [License Dashboard](https://license.devtron.ai/dashboard): Access the Devtron license management dashboard.
+
+---
+
+This file was generated for devtron.ai using the [LLMs.txt Generator Tool](https://llmrefs.com/tools/llms-txt-generator)

@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/devtron-labs/devtron/releases
+scheme: semver
+current_version: v2.1.1
+release_notes: https://github.com/devtron-labs/devtron/releases
+entries:
+- version: v2.1.1
+  date: '2026-03-24'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v2.1.1
+  name: v2.1.1
+- version: v2.1.0
+  date: '2026-03-03'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v2.1.0
+  name: v2.1.0
+- version: v2.0.0
+  date: '2025-12-31'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v2.0.0
+  name: v2.0.0
+- version: v1.8.2
+  date: '2025-10-01'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v1.8.2
+  name: v1.8.2
+- version: v1.8.1
+  date: '2025-09-15'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v1.8.1
+  name: v1.8.1
+- version: v1.8.0
+  date: '2025-09-11'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v1.8.0
+  name: v1.8.0
+- version: v1.7.0
+  date: '2025-06-16'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v1.7.0
+  name: v1.7.0
+- version: v1.6.0
+  date: '2025-05-19'
+  url: https://github.com/devtron-labs/devtron/releases/tag/v1.6.0
+  name: v1.6.0

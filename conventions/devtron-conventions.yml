@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devtron-openapi-original.yml
+docs: https://docs.devtron.ai/
+note: >-
+  Cross-cutting request/response semantics for the Devtron orchestrator API,
+  derived from the OpenAPI and the docs. Devtron is a self-hosted Kubernetes
+  delivery platform; the API runs against your own orchestrator host.
+authentication:
+  style: apiKey
+  header: token
+  detail: see authentication/devtron-authentication.yml
+base_url:
+  pattern: https://{devtronHost}/orchestrator
+  note: >-
+    The OpenAPI servers[] default is http://localhost/orchestrator (self-hosted
+    default); replace {devtronHost} with your Devtron install's host.
+idempotency:
+  supported: false
+  note: No documented idempotency-key header; writes are not declared idempotent.
+pagination:
+  style: query-parameter (offset/size where present)
+  note: >-
+    Listing operations (e.g. list applications) accept offset/size-style query
+    params on selected endpoints; there is no single global cursor convention.
+error_envelope:
+  shape: custom
+  schema: openapi/devtron-openapi-original.yml#/components/schemas/ErrorResponse
+  fields: [code, status, errors, result]
+  detail: see errors/devtron-problem-types.yml
+versioning:
+  scheme: semver (product releases, e.g. v2.1.1)
+  api_path: /orchestrator (unversioned path prefix)
+  detail: see changelog/devtron-changelog.yml and lifecycle/devtron-lifecycle.yml
+rate_limiting:
+  signaled: false
+  note: No documented rate-limit response headers (self-hosted control plane).
+rbac:
+  note: >-
+    Authorization is enforced per token via Devtron RBAC across Devtron Apps,
+    Helm Apps, Kubernetes Resources and Chart Groups; a 403 indicates missing
+    permission rather than a bad token.
+cross_links:
+  authentication: authentication/devtron-authentication.yml
+  errors: errors/devtron-problem-types.yml
+  lifecycle: lifecycle/devtron-lifecycle.yml
+  data_model: data-model/devtron-data-model.yml

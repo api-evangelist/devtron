@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.devtron.ai/global-configurations/manage-notification
+spec_type: Webhooks
+note: >-
+  Devtron ships no AsyncAPI document. It does provide an OUTBOUND webhook /
+  notification surface: pipeline events are delivered to configured channels
+  (Slack incoming webhook, generic Webhook URL e.g. Microsoft Teams / Discord,
+  or email via SES/SMTP). Webhook configuration is managed via the
+  "Notifications" API tag and requires super-admin. Captured as a webhook
+  catalog, not fabricated as an AsyncAPI spec.
+delivery_channels:
+  - type: slack
+    detail: Slack Incoming Webhook URL per channel.
+  - type: webhook
+    detail: Generic outbound Webhook URL (Microsoft Teams, Discord, custom endpoint).
+  - type: ses
+    detail: Email via AWS SES (verified sender).
+  - type: smtp
+    detail: Email via SMTP.
+events:
+  - id: ci-trigger
+    pipeline: CI (build)
+    trigger: Build pipeline triggered
+  - id: ci-success
+    pipeline: CI (build)
+    trigger: Build succeeded
+  - id: ci-failure
+    pipeline: CI (build)
+    trigger: Build failed
+  - id: cd-trigger
+    pipeline: CD (deployment)
+    trigger: Deployment pipeline triggered
+  - id: cd-success
+    pipeline: CD (deployment)
+    trigger: Deployment succeeded
+  - id: cd-failure
+    pipeline: CD (deployment)
+    trigger: Deployment failed
+management:
+  api_tag: Notifications
+  docs: https://docs.devtron.ai/global-configurations/manage-notification
+  access: super-admin only

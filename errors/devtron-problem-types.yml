@@ -1,0 +1,67 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devtron-openapi-original.yml
+format: custom
+note: 'Devtron returns a JSON error envelope (components.schemas.ErrorResponse: {code, status, errors[],
+  result}); not RFC 9457 application/problem+json.'
+envelope:
+  schema: openapi/devtron-openapi-original.yml#/components/schemas/ErrorResponse
+  fields:
+  - code
+  - status
+  - errors
+  - result
+problems:
+- status: 400
+  title: Bad Request
+  remediation: Validate the request body/params against the schema before retrying.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#listAppLabels
+  - openapi/devtron-openapi-original.yml#getAppMetaInfo
+  - openapi/devtron-openapi-original.yml#getHelmAppMetaInfo
+  - openapi/devtron-openapi-original.yml#createOrCloneJob
+- status: 401
+  title: Unauthorized
+  remediation: Supply a valid Devtron API token in the "token" request header.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#listAppLabels
+  - openapi/devtron-openapi-original.yml#getAppMetaInfo
+  - openapi/devtron-openapi-original.yml#getHelmAppMetaInfo
+  - openapi/devtron-openapi-original.yml#createOrCloneJob
+- status: 403
+  title: Forbidden
+  remediation: The token lacks RBAC permission for this resource/action; grant the needed role.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#getAppLabels
+  - openapi/devtron-openapi-original.yml#GetBulkAppName
+  - openapi/devtron-openapi-original.yml#BulkHibernate
+  - openapi/devtron-openapi-original.yml#BulkUnHibernate
+- status: 404
+  title: Not Found
+  remediation: The referenced app/environment/resource id does not exist.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#listAppLabels
+  - openapi/devtron-openapi-original.yml#getAppMetaInfo
+  - openapi/devtron-openapi-original.yml#getHelmAppMetaInfo
+  - openapi/devtron-openapi-original.yml#GetEnvironmentById
+- status: 406
+  title: Not Acceptable
+  remediation: Adjust the Accept header to a supported media type.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#CreateUserV2
+  - openapi/devtron-openapi-original.yml#UpdateUserV2
+  - openapi/devtron-openapi-original.yml#CreateUser
+  - openapi/devtron-openapi-original.yml#UpdateUser
+- status: 422
+  title: Unprocessable Entity
+  remediation: The payload is well-formed but semantically invalid; fix the flagged fields.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#PatchAppEnv
+- status: 500
+  title: Internal Server Error
+  remediation: A server-side error occurred; retry later or check orchestrator logs.
+  example_operations:
+  - openapi/devtron-openapi-original.yml#listAppLabels
+  - openapi/devtron-openapi-original.yml#getAppMetaInfo
+  - openapi/devtron-openapi-original.yml#getHelmAppMetaInfo
+  - openapi/devtron-openapi-original.yml#createOrCloneJob

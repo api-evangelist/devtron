@@ -1,8 +1,17 @@
 aid: devtron
 name: Devtron
-description: 'Devtron is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. Sector: devops. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  Devtron is an open-source, AI-native Kubernetes management and software
+  delivery platform that unifies application, infrastructure, and cost
+  management for engineering, DevOps, and SRE teams. It provides Kubernetes-native
+  CI/CD, GitOps (ArgoCD/FluxCD), multi-cluster operations, security and compliance
+  governance, observability, and FinOps in a single interface, with 100+ tool
+  integrations and an agentic SRE assistant. Devtron exposes a programmable
+  orchestrator REST API (OpenAPI 3.0, 110 operations) covering application, job,
+  Helm chart, deployment, bulk-action, RBAC, SSO, cluster/environment and
+  notification management, authenticated with RBAC-scoped API tokens. Backed by
+  Insight Partners. Enriched by the API Evangelist pipeline from Devtron's public
+  developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/devtron/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +19,756 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://avatars.githubusercontent.com/u/60952665?v=4
 tags:
 - Company
-- Devops
-apis: []
+- DevOps
+- Kubernetes
+- CI/CD
+- GitOps
+- Platform Engineering
+- Software Delivery
+- FinOps
+- Observability
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: devtron:devtron-applications-api
+  name: Devtron Applications API
+  description: Application management operations including creation, listing, and updates
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-applications-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-authentication-api
+  name: Devtron Authentication API
+  description: Core authentication endpoints including login, token refresh, and auth verification.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-authentication-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-bulk-other-api
+  name: Devtron bulk_other API
+  description: The bulk_other API from Devtron — 2 operation(s) for bulk_other.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - bulk_other
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-bulk-other-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-bulkupdate-api
+  name: Devtron BulkUpdate API
+  description: The BulkUpdate API from Devtron — 5 operation(s) for bulkupdate.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - BulkUpdate
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-bulkupdate-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-cache-management-api
+  name: Devtron Cache Management API
+  description: Endpoints for managing authentication and authorization caches.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Cache Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-cache-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-change-chart-api
+  name: Devtron Change Chart API
+  description: The Change Chart API from Devtron — 1 operation(s) for change chart.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Change Chart
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-change-chart-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-clone-workflow-api
+  name: Devtron Clone Workflow API
+  description: The Clone Workflow API from Devtron — 1 operation(s) for clone workflow.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Clone Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-clone-workflow-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-cluster-environment-api
+  name: Devtron Cluster Environment API
+  description: Operations related to clusters and environments
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Cluster Environment
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-cluster-environment-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-cluster-management-api
+  name: Devtron Cluster Management API
+  description: Operations related to cluster creation, update, and validation
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Cluster Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-cluster-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-deployment-history-api
+  name: Devtron Deployment History API
+  description: >-
+    Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Deployment History
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-deployment-history-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-devtron-server-version-api
+  name: Devtron Devtron Server version API
+  description: The Devtron Server version API from Devtron — 1 operation(s) for devtron server version.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Devtron Server version
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-devtron-server-version-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-environment-management-api
+  name: Devtron Environment Management API
+  description: Operations for creating, updating, and deleting environments
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Environment Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-environment-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-gitops-validation-api
+  name: Devtron GitOps Validation API
+  description: The GitOps Validation API from Devtron — 2 operation(s) for gitops validation.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - GitOps Validation
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-gitops-validation-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-helm-charts-api
+  name: Devtron Helm Charts API
+  description: Helm chart deployment management and operations
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Helm Charts
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-helm-charts-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-jobs-api
+  name: Devtron Jobs API
+  description: Job management operations for creating, cloning, and retrieving jobs
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-jobs-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-k8s-api
+  name: Devtron K8s API
+  description: The K8s API from Devtron — 1 operation(s) for k8s.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - K8s
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-k8s-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-k8s-resource-api
+  name: Devtron K8s Resource API
+  description: APIs for managing Kubernetes resources (get, create, update, delete, list).
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - K8s Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-k8s-resource-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-labels-api
+  name: Devtron Labels API
+  description: The Labels API from Devtron — 1 operation(s) for labels.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-labels-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-list-applications-api
+  name: Devtron List Applications API
+  description: Application listing
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - List Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-list-applications-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-metadata-api
+  name: Devtron Metadata API
+  description: Application metadata and information retrieval
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-metadata-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-notifications-api
+  name: Devtron Notifications API
+  description: The Notifications API from Devtron — 3 operation(s) for notifications.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-notifications-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-policy-management-api
+  name: Devtron Policy Management API
+  description: Endpoints for managing policies.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Policy Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-policy-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-rbac-api
+  name: Devtron RBAC API
+  description: Operations related to Role-Based Access Control, like fetching default roles.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - RBAC
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-rbac-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-resource-recommendation-api
+  name: Devtron Resource Recommendation API
+  description: Operations related to resource recommendations for Kubernetes workloads.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Resource Recommendation
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-resource-recommendation-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-role-group-management-api
+  name: Devtron Role Group Management API
+  description: Operations related to user role groups (CRUD, listing, bulk actions).
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Role Group Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-role-group-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-sso-configuration-api
+  name: Devtron SSO Configuration API
+  description: Manage Single Sign-On (SSO) provider configurations.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - SSO Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-sso-configuration-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-user-management-api
+  name: Devtron User Management API
+  description: Operations related to user accounts (CRUD, listing, bulk actions).
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - User Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-user-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-workflow-management-api
+  name: Devtron Workflow Management API
+  description: The Workflow Management API from Devtron — 2 operation(s) for workflow management.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Workflow Management
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-workflow-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
 common:
 - type: Website
   url: https://devtron.ai/
+- type: DeveloperPortal
+  url: https://docs.devtron.ai/
+- type: Documentation
+  url: https://docs.devtron.ai/
+- type: APIReference
+  url: https://apidocs.devtron.ai/specs/swagger/openapi.html
+- type: GettingStarted
+  url: https://docs.devtron.ai/getting-started/
+- type: Blog
+  url: https://devtron.ai/blog/
+- type: GitHubOrganization
+  url: https://github.com/devtron-labs
+- type: Support
+  url: https://discord.com/invite/jsRG5qx2gp
+- type: Pricing
+  url: https://devtron.ai/pricing
+- type: TermsOfService
+  url: https://devtron.ai/terms-of-use
+- type: PrivacyPolicy
+  url: https://devtron.ai/privacy-policy
+- type: ChangeLog
+  url: changelog/devtron-changelog.yml
+- type: Lifecycle
+  url: lifecycle/devtron-lifecycle.yml
+- type: Authentication
+  url: authentication/devtron-authentication.yml
+- type: Packages
+  url: packages/devtron-packages.yml
+- type: LLMsTxt
+  url: llms/devtron-llms.txt
+- type: DomainSecurity
+  url: security/devtron-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/devtron-agentic-access.yml
+- type: MCPServer
+  url: mcp/devtron-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/devtron-notifications-webhooks.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
