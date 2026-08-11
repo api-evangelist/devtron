@@ -725,6 +725,8 @@ apis:
   - type: Webhooks
     url: asyncapi/devtron-notifications-webhooks.yml
 common:
+- type: Overlay
+  url: overlays/devtron-overlay.yaml
 - type: Website
   url: https://devtron.ai/
 - type: DeveloperPortal
