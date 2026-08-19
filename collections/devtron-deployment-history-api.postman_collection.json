@@ -1,0 +1,1289 @@
+{
+  "item": [
+    {
+      "id": "d647079c-a283-491c-a41c-dc2be6e237f9",
+      "name": "Deployment History",
+      "description": {
+        "content": "Retrieves the deployment history for a specific CD pipeline based on various filter criteria.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2cb15236-4fc7-4995-84a7-12d709b3c68c",
+          "name": "Get Deployment History",
+          "request": {
+            "name": "Get Deployment History",
+            "description": {
+              "content": "Retrieves the deployment history for a specific CD pipeline based on various filter criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "history",
+                "deployment",
+                "cd-pipeline",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filterCriteria",
+                  "value": "<string>",
+                  "description": "(Required) Filter criteria for deployment history. Example:\n- application/devtron-application|id|1064\n- environment|id|146\n- release|id|203\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "filterCriteria",
+                  "value": "<string>",
+                  "description": "(Required) Filter criteria for deployment history. Example:\n- application/devtron-application|id|1064\n- environment|id|146\n- release|id|203\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The starting point for fetching records (pagination)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of records to return (pagination)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "717c6883-cd1c-4a47-a32a-cf00ce0ed67c",
+              "name": "Successful retrieval of deployment history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "history",
+                    "deployment",
+                    "cd-pipeline",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filterCriteria",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filterCriteria",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"status\": \"OK\",\n  \"result\": {\n    \"cdWorkflows\": [\n      {\n        \"id\": 19752,\n        \"cd_workflow_id\": 19561,\n        \"name\": \"cd-1064-nu4s\",\n        \"status\": \"Failed\",\n        \"pod_status\": \"\",\n        \"message\": \"Unable to continue with install: could not get information about the resource Job \\\"\\\" in namespace \\\"devtroncd\\\": resource name may not be empty\",\n        \"started_on\": \"2024-07-25T08:26:21.792068Z\",\n        \"finished_on\": \"2024-07-25T08:26:23.855384Z\",\n        \"pipeline_id\": 2082,\n        \"namespace\": \"devtron-cd\",\n        \"log_file_path\": \"\",\n        \"triggered_by\": 23,\n        \"email_id\": \"deepak@devtron.ai\",\n        \"image\": \"devtroninc.azurecr.io/test:8a0c2298-fc94fa4b-956-18655\",\n        \"ci_artifact_id\": 14593,\n        \"workflow_type\": \"DEPLOY\",\n        \"blobStorageEnabled\": true,\n        \"userApprovalMetadata\": null,\n        \"gitTriggers\": {\n          \"1013\": {\n            \"Commit\": \"8a0c22983ae7acae10abe7569026ae25d889e159\",\n            \"Author\": \"jatin-jangir-0220 <122791251+jatin-jangir-0220@users.noreply.github.com>\",\n            \"Date\": \"2024-04-29T18:49:39Z\",\n            \"Message\": \"Update Dockerfile (#19)\\n\\n\",\n            \"Changes\": null,\n            \"WebhookData\": {\n              \"id\": 0,\n              \"eventActionType\": \"\",\n              \"data\": null\n            },\n            \"CiConfigureSourceValue\": \"main\",\n            \"GitRepoUrl\": \"https://github.com/devtron-labs/casbin-enterprise\",\n            \"GitRepoName\": \"casbin-enterprise\",\n            \"CiConfigureSourceType\": \"SOURCE_TYPE_BRANCH_FIXED\"\n          },\n          \"2072\": {\n            \"Commit\": \"fc94fa4bad21460e822ce896b5166273aa3df1a8\",\n            \"Author\": \"Gireesh Naidu <111440205+gireesh-naidu@users.noreply.github.com>\",\n            \"Date\": \"2024-07-23T18:13:18+05:30\",\n            \"Message\": \"fix: getting 500 while updating the branch of linked CI (#1424)\\n\\n* fix: sync ci pipeline materials for linked pipelines\\r\\n\\r\\n* fix: sync ci pipeline materials for linked pipelines\\r\\n\\r\\n* fix: null column fix\\r\\n\\r\\n* fix: null column fix\\r\\n\\r\\n* fix: able to delete ci pipeline though it has linked ci's using API\",\n            \"Changes\": null,\n            \"WebhookData\": {\n              \"id\": 0,\n              \"eventActionType\": \"\",\n              \"data\": null\n            },\n            \"CiConfigureSourceValue\": \"main\",\n            \"GitRepoUrl\": \"https://github.com/devtron-labs/devtron-enterprise\",\n            \"GitRepoName\": \"devtron-enterprise\",\n            \"CiConfigureSourceType\": \"SOURCE_TYPE_BRANCH_FIXED\"\n          }\n        },\n        \"ciMaterials\": [\n          {\n            \"id\": 1013,\n            \"gitMaterialId\": 411,\n            \"gitMaterialUrl\": \"\",\n            \"gitMaterialName\": \"casbin-enterprise\",\n            \"type\": \"SOURCE_TYPE_BRANCH_FIXED\",\n            \"value\": \"main\",\n            \"active\": true,\n            \"lastFetchTime\": \"0001-01-01T00:00:00Z\",\n            \"isRepoError\": false,\n            \"repoErrorMsg\": \"\",\n            \"isBranchError\": false,\n            \"branchErrorMsg\": \"\",\n            \"url\": \"https://github.com/devtron-labs/casbin-enterprise\",\n            \"regex\": \"\"\n          },\n          {\n            \"id\": 2072,\n            \"gitMaterialId\": 1286,\n            \"gitMaterialUrl\": \"\",\n            \"gitMaterialName\": \"devtron-enterprise\",\n            \"type\": \"SOURCE_TYPE_BRANCH_FIXED\",\n            \"value\": \"main\",\n            \"active\": true,\n            \"lastFetchTime\": \"0001-01-01T00:00:00Z\",\n            \"isRepoError\": false,\n            \"repoErrorMsg\": \"\",\n            \"isBranchError\": false,\n            \"branchErrorMsg\": \"\",\n            \"url\": \"https://github.com/devtron-labs/devtron-enterprise\",\n            \"regex\": \"\"\n          }\n        ],\n        \"imageReleaseTags\": null,\n        \"imageComment\": null,\n        \"referenceCdWorkflowRunnerId\": 0,\n        \"appliedFilters\": null,\n        \"appliedFiltersState\": 0,\n        \"appliedFiltersTimestamp\": \"0001-01-01T00:00:00Z\",\n        \"promotionApprovalMetadata\": null,\n        \"runSource\": {\n          \"kind\": \"release\",\n          \"version\": \"alpha1\",\n          \"id\": 203,\n          \"identifier\": \"qa-releases-track-0.0.2\",\n          \"releaseVersion\": \"0.0.2\",\n          \"name\": \"deepak-qa-release\",\n          \"releaseTrackName\": \"qa-releases-track\"\n        },\n        \"targetConfig\": {\n          \"tenantId\": \"qa-devtroncd-x\",\n          \"tenantName\": \"QA Devtron Env\",\n          \"installationId\": \"qa-devtroncd-2\",\n          \"installationName\": \"qa-devtroncd-2\",\n          \"releaseChannelId\": \"beta\",\n          \"releaseChannelName\": \"beta-channel\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e562abd2-c0fa-43c5-a408-3f51dc7d81e4",
+          "name": "Fetch component history",
+          "request": {
+            "name": "Fetch component history",
+            "description": {
+              "content": "fetch detail of a history on the basis of the history component and it's name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "history",
+                "deployed-component",
+                "detail",
+                ":appId",
+                ":pipelineId",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "historyComponent",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "historyComponentName",
+                  "value": "<string>",
+                  "description": "name of config-map, secret"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b974b6a-3453-43e8-b021-2aabee97e56a",
+              "name": "Successfully return history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "detail",
+                    ":appId",
+                    ":pipelineId",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"values\": [\n    {\n      \"fieldName\": {\n        \"displayName\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    {\n      \"fieldName\": {\n        \"displayName\": \"string\",\n        \"value\": \"string\"\n      }\n    }\n  ],\n  \"codeEditorValue\": {\n    \"displayName\": \"string\",\n    \"value\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4b012bd-c5b5-4d5a-8ca5-857473cf3426",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "detail",
+                    ":appId",
+                    ":pipelineId",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b6acb4d-d639-452d-868d-d942b86fd639",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "detail",
+                    ":appId",
+                    ":pipelineId",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1173f5a0-2220-46a8-b30c-e34049e3b88c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "detail",
+                    ":appId",
+                    ":pipelineId",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "406346c1-edb8-4e8b-8bae-1ada509a8d2f",
+          "name": "fetch deployed history details list",
+          "request": {
+            "name": "fetch deployed history details list",
+            "description": {
+              "content": "fetch deployed history details list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "history",
+                "deployed-component",
+                "list",
+                ":appId",
+                ":pipelineId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "historyComponent",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "historyComponentName",
+                  "value": "<string>",
+                  "description": "name of config-map, secret"
+                },
+                {
+                  "disabled": false,
+                  "key": "baseConfigurationId",
+                  "value": "<integer>",
+                  "description": "(Required) id of base configuration"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04841d71-f0c9-4f91-96e2-c8007ce88b46",
+              "name": "Successfully return history list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "list",
+                    ":appId",
+                    ":pipelineId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseConfigurationId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2792,\n    \"deployedOn\": \"string\",\n    \"deployedBy\": \"string\",\n    \"deploymentStatus\": \"string\"\n  },\n  {\n    \"id\": 9147,\n    \"deployedOn\": \"string\",\n    \"deployedBy\": \"string\",\n    \"deploymentStatus\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fe1b629-c464-481c-afd8-a6b1045c31a2",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "list",
+                    ":appId",
+                    ":pipelineId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseConfigurationId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d2a433d-73f7-4a47-9c22-bda580c668ea",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "list",
+                    ":appId",
+                    ":pipelineId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseConfigurationId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc68edcb-35d8-4fe2-902d-3955d1da5c16",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-component",
+                    "list",
+                    ":appId",
+                    ":pipelineId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "historyComponent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historyComponentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseConfigurationId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1b4e7e7-c8ad-4baf-b977-fea2d1d8c59c",
+          "name": "all deployed configuration history",
+          "request": {
+            "name": "all deployed configuration history",
+            "description": {
+              "content": "fetch all deployed configurations history (deployment template, pipeline strategy, configmaps, secrets)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "history",
+                "deployed-configuration",
+                ":appId",
+                ":pipelineId",
+                ":wfrId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "appId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "pipelineId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "wfrId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b88ca22-bb09-46a7-a494-f9d45e482655",
+              "name": "Successfully return history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-configuration",
+                    ":appId",
+                    ":pipelineId",
+                    ":wfrId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "wfrId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    {\n      \"id\": 30,\n      \"name\": \"PIPELINE_STRATEGY\",\n      \"childList\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 9553,\n      \"name\": \"DEPLOYMENT_TEMPLATE\",\n      \"childList\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  [\n    {\n      \"id\": 1520,\n      \"name\": \"DEPLOYMENT_TEMPLATE\",\n      \"childList\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 5231,\n      \"name\": \"CONFIGMAP\",\n      \"childList\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7600774d-e06f-4d01-9031-3220468fc635",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-configuration",
+                    ":appId",
+                    ":pipelineId",
+                    ":wfrId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "wfrId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cfd717c-3aaf-4cb6-aec4-eb7db42ceccc",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-configuration",
+                    ":appId",
+                    ":pipelineId",
+                    ":wfrId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "wfrId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e483199-7fd8-44bd-aaac-aadddc967ef4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "history",
+                    "deployed-configuration",
+                    ":appId",
+                    ":pipelineId",
+                    ":wfrId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "appId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "pipelineId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "wfrId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2508,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "20aa4089-67d7-4910-9c69-f27ca802182f",
+    "name": "Devtron APIs Specs Applications Deployment History API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

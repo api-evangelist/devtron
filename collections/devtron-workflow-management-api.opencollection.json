@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Workflow Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflow Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an application workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/app/workflow",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new workflow for a given application."
+        },
+        {
+          "info": {
+            "name": "Delete an application workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/app/workflow/:app-wf-id/app/:app-id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "app-wf-id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the application workflow to delete."
+              },
+              {
+                "name": "app-id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the application."
+              }
+            ]
+          },
+          "docs": "Deletes an existing workflow for a given application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

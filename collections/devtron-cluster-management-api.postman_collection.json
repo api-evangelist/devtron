@@ -1,0 +1,1179 @@
+{
+  "item": [
+    {
+      "id": "ecca2b4e-9682-48fb-a288-eb829948f189",
+      "name": "Cluster Management",
+      "description": {
+        "content": "Operations related to cluster creation, update, and validation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8aac22bb-337e-4574-9a9c-7b8486062aa8",
+          "name": "Delete Cluster",
+          "request": {
+            "name": "Delete Cluster",
+            "description": {
+              "content": "Delete an existing cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b6399f6-263d-40ed-96b1-227fcbd22b3a",
+              "name": "Successfully deleted the cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Cluster deleted successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d923aef-2771-4eec-9cdb-a79360413b1b",
+              "name": "Bad Request. Input Validation(decode) error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73a6063e-77d2-4ca5-9342-a8b71a635030",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c90b3015-5c49-4c86-bf87-39bdf2ef8540",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51d12bc1-05bb-4f58-a528-9aa96198e455",
+          "name": "Update Cluster",
+          "request": {
+            "name": "Update Cluster",
+            "description": {
+              "content": "Update an existing cluster's configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0990fd56-9a54-4080-b071-1ffdc5d11337",
+              "name": "Successfully updated the cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff83f042-9b3e-44de-89d9-219bb28a8897",
+              "name": "Bad Request. Input Validation(decode) error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1afbd57-14ea-4e43-abf5-718f22c0e3a4",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "862042c1-a865-4635-9fb2-e80a06ac7b3a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16f1be18-1c63-4e4b-a264-ae277852f485",
+          "name": "Get Cluster",
+          "request": {
+            "name": "Get Cluster",
+            "description": {
+              "content": "Get details of a specific cluster by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) cluster id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81549704-ae6e-4601-941f-71f9588f3660",
+              "name": "Successfully get cluster",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"server_url\": \"<string>\",\n  \"prometheus_url\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"config\": {\n    \"bearer_token\": \"<string>\"\n  },\n  \"prometheusAuth\": {\n    \"userName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"tlsClientCert\": \"<string>\",\n    \"tlsClientKey\": \"<string>\"\n  },\n  \"defaultClusterComponents\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<integer>\",\n      \"installedAppId\": \"<integer>\",\n      \"envId\": \"<integer>\",\n      \"envname\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"k8sversion\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c86af84-4254-4ccf-92f1-940d50cceefc",
+              "name": "Bad Request. Input Validation(decode) error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12fbd6e6-0f91-4644-a5cb-0b0cd6ca3a98",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efc4f5a6-2eef-40e2-bcff-bd42cf40bae0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b1e3251-498b-4154-83a9-0c03c3950146",
+          "name": "List Accessible Clusters",
+          "request": {
+            "name": "List Accessible Clusters",
+            "description": {
+              "content": "list of clusters accessible to the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                "auth-list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c74871d2-5568-418b-851f-62bc6292f961",
+              "name": "cluster list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "auth-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4218,\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"clusterId\": 6981,\n      \"clusterName\": \"string\",\n      \"errorInConnecting\": \"string\"\n    },\n    {\n      \"clusterId\": 7169,\n      \"clusterName\": \"string\",\n      \"errorInConnecting\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad4a9ae8-dd2c-4d9b-a70c-8fdc5abbe59f",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "auth-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 940,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0d6b4c8-9ba7-4499-a991-d095dfd30f14",
+          "name": "Validate Cluster Configuration",
+          "request": {
+            "name": "Validate Cluster Configuration",
+            "description": {
+              "content": "Validate a cluster configuration using kubeconfig.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"kubeconfig\": {\n    \"config\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1eeb79b-0ae4-45b9-b610-62e8a220b8aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kubeconfig\": {\n    \"config\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cluster_name\": \"string\",\n  \"server_url\": \"string\",\n  \"userInfos\": {\n    \"key_0\": {\n      \"userName\": \"string\",\n      \"config\": {\n        \"key_0\": \"string\"\n      },\n      \"errorInConnecting\": \"string\"\n    },\n    \"key_1\": {\n      \"userName\": \"string\",\n      \"config\": {\n        \"key_0\": \"string\"\n      },\n      \"errorInConnecting\": \"string\"\n    }\n  },\n  \"id\": 9727,\n  \"prometheus_url\": \"string\",\n  \"active\": true,\n  \"config\": {\n    \"bearer_token\": \"string\",\n    \"tls_key\": \"string\",\n    \"cert_data\": \"string\",\n    \"cert_auth_data\": \"string\"\n  },\n  \"prometheusAuth\": {\n    \"type\": \"basic\",\n    \"basic\": {\n      \"username\": \"string\",\n      \"password\": \"string\"\n    },\n    \"bearer\": {\n      \"token\": \"string\"\n    }\n  },\n  \"defaultClusterComponent\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"status\": \"string\",\n      \"configuration\": {\n        \"type\": \"json\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"status\": \"string\",\n      \"configuration\": {\n        \"type\": \"yaml\"\n      }\n    }\n  ],\n  \"agentInstallationStage\": 4546,\n  \"k8sVersion\": \"string\",\n  \"userName\": \"string\",\n  \"insecure-skip-tls-verify\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dff5275d-2a00-4b47-bc4e-cee16b253323",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kubeconfig\": {\n    \"config\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3359c769-0835-4a74-9799-ea9267043a03",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kubeconfig\": {\n    \"config\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87bdb93d-015d-4006-99bb-2b0064d83f88",
+          "name": "Save Multiple Clusters",
+          "request": {
+            "name": "Save Multiple Clusters",
+            "description": {
+              "content": "Save configurations for multiple clusters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                "saveClusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\",\n          \"key_4\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_2\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_3\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  },\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd281815-9e4b-46a1-b9c1-de29dab26b97",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "saveClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_2\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  },\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  },\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ee6d6d4-118c-4443-a441-d1de2c1fae38",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "saveClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_2\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  },\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24ec64f4-a731-4178-ab55-3212107db10a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    "saveClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_2\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  },\n  {\n    \"cluster_name\": \"<string>\",\n    \"server_url\": \"<string>\",\n    \"userInfos\": {\n      \"key_0\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      },\n      \"key_1\": {\n        \"userName\": \"<string>\",\n        \"config\": {\n          \"key_0\": \"<string>\"\n        },\n        \"errorInConnecting\": \"<string>\"\n      }\n    },\n    \"id\": \"<integer>\",\n    \"prometheus_url\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"config\": {\n      \"bearer_token\": \"<string>\",\n      \"tls_key\": \"<string>\",\n      \"cert_data\": \"<string>\",\n      \"cert_auth_data\": \"<string>\"\n    },\n    \"prometheusAuth\": {\n      \"type\": \"<string>\",\n      \"basic\": {\n        \"username\": \"<string>\",\n        \"password\": \"<string>\"\n      },\n      \"bearer\": {\n        \"token\": \"<string>\"\n      }\n    },\n    \"defaultClusterComponent\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"status\": \"<string>\",\n        \"configuration\": {\n          \"type\": \"<string>\"\n        }\n      }\n    ],\n    \"agentInstallationStage\": \"<integer>\",\n    \"k8sVersion\": \"<string>\",\n    \"userName\": \"<string>\",\n    \"insecure-skip-tls-verify\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5579,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8fa0e7d2-c93d-4761-be02-e9ddbbe1f821",
+    "name": "Devtron APIs Specs Applications Cluster Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

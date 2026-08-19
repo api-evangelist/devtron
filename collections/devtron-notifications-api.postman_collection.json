@@ -1,0 +1,972 @@
+{
+  "item": [
+    {
+      "id": "0bfed41f-37de-43df-8381-20a235c241a6",
+      "name": "Notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2a9670a-2cfb-4f88-a63f-f7da590b56b4",
+          "name": "Returns all notification settings",
+          "request": {
+            "name": "Returns all notification settings",
+            "description": {
+              "content": "Returns all notification settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) value can be regex search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "(Required) value can be regex search string."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c6d74ea-02a5-41d5-b001-7d76d33695a5",
+              "name": "list response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configName\": \"string\",\n  \"id\": 3500,\n  \"appId\": 1849,\n  \"envId\": 1590,\n  \"pipelineIds\": [\n    4882,\n    8854\n  ],\n  \"eventTypeIds\": [\n    6908,\n    9383\n  ],\n  \"pipelineType\": \"string\",\n  \"providers\": [\n    {\n      \"dest\": \"string\",\n      \"rule\": \"string\",\n      \"configId\": 8819\n    },\n    {\n      \"dest\": \"string\",\n      \"rule\": \"string\",\n      \"configId\": 4048\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ea548ab-ffad-4a92-a5f1-ba3b7d773a93",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8c90059-b89d-4b4c-8f56-7b33f535fc07",
+          "name": "Creates a new NotificationSetting",
+          "request": {
+            "name": "Creates a new NotificationSetting",
+            "description": {
+              "content": "create NotificationSetting api.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d782695a-9c02-4e17-9381-13675a8cd38a",
+              "name": "create NotificationSetting response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce30d9aa-d6bf-4978-91c4-7c79cb2930bc",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "277700ce-8984-43ef-9304-2954c9af6b43",
+          "name": "Update  NotificationSetting",
+          "request": {
+            "name": "Update  NotificationSetting",
+            "description": {
+              "content": "Update NotificationSetting api either recipients or events(trigger/success/failed).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47b00582-43b3-4878-abd2-71c59c712b76",
+              "name": "create NotificationSetting response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d549ad3e-a17a-4b73-a7bb-d69a65453d4e",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc37e01e-a176-4bb3-93c5-be3deba0ee13",
+          "name": "Delete NotificationSetting",
+          "request": {
+            "name": "Delete NotificationSetting",
+            "description": {
+              "content": "delete notification setting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85481e52-7c34-4d5f-a589-9a7c515a4c7a",
+              "name": "create NotificationSetting response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84e0d47c-45fb-4e85-91b4-de98cbbd512a",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configName\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"envId\": \"<integer>\",\n  \"pipelineIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"eventTypeIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"pipelineType\": \"<string>\",\n  \"providers\": [\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    },\n    {\n      \"dest\": \"<string>\",\n      \"rule\": \"<string>\",\n      \"configId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9b0c3a0-91bb-415f-9ba8-3faf5db67c16",
+          "name": "used to fetch providers(recipients)",
+          "request": {
+            "name": "used to fetch providers(recipients)",
+            "description": {
+              "content": "recipients fetch by string search, it will return slacks providers and email ids",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification",
+                "recipient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) value can be regex search string."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "912b08dc-80e2-4a81-841d-181741ae3db6",
+              "name": "list of recipients",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "recipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "766aac37-06e8-4b35-8718-b55ac03010e7",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "recipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "610841f5-7911-440e-8e97-a2ba3863ca72",
+          "name": "get all NotificationSettingConfig list",
+          "request": {
+            "name": "get all NotificationSettingConfig list",
+            "description": {
+              "content": "get all NotificationSettingConfig list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification",
+                "channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f302a98e-c541-4591-8f41-f7c49c0198b5",
+              "name": "list response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"slackConfigs\": [\n    {\n      \"type\": \"string\",\n      \"configName\": \"string\",\n      \"id\": 5257,\n      \"secretKey\": \"string\",\n      \"accessKey\": \"string\",\n      \"fromEmail\": \"string\",\n      \"region\": \"string\",\n      \"webhookUrl\": \"string\",\n      \"teamId\": 9196,\n      \"userId\": 7240\n    },\n    {\n      \"type\": \"string\",\n      \"configName\": \"string\",\n      \"id\": 9688,\n      \"secretKey\": \"string\",\n      \"accessKey\": \"string\",\n      \"fromEmail\": \"string\",\n      \"region\": \"string\",\n      \"webhookUrl\": \"string\",\n      \"teamId\": 786,\n      \"userId\": 9106\n    }\n  ],\n  \"sesConfigs\": [\n    {\n      \"type\": \"string\",\n      \"configName\": \"string\",\n      \"id\": 7003,\n      \"secretKey\": \"string\",\n      \"accessKey\": \"string\",\n      \"fromEmail\": \"string\",\n      \"region\": \"string\",\n      \"webhookUrl\": \"string\",\n      \"teamId\": 8025,\n      \"userId\": 2299\n    },\n    {\n      \"type\": \"string\",\n      \"configName\": \"string\",\n      \"id\": 9815,\n      \"secretKey\": \"string\",\n      \"accessKey\": \"string\",\n      \"fromEmail\": \"string\",\n      \"region\": \"string\",\n      \"webhookUrl\": \"string\",\n      \"teamId\": 1572,\n      \"userId\": 363\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2c7edbd-21ca-4097-8389-4a38ad8187b7",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b247956c-836f-4f89-ad1f-5d84b78e660e",
+          "name": "Creates a new NotificationSettingConfig",
+          "request": {
+            "name": "Creates a new NotificationSettingConfig",
+            "description": {
+              "content": "create NotificationSettingConfig, Slack or SES",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notification",
+                "channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": \"<string>\",\n  \"configs\": [\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c309b418-1c88-463e-9f3e-ac8dba0ce7f9",
+              "name": "create NotificationSettingConfig response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"configs\": [\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"slackConfigs\": [\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    }\n  ],\n  \"sesConfigs\": [\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "551625ca-4cf7-42dd-97d3-4ab267e80d4e",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notification",
+                    "channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"<string>\",\n  \"configs\": [\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"configName\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"secretKey\": \"<string>\",\n      \"accessKey\": \"<string>\",\n      \"fromEmail\": \"<string>\",\n      \"region\": \"<string>\",\n      \"webhookUrl\": \"<string>\",\n      \"teamId\": \"<integer>\",\n      \"userId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6000,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "35af7677-3442-4be8-99e0-411863a001d5",
+    "name": "Devtron APIs Specs Applications Notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

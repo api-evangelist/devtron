@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "55945697-a3e0-4714-be5a-8062bd09f53e",
+      "name": "K8s",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0e187d6-f94b-4c31-b01e-efbc4f6ede0f",
+          "name": "Get Resource Recommendation for a particular resource",
+          "request": {
+            "name": "Get Resource Recommendation for a particular resource",
+            "description": {
+              "content": "This API will fetch resource recommendations for a specific Kubernetes resource",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "recommended"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2e83692-40f6-44bc-a629-5733f2f62359",
+              "name": "Resource recommendation response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "recommended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"manifestResponse\": {\n    \"manifest\": {\n      \"key_0\": false,\n      \"key_1\": \"string\",\n      \"key_2\": 3950\n    },\n    \"recommendedManifest\": {\n      \"key_0\": 5546.045327842526\n    }\n  },\n  \"secretViewAccess\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "19e85cc8-ed9a-42cc-b38b-cb63703992a6",
+    "name": "Devtron APIs Specs Applications K8s API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

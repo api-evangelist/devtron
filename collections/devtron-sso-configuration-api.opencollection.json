@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications SSO Configuration API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSO Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create SSO Login Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/sso/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create SSO Login Configuration"
+        },
+        {
+          "info": {
+            "name": "Update SSO Login Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/sso/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update SSO Login Configuration"
+        },
+        {
+          "info": {
+            "name": "Get All SSO Login Configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/sso/list"
+          },
+          "docs": "Get All SSO Login Configurations"
+        },
+        {
+          "info": {
+            "name": "Get SSO Login Configuration by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/sso/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Get SSO Login Configuration by ID"
+        },
+        {
+          "info": {
+            "name": "Get SSO Login Configuration by Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/sso",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the SSO configuration."
+              }
+            ]
+          },
+          "docs": "Get SSO Login Configuration by Name"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

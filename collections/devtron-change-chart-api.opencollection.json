@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Change Chart API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Change Chart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Patch Application Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost/orchestrator/app/env/patch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "change the deployment template for an app and environment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

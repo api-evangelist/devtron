@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Cache Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cache Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Role Cache Dump",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/cache"
+          },
+          "docs": "Retrieves a dump of the role cache. Requires super admin privileges."
+        },
+        {
+          "info": {
+            "name": "Invalidate Role Cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/cache/invalidate"
+          },
+          "docs": "Clears the role cache. Requires super admin privileges."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

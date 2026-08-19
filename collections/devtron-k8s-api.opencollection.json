@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications K8s API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "K8s",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Resource Recommendation for a particular resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/recommended",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API will fetch resource recommendations for a specific Kubernetes resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

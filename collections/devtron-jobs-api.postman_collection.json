@@ -1,0 +1,696 @@
+{
+  "item": [
+    {
+      "id": "cf515e89-50b1-4955-8923-fb5d4125dbd0",
+      "name": "Jobs",
+      "description": {
+        "content": "Job management operations for creating, cloning, and retrieving jobs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b028a3fc-6ad1-4274-915b-c5993f1ee2ac",
+          "name": "Create or clone a job",
+          "request": {
+            "name": "Create or clone a job",
+            "description": {
+              "content": "Create and clone a job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appName\": \"<string>\",\n  \"isJob\": \"<boolean>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propogate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propogate\": \"<boolean>\"\n    }\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4e1980d-01d7-4aa6-8b0b-e9c5642a348c",
+              "name": "Used to give response once a job is created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"my-job-1\",\n  \"isJob\": true,\n  \"teamId\": 1,\n  \"templateId\": 18,\n  \"labels\": [\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    },\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    }\n  ],\n  \"description\": \"This is my first Job\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 25,\n  \"appName\": \"my-job-1\",\n  \"material\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"id\": 9495,\n      \"gitProviderId\": 3679,\n      \"checkoutPath\": \"string\",\n      \"fetchSubmodules\": false,\n      \"isUsedInCiConfig\": false\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"id\": 2857,\n      \"gitProviderId\": 1243,\n      \"checkoutPath\": \"string\",\n      \"fetchSubmodules\": true,\n      \"isUsedInCiConfig\": false\n    }\n  ],\n  \"teamId\": 1,\n  \"templateId\": 0,\n  \"description\": \"This is my first Job\",\n  \"isJob\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca89b17f-e750-4a72-a047-7fbd69de2dbb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"my-job-1\",\n  \"isJob\": true,\n  \"teamId\": 1,\n  \"templateId\": 18,\n  \"labels\": [\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    },\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    }\n  ],\n  \"description\": \"This is my first Job\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0884c1f2-d5c0-4da2-ab68-24c9aa9ddefc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"my-job-1\",\n  \"isJob\": true,\n  \"teamId\": 1,\n  \"templateId\": 18,\n  \"labels\": [\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    },\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    }\n  ],\n  \"description\": \"This is my first Job\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b1b639df-603e-4ccd-8757-560153ee4d1b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"my-job-1\",\n  \"isJob\": true,\n  \"teamId\": 1,\n  \"templateId\": 18,\n  \"labels\": [\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    },\n    {\n      \"key\": \"hello\",\n      \"value\": \"world\",\n      \"propogate\": false\n    }\n  ],\n  \"description\": \"This is my first Job\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "946a99f7-d134-4e4e-b16f-e35e9fdd521b",
+          "name": "List jobs",
+          "request": {
+            "name": "List jobs",
+            "description": {
+              "content": "Get the list of all the jobs by applying filter",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "job",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"teams\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"appStatuses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sortBy\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"size\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8249816-c11a-48cb-b22a-db274c4680fa",
+              "name": "Used to give response of list of jobs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teams\": [\n    1,\n    2\n  ],\n  \"appStatuses\": [\n    \"Succeeded\",\n    \"Starting\"\n  ],\n  \"sortBy\": \"appNameSort\",\n  \"sortOrder\": \"ASC\",\n  \"offset\": 0,\n  \"size\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobContainers\": [\n    {\n      \"jobId\": 1819,\n      \"jobName\": \"string\",\n      \"description\": \"string\",\n      \"ciPipelines\": [\n        {\n          \"ciPipelineId\": 9528,\n          \"status\": \"string\",\n          \"lastRunAt\": \"1992-05-07T00:40:33.004Z\",\n          \"lastSuccessAt\": \"1953-10-09T21:47:36.320Z\"\n        },\n        {\n          \"ciPipelineId\": 7195,\n          \"status\": \"string\",\n          \"lastRunAt\": \"1955-07-15T18:34:45.659Z\",\n          \"lastSuccessAt\": \"1971-05-23T11:48:31.448Z\"\n        }\n      ]\n    },\n    {\n      \"jobId\": 4910,\n      \"jobName\": \"string\",\n      \"description\": \"string\",\n      \"ciPipelines\": [\n        {\n          \"ciPipelineId\": 3691,\n          \"status\": \"string\",\n          \"lastRunAt\": \"1986-03-17T12:32:26.001Z\",\n          \"lastSuccessAt\": \"1963-07-01T12:29:34.436Z\"\n        },\n        {\n          \"ciPipelineId\": 6440,\n          \"status\": \"string\",\n          \"lastRunAt\": \"1954-08-14T18:01:38.502Z\",\n          \"lastSuccessAt\": \"2000-09-22T07:15:10.482Z\"\n        }\n      ]\n    }\n  ],\n  \"jobCount\": 8249\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44cf8226-2051-49b0-82c4-6e7dcc89758c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teams\": [\n    1,\n    2\n  ],\n  \"appStatuses\": [\n    \"Succeeded\",\n    \"Starting\"\n  ],\n  \"sortBy\": \"appNameSort\",\n  \"sortOrder\": \"ASC\",\n  \"offset\": 0,\n  \"size\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50a0512b-f789-4810-9721-69f201898c85",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teams\": [\n    1,\n    2\n  ],\n  \"appStatuses\": [\n    \"Succeeded\",\n    \"Starting\"\n  ],\n  \"sortBy\": \"appNameSort\",\n  \"sortOrder\": \"ASC\",\n  \"offset\": 0,\n  \"size\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c699de7-646d-4cdd-ab93-f55fd31ddb30",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teams\": [\n    1,\n    2\n  ],\n  \"appStatuses\": [\n    \"Succeeded\",\n    \"Starting\"\n  ],\n  \"sortBy\": \"appNameSort\",\n  \"sortOrder\": \"ASC\",\n  \"offset\": 0,\n  \"size\": 20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5d86a8c-cbdb-4266-b79c-973514ac1fb8",
+          "name": "Get job CI pipeline list",
+          "request": {
+            "name": "Get job CI pipeline list",
+            "description": {
+              "content": "fetch details of job ci-pipelines for the overview page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "job",
+                "ci-pipeline",
+                "list",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "jobId",
+                  "description": "(Required) Job Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "903f98b6-3493-4ce8-9c36-b6c9b353f045",
+              "name": "Job CI pipeline list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "ci-pipeline",
+                    "list",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jobId",
+                      "description": "(Required) Job Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45d83b68-1aec-4e38-b1ea-e598ea43b381",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "ci-pipeline",
+                    "list",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jobId",
+                      "description": "(Required) Job Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c51ec6e-92ce-4492-9030-7e67920639f3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "ci-pipeline",
+                    "list",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jobId",
+                      "description": "(Required) Job Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af5981ef-b789-408d-878f-bb41a70bf0ab",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "job",
+                    "ci-pipeline",
+                    "list",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "jobId",
+                      "description": "(Required) Job Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3e189ee8-50fe-4500-8559-11ccfa82c233",
+    "name": "Devtron APIs Specs Applications Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

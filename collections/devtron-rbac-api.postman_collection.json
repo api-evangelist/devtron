@@ -1,0 +1,214 @@
+{
+  "item": [
+    {
+      "id": "e83fcc35-4e82-4fa7-a3f5-928db37fb206",
+      "name": "RBAC",
+      "description": {
+        "content": "Operations related to Role-Based Access Control, like fetching default roles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "243329fd-52e8-4888-b986-c54dfbb51fb8",
+          "name": "Get All Default Roles",
+          "request": {
+            "name": "Get All Default Roles",
+            "description": {},
+            "url": {
+              "path": [
+                "rbac",
+                "roles",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17944e04-9a31-4fba-956b-2cfbba9f46c6",
+              "name": "List of default RBAC roles.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rbac",
+                    "roles",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1323,\n    \"roleName\": \"string\",\n    \"roleDisplayName\": \"string\",\n    \"roleDescription\": \"string\",\n    \"entity\": \"apps\",\n    \"accessType\": \"string\"\n  },\n  {\n    \"id\": 7780,\n    \"roleName\": \"string\",\n    \"roleDisplayName\": \"string\",\n    \"roleDescription\": \"string\",\n    \"entity\": \"jobs\",\n    \"accessType\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d16961ed-e183-4edc-8c7f-af99cd21cbbb",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rbac",
+                    "roles",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6499,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8371f0b3-7d54-46ff-adfd-b00b454c40df",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rbac",
+                    "roles",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6615,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3327438-70e8-4627-b8bb-91a64bcf47ff",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rbac",
+                    "roles",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6615,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ad103a71-03d2-4e4d-902b-eb99ea71533c",
+    "name": "Devtron APIs Specs Applications RBAC API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

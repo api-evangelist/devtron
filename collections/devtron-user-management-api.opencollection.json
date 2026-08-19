@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications User Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Users (V2 - Paginated, Filtered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/v2",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "searchKey",
+                "value": "",
+                "type": "query",
+                "description": "Search term."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (ASC or DESC)."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort users by (e.g., email_id, last_login)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              }
+            ]
+          },
+          "docs": "List Users (V2 - Paginated, Filtered)"
+        },
+        {
+          "info": {
+            "name": "Create User (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/user/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create User (V2)"
+        },
+        {
+          "info": {
+            "name": "Update User (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/user/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update User (V2)"
+        },
+        {
+          "info": {
+            "name": "List All Users (V1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user"
+          },
+          "docs": "List All Users (V1)"
+        },
+        {
+          "info": {
+            "name": "Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create User"
+        },
+        {
+          "info": {
+            "name": "Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update User"
+        },
+        {
+          "info": {
+            "name": "Get User by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Get User by ID"
+        },
+        {
+          "info": {
+            "name": "Delete User by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/user/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Delete User by ID"
+        },
+        {
+          "info": {
+            "name": "Get User by ID (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/v2/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Get User by ID (V2)"
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/user/bulk"
+          },
+          "docs": "Bulk Delete Users"
+        },
+        {
+          "info": {
+            "name": "List All Detailed Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/detail/get"
+          },
+          "docs": "List All Detailed Users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

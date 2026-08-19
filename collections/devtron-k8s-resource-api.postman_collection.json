@@ -1,0 +1,1258 @@
+{
+  "item": [
+    {
+      "id": "f66d37d4-0264-492b-a7f1-3d5b8f69820c",
+      "name": "K8s Resource",
+      "description": {
+        "content": "APIs for managing Kubernetes resources (get, create, update, delete, list).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3b05833-d6ab-48c3-94a9-d3fb5a1f1a27",
+          "name": "Get Resource Manifest",
+          "request": {
+            "name": "Get Resource Manifest",
+            "description": {
+              "content": "This API is used for fetching the manifest of a specified Kubernetes resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "987d54f3-b979-4d2b-ad5a-8611fc8d5b51",
+              "name": "Successfully retrieved the resource manifest.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 847,\n  \"status\": \"string\",\n  \"result\": {\n    \"manifestResponse\": {\n      \"manifest\": {\n        \"key_0\": 842.1753875454974,\n        \"key_1\": 2795.1863870372017\n      },\n      \"recommendedManifest\": {\n        \"key_0\": true,\n        \"key_1\": 8347.128069603614,\n        \"key_2\": \"string\"\n      }\n    },\n    \"secretViewAccess\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "689f3519-5c36-406e-b810-a6a104272914",
+          "name": "Update Resource Manifest",
+          "request": {
+            "name": "Update Resource Manifest",
+            "description": {
+              "content": "This API is used for editing the manifest of a specified Kubernetes resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14979dc3-ee4f-4a29-87a7-ffb08864863e",
+              "name": "Successfully updated the resource manifest.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 847,\n  \"status\": \"string\",\n  \"result\": {\n    \"manifestResponse\": {\n      \"manifest\": {\n        \"key_0\": 842.1753875454974,\n        \"key_1\": 2795.1863870372017\n      },\n      \"recommendedManifest\": {\n        \"key_0\": true,\n        \"key_1\": 8347.128069603614,\n        \"key_2\": \"string\"\n      }\n    },\n    \"secretViewAccess\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2c26038-f767-4383-806c-20bf80b0af56",
+          "name": "Create Resource",
+          "request": {
+            "name": "Create Resource",
+            "description": {
+              "content": "This API is used for applying a desired manifest to create a Kubernetes resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78dfe314-89d0-45e8-be57-b736a27060c7",
+              "name": "Successfully created the resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 847,\n  \"status\": \"string\",\n  \"result\": {\n    \"manifestResponse\": {\n      \"manifest\": {\n        \"key_0\": 842.1753875454974,\n        \"key_1\": 2795.1863870372017\n      },\n      \"recommendedManifest\": {\n        \"key_0\": true,\n        \"key_1\": 8347.128069603614,\n        \"key_2\": \"string\"\n      }\n    },\n    \"secretViewAccess\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abd80b52-1a7e-42f3-adca-91b91361e67b",
+          "name": "Delete Resource",
+          "request": {
+            "name": "Delete Resource",
+            "description": {
+              "content": "This API is used for deleting a specified Kubernetes resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b20004e-00ae-4284-9a01-881ddfd1dc24",
+              "name": "Successfully deleted the resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 847,\n  \"status\": \"string\",\n  \"result\": {\n    \"manifestResponse\": {\n      \"manifest\": {\n        \"key_0\": 842.1753875454974,\n        \"key_1\": 2795.1863870372017\n      },\n      \"recommendedManifest\": {\n        \"key_0\": true,\n        \"key_1\": 8347.128069603614,\n        \"key_2\": \"string\"\n      }\n    },\n    \"secretViewAccess\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c369e6a-6a46-4c77-809b-9e32fb6e02f2",
+          "name": "Get Resource Events",
+          "request": {
+            "name": "Get Resource Events",
+            "description": {
+              "content": "This API is used for fetching events for Kubernetes resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2af7bded-6dd8-479c-9f05-dbbe6060ee38",
+              "name": "Successfully retrieved resource events. The response is a stream of events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe0c71b3-320a-4fbe-b1c9-bb11699e9c16",
+          "name": "Get Pod Logs",
+          "request": {
+            "name": "Get Pod Logs",
+            "description": {
+              "content": "This API is used for fetching logs for a specified container within a pod.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "pods",
+                "logs",
+                ":podName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "containerName",
+                  "value": "<string>",
+                  "description": "(Required) Name of the container within the pod."
+                },
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>",
+                  "description": "Application ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "clusterId",
+                  "value": "<integer>",
+                  "description": "Cluster ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "namespace",
+                  "value": "<string>",
+                  "description": "Namespace of the pod. Required if clusterId is passed."
+                },
+                {
+                  "disabled": false,
+                  "key": "follow",
+                  "value": "false",
+                  "description": "Whether to follow the log stream."
+                },
+                {
+                  "disabled": false,
+                  "key": "sinceSeconds",
+                  "value": "<integer>",
+                  "description": "Return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs."
+                },
+                {
+                  "disabled": false,
+                  "key": "tailLines",
+                  "value": "<integer>",
+                  "description": "If set, the number of lines from the end of the logs to show."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "podName",
+                  "description": "(Required) Name of the pod."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc5be515-5d48-4e5b-89a9-94bd77885a20",
+              "name": "Successfully retrieved pod logs. The response is a stream of log lines.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "pods",
+                    "logs",
+                    ":podName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "containerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "clusterId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "follow",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sinceSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tailLines",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "podName",
+                      "description": "(Required) Name of the pod."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08e57f3c-e84e-485a-a642-d7d2df6a6bb7",
+          "name": "Get Pod Exec Session",
+          "request": {
+            "name": "Get Pod Exec Session",
+            "description": {
+              "content": "This API establishes a session for executing commands in a pod's container (terminal access).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "pod",
+                "exec",
+                "session",
+                ":identifier",
+                ":namespace",
+                ":pod",
+                ":shell",
+                ":container"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) Application ID or Cluster ID. Example '2|devtroncd|devtron' or '3'."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "namespace",
+                  "description": "(Required) Namespace of the pod."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pod",
+                  "description": "(Required) Name of the pod."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shell",
+                  "description": "(Required) Shell to invoke."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "container",
+                  "description": "(Required) Name of the container."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d79cde2-b0d5-4672-a153-40286760c152",
+              "name": "Successfully established exec session.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "pod",
+                    "exec",
+                    "session",
+                    ":identifier",
+                    ":namespace",
+                    ":pod",
+                    ":shell",
+                    ":container"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Application ID or Cluster ID. Example '2|devtroncd|devtron' or '3'."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "namespace",
+                      "description": "(Required) Namespace of the pod."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pod",
+                      "description": "(Required) Name of the pod."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shell",
+                      "description": "(Required) Shell to invoke."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "container",
+                      "description": "(Required) Name of the container."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Op\": \"stdin\",\n  \"Data\": \"ls -l\",\n  \"SessionID\": \"unique-session-id-123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afa08ad9-f836-4fb9-b639-e5b93d478010",
+          "name": "Get API Resources",
+          "request": {
+            "name": "Get API Resources",
+            "description": {
+              "content": "Get all available API resources for a given cluster ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "api-resources",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "clusterId",
+                  "description": "(Required) ID of the cluster."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad098faf-e785-4775-acd2-f24624e15461",
+              "name": "Successfully fetched all API resources for the given cluster ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "api-resources",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "clusterId",
+                      "description": "(Required) ID of the cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiResources\": [\n    {\n      \"gvk\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespaced\": true\n    },\n    {\n      \"gvk\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespaced\": true\n    }\n  ],\n  \"allowedAll\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bcf1b1a-a5f4-49c4-ae3d-1ca5731b2898",
+          "name": "List Resources",
+          "request": {
+            "name": "List Resources",
+            "description": {
+              "content": "This API is used for fetching a list of Kubernetes resources based on the request criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3190cc45-a6a6-4ad1-b4ad-332da14a2722",
+              "name": "Successfully retrieved the list of resources.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 8053,\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"headers\": [\n        \"NAME\",\n        \"NAMESPACE\",\n        \"KIND\",\n        \"AGE\"\n      ],\n      \"data\": [\n        {\n          \"key_0\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      ]\n    },\n    {\n      \"headers\": [\n        \"NAME\",\n        \"NAMESPACE\",\n        \"KIND\",\n        \"AGE\"\n      ],\n      \"data\": [\n        {\n          \"key_0\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94930d6e-4895-434d-a521-3319f15015b5",
+          "name": "Rotates the Pods",
+          "request": {
+            "name": "Rotates the Pods",
+            "description": {
+              "content": "This API is used to rotate (restart) pods for the provided resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resources",
+                "rotate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>",
+                  "description": "(Required) Application ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clusterId\": \"<number>\",\n  \"resources\": [\n    {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9020ec9-8cb3-4bac-869d-7cff07c23fee",
+              "name": "Response array indicating the status of rotation for each resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resources",
+                    "rotate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clusterId\": 1,\n  \"resources\": [\n    {\n      \"name\": \"my-app-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"production\"\n    },\n    {\n      \"name\": \"my-app-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"production\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"containsError\": false,\n  \"responses\": [\n    {\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"string\",\n      \"name\": \"string\",\n      \"errorResponse\": \"failed to find resource\"\n    },\n    {\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"string\",\n      \"name\": \"string\",\n      \"errorResponse\": \"failed to find resource\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc48f627-f4a1-4ddf-955b-3bc3c17ecb99",
+          "name": "Apply Resources",
+          "request": {
+            "name": "Apply Resources",
+            "description": {
+              "content": "This API is used to apply (create or update) Kubernetes resources in a cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resources",
+                "apply"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clusterId\": \"<number>\",\n  \"manifest\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b258d9c5-9dbd-4a8c-8a79-878da99b6f1e",
+              "name": "Response array indicating the status of application for each resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resources",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clusterId\": 1,\n  \"manifest\": \"apiVersion: v1\\nkind: ConfigMap\\nmetadata:\\n  name: my-cm\\ndata:\\n  key: value\\n---\\napiVersion: apps/v1\\nkind: Deployment\\nmetadata:\\n  name: my-app\\nspec:\\n  replicas: 1\\n  selector:\\n    matchLabels:\\n      app: my-app\\n  template:\\n    metadata:\\n      labels:\\n        app: my-app\\n    spec:\\n      containers:\\n      - name: nginx\\n        image: nginx\\n\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"kind\": \"Deployment\",\n    \"name\": \"my-app\",\n    \"isUpdate\": true,\n    \"error\": null\n  },\n  {\n    \"kind\": \"Deployment\",\n    \"name\": \"my-app\",\n    \"isUpdate\": true,\n    \"error\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "021d349b-b2f3-4c8d-ac89-87c883bb663e",
+    "name": "Devtron APIs Specs Applications K8s Resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

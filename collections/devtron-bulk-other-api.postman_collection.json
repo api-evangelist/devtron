@@ -1,0 +1,444 @@
+{
+  "item": [
+    {
+      "id": "32773719-3723-49bf-b2d8-95f2605a0f5d",
+      "name": "bulk_other",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54dec985-4ae6-4e50-a1f5-7a74dc5285ed",
+          "name": "Get Readme for Bulk Update",
+          "request": {
+            "name": "Get Readme for Bulk Update",
+            "description": {
+              "content": "Returns Readme for bulk update for different resource in the url",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "batch",
+                ":apiVersion",
+                ":kind",
+                "readme"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiVersion",
+                  "description": "(Required) apiVersion of the resource"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "kind",
+                  "description": "(Required) kind of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1514f436-ec9c-4897-bf35-128e3cced648",
+              "name": "Successful GET operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":apiVersion",
+                    ":kind",
+                    "readme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiVersion",
+                      "description": "(Required) apiVersion of the resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kind",
+                      "description": "(Required) kind of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource\": \"string\",\n  \"script\": {\n    \"apiVersion\": \"string\",\n    \"kind\": \"string\",\n    \"spec\": {\n      \"includes\": {\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"excludes\": {\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"envIds\": [\n        1252,\n        2342\n      ],\n      \"global\": false,\n      \"DeploymentTemplate\": {\n        \"spec\": {\n          \"patchData\": \"string\"\n        }\n      },\n      \"ConfigMaps\": {\n        \"names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tasks\": {\n          \"patchData\": \"string\"\n        }\n      },\n      \"Secrets\": {\n        \"names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tasks\": {\n          \"patchData\": \"string\"\n        }\n      }\n    }\n  },\n  \"readMe\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8466846-2f1b-44b1-a75e-121d059add30",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":apiVersion",
+                    ":kind",
+                    "readme"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiVersion",
+                      "description": "(Required) apiVersion of the resource"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "kind",
+                      "description": "(Required) kind of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5424,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db9dc126-b401-4e23-a1f0-282e054be55b",
+          "name": "Dry Run for Bulk Application Update",
+          "request": {
+            "name": "Dry Run for Bulk Application Update",
+            "description": {
+              "content": "Returns details(id, name, envId) of all apps to be impacted with bulk update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "batch",
+                "v1beta1",
+                "application",
+                "dryrun"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"spec\": {\n    \"includes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"excludes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"envIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"global\": \"<boolean>\",\n    \"DeploymentTemplate\": {\n      \"spec\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"ConfigMaps\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"Secrets\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0522918a-30e9-44ac-9b91-195ecd108825",
+              "name": "Successfully return all impacted app details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1beta1",
+                    "application",
+                    "dryrun"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"spec\": {\n    \"includes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"excludes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"envIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"global\": \"<boolean>\",\n    \"DeploymentTemplate\": {\n      \"spec\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"ConfigMaps\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"Secrets\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"deploymentTemplate\": [\n      {\n        \"appId\": 1384,\n        \"appName\": \"string\",\n        \"envId\": \"string\"\n      },\n      {\n        \"appId\": 4859,\n        \"appName\": \"string\",\n        \"envId\": \"string\"\n      }\n    ],\n    \"configMap\": [\n      {\n        \"appId\": 675,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"appId\": 4321,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"secret\": [\n      {\n        \"appId\": 4315,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"appId\": 4251,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  {\n    \"deploymentTemplate\": [\n      {\n        \"appId\": 9116,\n        \"appName\": \"string\",\n        \"envId\": \"string\"\n      },\n      {\n        \"appId\": 4443,\n        \"appName\": \"string\",\n        \"envId\": \"string\"\n      }\n    ],\n    \"configMap\": [\n      {\n        \"appId\": 7847,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"appId\": 5149,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"secret\": [\n      {\n        \"appId\": 3114,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"appId\": 1886,\n        \"appName\": \"string\",\n        \"envId\": \"string\",\n        \"names\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d859f91a-fe97-459a-8eec-f8fe3299e5fe",
+              "name": "Bad Request. Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1beta1",
+                    "application",
+                    "dryrun"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"spec\": {\n    \"includes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"excludes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"envIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"global\": \"<boolean>\",\n    \"DeploymentTemplate\": {\n      \"spec\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"ConfigMaps\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"Secrets\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5424,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77321a8d-2e06-4bc2-af3a-a626ed3bb399",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1beta1",
+                    "application",
+                    "dryrun"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"spec\": {\n    \"includes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"excludes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"envIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"global\": \"<boolean>\",\n    \"DeploymentTemplate\": {\n      \"spec\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"ConfigMaps\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"Secrets\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5424,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a76a3d18-3d66-4283-9d3f-56221a31b134",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    "v1beta1",
+                    "application",
+                    "dryrun"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiVersion\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"spec\": {\n    \"includes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"excludes\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"envIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"global\": \"<boolean>\",\n    \"DeploymentTemplate\": {\n      \"spec\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"ConfigMaps\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    },\n    \"Secrets\": {\n      \"names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"tasks\": {\n        \"patchData\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5424,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "63e79073-df9a-4944-a0d5-fe5ecb1ec9ba",
+    "name": "Devtron APIs Specs Applications bulk_other API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

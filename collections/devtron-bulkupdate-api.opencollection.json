@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications BulkUpdate API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BulkUpdate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bulk Hibernate Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/hibernate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Hibernates applications"
+        },
+        {
+          "info": {
+            "name": "Bulk Un-Hibernate Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/unhibernate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Un-Hibernates applications"
+        },
+        {
+          "info": {
+            "name": "Bulk Deploy Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/deploy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Triggers deployment of applications"
+        },
+        {
+          "info": {
+            "name": "Bulk Trigger Application Builds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/build",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Triggers build of applications"
+        },
+        {
+          "info": {
+            "name": "Bulk Edit Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/application",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Updates (Edit) all impacted apps. This endpoint can be used for bulk editing application configurations like deployment templates, configmaps, and secrets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,156 @@
+{
+  "item": [
+    {
+      "id": "e9180099-f3d2-4c76-8558-6fb18a5b7ddf",
+      "name": "Change Chart",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efec2d4f-17f4-4cb0-9172-11af29ab33a4",
+          "name": "Patch Application Environment",
+          "request": {
+            "name": "Patch Application Environment",
+            "description": {
+              "content": "change the deployment template for an app and environment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "env",
+                "patch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"envId\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"targetChartRefId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce5e8dda-fa54-4b94-8d63-eaa40f561c7c",
+              "name": "patched data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "env",
+                    "patch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"envId\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"targetChartRefId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eceba941-b718-4a0d-85ed-4e9b16456d5f",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "env",
+                    "patch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"envId\": \"<integer>\",\n  \"appId\": \"<integer>\",\n  \"targetChartRefId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "64b83523-0551-43e7-85c8-ff0166821e29",
+    "name": "Devtron APIs Specs Applications Change Chart API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

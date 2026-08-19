@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications GitOps Validation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GitOps Validation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate gitops configuration by dry run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate gitops configuration by dry run"
+        },
+        {
+          "info": {
+            "name": "create/save new configuration and validate them before saving",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create/save new configuration and validate them before saving"
+        },
+        {
+          "info": {
+            "name": "update configuration and validate them before saving(if last validation is within 30 seconds then do not validate)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update configuration and validate them before saving(if last validation is within 30 seconds then do not validate)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

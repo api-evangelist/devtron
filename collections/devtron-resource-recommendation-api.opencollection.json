@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Resource Recommendation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resource Recommendation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync Cluster Resource Recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/recommendation/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API will be used to sync resource recommendations for a cluster"
+        },
+        {
+          "info": {
+            "name": "Get Cluster Resource Recommendation Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/k8s/resource/:clusterId/recommendation/details",
+            "params": [
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the target cluster"
+              }
+            ]
+          },
+          "docs": "This API will fetch resource recommendations metadata for a cluster"
+        },
+        {
+          "info": {
+            "name": "Get Cluster Resource Recommendation List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/recommendation/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API will be used for fetching all workloads and their resource recommendations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

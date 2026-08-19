@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Devtron Server version API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devtron Server version",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Devtron server version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/version"
+          },
+          "docs": "Get Devtron server version information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

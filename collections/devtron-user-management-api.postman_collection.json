@@ -1,0 +1,2743 @@
+{
+  "item": [
+    {
+      "id": "b3ba7578-65d1-466f-a945-be3d16bd5b6e",
+      "name": "User Management",
+      "description": {
+        "content": "Operations related to user accounts (CRUD, listing, bulk actions).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c10e456-cab4-414f-8857-59cbb1bf44d2",
+          "name": "List Users (V2 - Paginated, Filtered)",
+          "request": {
+            "name": "List Users (V2 - Paginated, Filtered)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchKey",
+                  "value": "<string>",
+                  "description": "Search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "Sort order (ASC or DESC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Field to sort users by (e.g., email_id, last_login)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab3eaf1a-c287-43d2-90b2-9efe1de85777",
+              "name": "Paginated list of users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"users\": [\n    {\n      \"email_id\": \"kbCrte@LfgRE.xw\",\n      \"id\": 9875,\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"accessToken\": \"string\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"chart-group\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        },\n        {\n          \"entity\": \"cluster\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"devtron-app\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        }\n      ],\n      \"groups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"userRoleGroups\": [\n        {\n          \"roleGroup\": {\n            \"name\": \"string\",\n            \"roleFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 69,\n            \"description\": \"string\",\n            \"superAdmin\": false\n          }\n        },\n        {\n          \"roleGroup\": {\n            \"name\": \"string\",\n            \"roleFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 1138,\n            \"description\": \"string\",\n            \"superAdmin\": false\n          }\n        }\n      ],\n      \"superAdmin\": true,\n      \"lastLoginTime\": \"2021-09-19T21:09:07.887Z\"\n    },\n    {\n      \"email_id\": \"fe4g7UlgOq2j@gYP.hyh\",\n      \"id\": 2563,\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"accessToken\": \"string\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"chart-group\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        },\n        {\n          \"entity\": \"jobs\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        }\n      ],\n      \"groups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"userRoleGroups\": [\n        {\n          \"roleGroup\": {\n            \"name\": \"string\",\n            \"roleFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 610,\n            \"description\": \"string\",\n            \"superAdmin\": true\n          }\n        },\n        {\n          \"roleGroup\": {\n            \"name\": \"string\",\n            \"roleFilters\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"id\": 8821,\n            \"description\": \"string\",\n            \"superAdmin\": true\n          }\n        }\n      ],\n      \"superAdmin\": false,\n      \"lastLoginTime\": \"2023-09-10T04:35:34.170Z\"\n    }\n  ],\n  \"totalCount\": 1708\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f04b04d7-6e29-4bb5-af17-5f10dcdc87d3",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5683,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82f2b3e1-0e91-46f0-a21d-6dd9ae57c255",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "880b9be4-71e5-4e0b-b37b-1329f49a4ba5",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "155f3cbe-b0b8-49e8-ba30-0771c945ef80",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "474785bc-86b6-444e-ad2d-75e94f557015",
+          "name": "Create User (V2)",
+          "request": {
+            "name": "Create User (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b103d07c-5d42-44dc-9e87-d753e0776b05",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1f78289-b2f8-4b6f-a35f-2f8e40375cc7",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c4a0f3e-08eb-4c7c-9439-ab6ebaaf2e6e",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d0a8ff4-4cfc-4ac5-af6c-8252a171c0ec",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a20d4caf-8b74-4147-a7c0-035586426d44",
+              "name": "Not Acceptable. Request cannot be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33b8272d-b2ca-488a-9375-021be0c963b4",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0073312-87f0-4581-b312-cb7dce2f8559",
+          "name": "Update User (V2)",
+          "request": {
+            "name": "Update User (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88b9bd14-7024-4c5d-96a7-184616b93220",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97e00496-a1c5-4b42-a81b-cb26372c432f",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24303eaf-4669-472e-929f-1f817115ed7d",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0036bb3a-1e51-4461-bb64-715558ee93d2",
+              "name": "Not Acceptable. Request cannot be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62c5b926-f0ac-4a7c-9915-79d9d3f60730",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9429393-ed30-48a7-b71f-63a287811466",
+          "name": "List All Users (V1)",
+          "request": {
+            "name": "List All Users (V1)",
+            "description": {},
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bd9912c-20a7-455e-86ee-67f0e0390971",
+              "name": "List of all users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"email_id\": \"<email>\",\n    \"id\": \"<integer>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessToken\": \"string\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"userRoleGroups\": [\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 7541,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      },\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 7610,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      }\n    ],\n    \"superAdmin\": \"<boolean>\",\n    \"lastLoginTime\": \"1991-12-26T18:32:12.064Z\"\n  },\n  {\n    \"email_id\": \"<email>\",\n    \"id\": \"<integer>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessToken\": \"string\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"userRoleGroups\": [\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 4377,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      },\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 1342,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      }\n    ],\n    \"superAdmin\": \"<boolean>\",\n    \"lastLoginTime\": \"1983-04-16T15:47:09.271Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8caa5068-900c-4efe-ab77-a622edb6a5bf",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54e5d078-a6e7-4f7f-83a1-b5115248850b",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2a085d6-6543-4111-bb7e-f203fd21fd24",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26cde924-8c9d-4099-8d20-35eb4aadb9b2",
+          "name": "Create User",
+          "request": {
+            "name": "Create User",
+            "description": {},
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "981ac7f5-55df-483f-8573-5547cd08ba93",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a981d25-23d1-471f-9b1a-2110250b5f78",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef04255d-9075-430b-b2cf-274c79a572f2",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fb6c613-6b64-4ae4-a864-6f09c7058745",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "998f7c7f-9e5f-4b41-b4a7-9d907da0d507",
+              "name": "Not Acceptable. Request cannot be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b79726f-a0df-4c04-a7af-e4ee64948b80",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef1b3272-d571-42a8-9cda-7a8f28b61005",
+          "name": "Update User",
+          "request": {
+            "name": "Update User",
+            "description": {},
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e1c9ad4-8730-43da-841a-b4239f2a3edf",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b450175-c3e5-4172-9180-89cad36e54eb",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a056784-b74b-4375-b934-3120e8fd5a4d",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "776ef82f-ee01-46d6-8fa6-613ddde314c5",
+              "name": "Not Acceptable. Request cannot be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da2cba81-73a6-4407-a4a6-8c04ce570c7a",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d04a1d6-71d9-42f5-bd07-c35f2e0271a2",
+          "name": "Get User by ID",
+          "request": {
+            "name": "Get User by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60e8d6a3-b8bd-4704-8899-81bab206089a",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdf3436a-707d-4e6a-a456-250f88e19a66",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87da7d22-7d8a-4353-8c69-a9bbed931b35",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb737907-8e17-4dde-9c45-937550d99a53",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0dd375f3-63b8-434a-8a71-2060a02ef8a6",
+          "name": "Delete User by ID",
+          "request": {
+            "name": "Delete User by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d551130f-1c57-4eb0-b92e-1dba91dfa848",
+              "name": "Generic success response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b19d9d3-15fa-4f9e-a581-bfc2184be6d1",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a710dca-ab90-4118-8dc4-42403efbe55a",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f76a92ec-1bbc-4852-a29b-54b69c988ddd",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fd7a060-88d6-4d94-97bf-31abbf9c1a86",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6eb0307-2307-4645-8462-c7598575f953",
+          "name": "Get User by ID (V2)",
+          "request": {
+            "name": "Get User by ID (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "v2",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d0cfa0e-dd5f-4413-89f8-0a60a128fd30",
+              "name": "Response containing User Information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email_id\": \"<email>\",\n  \"id\": \"<integer>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"accessToken\": \"string\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userRoleGroups\": [\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 7426,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    },\n    {\n      \"roleGroup\": {\n        \"name\": \"<string>\",\n        \"roleFilters\": [\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          },\n          {\n            \"entity\": \"<string>\",\n            \"action\": \"<string>\",\n            \"team\": \"<string>\",\n            \"entityName\": \"<string>\",\n            \"environment\": \"<string>\",\n            \"accessType\": \"<string>\",\n            \"cluster\": \"<string>\",\n            \"namespace\": \"<string>\",\n            \"group\": \"<string>\",\n            \"kind\": \"<string>\",\n            \"resource\": \"<string>\",\n            \"workflow\": \"<string>\"\n          }\n        ],\n        \"id\": 8781,\n        \"description\": \"<string>\",\n        \"superAdmin\": \"<boolean>\"\n      }\n    }\n  ],\n  \"superAdmin\": \"<boolean>\",\n  \"lastLoginTime\": \"2007-11-03T15:58:02.500Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fe5f18e-042c-4983-9aa5-afe35d42bf1e",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "481530bb-d7ca-4064-a152-8d7604f00c23",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b29ec46f-c5b9-454d-b24b-3bd8be3a9636",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d6c37f8-7372-437b-b0f4-80aa19a0b628",
+          "name": "Bulk Delete Users",
+          "request": {
+            "name": "Bulk Delete Users",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fa443a1-5dd4-4113-b05a-bd8aa0e14a22",
+              "name": "Generic success response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acdea4b7-a9c3-4696-80b6-fab395ee2dfa",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f670b259-10c3-48df-a3d3-5d51ecdacf5b",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "753ee695-206c-4a51-b775-5b2c916d6394",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ff9ed1d-c11f-46a4-8bc6-731c3f7f1cfb",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f85e4378-7ab9-47b3-a341-caf636011066",
+          "name": "List All Detailed Users",
+          "request": {
+            "name": "List All Detailed Users",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "detail",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ee6fcca-44ee-409c-ae04-f2eb7da5d488",
+              "name": "List of all users with detailed information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "detail",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"email_id\": \"<email>\",\n    \"id\": \"<integer>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessToken\": \"string\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"userRoleGroups\": [\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 7541,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      },\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 7610,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      }\n    ],\n    \"superAdmin\": \"<boolean>\",\n    \"lastLoginTime\": \"1991-12-26T18:32:12.064Z\"\n  },\n  {\n    \"email_id\": \"<email>\",\n    \"id\": \"<integer>\",\n    \"roles\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"accessToken\": \"string\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"userRoleGroups\": [\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 4377,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      },\n      {\n        \"roleGroup\": {\n          \"name\": \"<string>\",\n          \"roleFilters\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 1342,\n          \"description\": \"<string>\",\n          \"superAdmin\": \"<boolean>\"\n        }\n      }\n    ],\n    \"superAdmin\": \"<boolean>\",\n    \"lastLoginTime\": \"1983-04-16T15:47:09.271Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f30799c-0381-4ab8-b18e-959eb0234dfc",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "detail",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ceeb560c-f125-40ce-add9-0925c58090cb",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "detail",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2d63585-c2d7-4ae9-924e-4e8aa220c4c0",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "detail",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6365,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "36cbc648-e3c8-4b7a-b3ae-7439fe221a12",
+    "name": "Devtron APIs Specs Applications User Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

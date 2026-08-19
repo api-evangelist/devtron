@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Labels API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Application Labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/app/labels/list",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "showPropagatedOnly",
+                "value": "false",
+                "type": "query",
+                "description": "If true, only returns labels where propagate = true. \nIf false or not provided, all labels are returned.\n"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of application labels. By default, returns all labels. \nUse the `showPropagatedOnly` parameter to filter for labels where propagate = true.\n\n**Required Token Permission:**\n- Must have **View** access to the applications in scope.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

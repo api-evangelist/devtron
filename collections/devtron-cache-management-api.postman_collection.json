@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "4fb919f0-a314-469c-b5e0-19d645cb113d",
+      "name": "Cache Management",
+      "description": {
+        "content": "Endpoints for managing authentication and authorization caches.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7226d08b-9ac4-494d-a18b-e53458af5274",
+          "name": "Get Role Cache Dump",
+          "request": {
+            "name": "Get Role Cache Dump",
+            "description": {
+              "content": "Retrieves a dump of the role cache. Requires super admin privileges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "cache"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a338688d-e8ea-42c7-8ab1-363b186ac151",
+              "name": "Cache dump data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "cache"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "406db18c-9152-46fe-902c-be7d1a31a34c",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "cache"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1095,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39a0e1b9-11e6-4e2f-b0e2-a3bc2e6dc717",
+          "name": "Invalidate Role Cache",
+          "request": {
+            "name": "Invalidate Role Cache",
+            "description": {
+              "content": "Clears the role cache. Requires super admin privileges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "cache",
+                "invalidate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3243ecb-d651-4493-96bc-c08c6469965a",
+              "name": "Cache invalidation status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "cache",
+                    "invalidate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bd17267-3862-4901-baf3-b61c74c0553f",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "cache",
+                    "invalidate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4658,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b9f4eea9-b976-4bb8-bf28-c2933a8f5541",
+    "name": "Devtron APIs Specs Applications Cache Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

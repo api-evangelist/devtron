@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "4f7f4112-be42-4c98-99fc-ad73c1ec7e6b",
+      "name": "Helm Charts",
+      "description": {
+        "content": "Helm chart deployment management and operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "970e04eb-84aa-4b94-b30d-a7506a284877",
+          "name": "List deployed charts",
+          "request": {
+            "name": "List deployed charts",
+            "description": {
+              "content": "deployed chart listing, with search filters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app-store",
+                "installed-app"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "envs",
+                  "value": "<string>",
+                  "description": "environment ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "envs",
+                  "value": "<string>",
+                  "description": "environment ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "chartRepoId",
+                  "value": "<string>",
+                  "description": "chart repo ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "chartRepoId",
+                  "value": "<string>",
+                  "description": "chart repo ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "appStoreName",
+                  "value": "<string>",
+                  "description": "chart name"
+                },
+                {
+                  "disabled": false,
+                  "key": "appName",
+                  "value": "<string>",
+                  "description": "chart name as app name for devtron"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyDeprecated",
+                  "value": "<boolean>",
+                  "description": "show only deprecated or all"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "offset for result set"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "total request size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff6757c0-0351-4702-b7e3-f42197ed6da4",
+              "name": "deployed chart listing, with search filters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appStoreName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "onlyDeprecated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1236,\n  \"status\": \"string\",\n  \"result\": [\n    {\n      \"installedAppId\": 6420,\n      \"environmentId\": 6538,\n      \"installedAppVersionId\": 845,\n      \"appStoreApplicationVersionId\": 6669,\n      \"appStoreApplicationName\": \"string\",\n      \"status\": \"string\",\n      \"appName\": \"string\",\n      \"environmentName\": \"string\",\n      \"deployedAt\": \"string\",\n      \"deployedBy\": \"string\",\n      \"readme\": \"string\",\n      \"deprecated\": false,\n      \"chartName\": \"string\",\n      \"icon\": \"string\"\n    },\n    {\n      \"installedAppId\": 2932,\n      \"environmentId\": 1096,\n      \"installedAppVersionId\": 730,\n      \"appStoreApplicationVersionId\": 6689,\n      \"appStoreApplicationName\": \"string\",\n      \"status\": \"string\",\n      \"appName\": \"string\",\n      \"environmentName\": \"string\",\n      \"deployedAt\": \"string\",\n      \"deployedBy\": \"string\",\n      \"readme\": \"string\",\n      \"deprecated\": true,\n      \"chartName\": \"string\",\n      \"icon\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c561398-0b22-4932-9fd1-9bab987acf62",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appStoreName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "onlyDeprecated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7006,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c96ec904-2157-4c45-88f9-ecf468882354",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "envs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chartRepoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appStoreName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "onlyDeprecated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2142,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d5422bb-f224-4b78-b05c-ab8c7f1f0c1e",
+          "name": "Fetch notes.txt for deployed helm charts",
+          "request": {
+            "name": "Fetch notes.txt for deployed helm charts",
+            "description": {
+              "content": "Used to fetch notes.txt for helm charts deployed via gitOps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app-store",
+                "installed-app",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "env-id",
+                  "value": "<integer>",
+                  "description": "(Required) it is an environment id of app"
+                },
+                {
+                  "disabled": false,
+                  "key": "installed-app-id",
+                  "value": "<integer>",
+                  "description": "(Required) it is a installed application id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6890c6da-e26b-408d-9beb-7865db5e5ca5",
+              "name": "if it is able to fetch the notes.txt then status will be ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "env-id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "installed-app-id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b3d034a-3393-4468-9de0-e23437160fa6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "env-id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "installed-app-id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2142,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "034ce0ac-e757-4179-95e5-ab94a92d0abe",
+              "name": "error while fetching notes.txt",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app-store",
+                    "installed-app",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "env-id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "installed-app-id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "741fa427-7495-4031-b280-ace1be9ac7ff",
+    "name": "Devtron APIs Specs Applications Helm Charts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

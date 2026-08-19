@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "1c6e4a82-d892-4585-a746-582291e2b05d",
+      "name": "Clone Workflow",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e2cfa76-75b8-455c-9274-ec9d53d55d12",
+          "name": "Clone Application Workflow",
+          "request": {
+            "name": "Clone Application Workflow",
+            "description": {
+              "content": "Clones an application workflow from a source environment to a target environment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "workflow",
+                "clone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<integer>\",\n  \"appName\": \"<string>\",\n  \"sourceEnvironmentId\": \"<integer>\",\n  \"sourceEnvironmentName\": \"<string>\",\n  \"targetEnvironmentId\": \"<integer>\",\n  \"targetEnvironmentName\": \"<string>\",\n  \"cloneEnvInSameWorkflow\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6892614-be44-469e-80de-7b7e3de7c77d",
+              "name": "Cloning operation response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    "clone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"<integer>\",\n  \"appName\": \"<string>\",\n  \"sourceEnvironmentId\": \"<integer>\",\n  \"sourceEnvironmentName\": \"<string>\",\n  \"targetEnvironmentId\": \"<integer>\",\n  \"targetEnvironmentName\": \"<string>\",\n  \"cloneEnvInSameWorkflow\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"status\": \"OK\",\n  \"result\": {\n    \"status\": \"SKIPPED\",\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "09a57958-01af-457f-bc83-a22ded57e8ac",
+    "name": "Devtron APIs Specs Applications Clone Workflow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

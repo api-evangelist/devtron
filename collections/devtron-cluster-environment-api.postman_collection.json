@@ -1,0 +1,482 @@
+{
+  "item": [
+    {
+      "id": "372d9059-31f6-43ae-a502-b217dddf89df",
+      "name": "Cluster Environment",
+      "description": {
+        "content": "Operations related to clusters and environments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8474efb3-ce36-4d6d-aacf-8bf7a4c6016a",
+          "name": "List clusters with their environments",
+          "request": {
+            "name": "List clusters with their environments",
+            "description": {
+              "content": "Provides a list of all clusters and the environments within each.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7dfa33a-cce8-425f-9e23-4933c34b70ff",
+              "name": "Successfully retrieved list of clusters and environments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4387,\n    \"cluster_name\": \"string\",\n    \"server_url\": \"string\",\n    \"active\": true,\n    \"environments\": [\n      {\n        \"environmentId\": 7414,\n        \"environmentName\": \"string\",\n        \"environmentIdentifier\": \"string\",\n        \"namespace\": \"string\",\n        \"active\": false\n      },\n      {\n        \"environmentId\": 7062,\n        \"environmentName\": \"string\",\n        \"environmentIdentifier\": \"string\",\n        \"namespace\": \"string\",\n        \"active\": true\n      }\n    ],\n    \"prometheus_url\": \"string\",\n    \"k8sVersion\": \"string\"\n  },\n  {\n    \"id\": 1543,\n    \"cluster_name\": \"string\",\n    \"server_url\": \"string\",\n    \"active\": true,\n    \"environments\": [\n      {\n        \"environmentId\": 944,\n        \"environmentName\": \"string\",\n        \"environmentIdentifier\": \"string\",\n        \"namespace\": \"string\",\n        \"active\": true\n      },\n      {\n        \"environmentId\": 4255,\n        \"environmentName\": \"string\",\n        \"environmentIdentifier\": \"string\",\n        \"namespace\": \"string\",\n        \"active\": true\n      }\n    ],\n    \"prometheus_url\": \"string\",\n    \"k8sVersion\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98c0b8f1-608d-4638-83ec-fe3f9ba7a516",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82a307cf-e105-4a2e-968d-0e345e5038c8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31c9f64d-4b49-4b3e-b612-697027d6f4d6",
+          "name": "List environments for a specific cluster",
+          "request": {
+            "name": "List environments for a specific cluster",
+            "description": {
+              "content": "Provides a list of all environments for a given cluster ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster",
+                ":cluster_id",
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cluster_id",
+                  "description": "(Required) ID of the cluster"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8659a76-1be8-4a26-b432-0192e53969d0",
+              "name": "Successfully retrieved list of environments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":cluster_id",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) ID of the cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"environmentId\": 2079,\n    \"environmentName\": \"string\",\n    \"environmentIdentifier\": \"string\",\n    \"namespace\": \"string\",\n    \"active\": true\n  },\n  {\n    \"environmentId\": 1768,\n    \"environmentName\": \"string\",\n    \"environmentIdentifier\": \"string\",\n    \"namespace\": \"string\",\n    \"active\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37459865-c91c-43b0-882f-f1f37809f2c6",
+              "name": "Bad Request. Invalid cluster ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":cluster_id",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) ID of the cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a000b3db-943c-4f5f-81e6-9597d0564904",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":cluster_id",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) ID of the cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf635d29-93a7-4847-8198-527ce38fea5a",
+              "name": "Cluster not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":cluster_id",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) ID of the cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83f4f46a-5ec7-4f8f-b424-3374709336f5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster",
+                    ":cluster_id",
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cluster_id",
+                      "description": "(Required) ID of the cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4356,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2c183b06-1b65-487d-9f35-48b2b406eb58",
+    "name": "Devtron APIs Specs Applications Cluster Environment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

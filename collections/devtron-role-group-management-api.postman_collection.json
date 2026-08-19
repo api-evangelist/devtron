@@ -1,0 +1,2759 @@
+{
+  "item": [
+    {
+      "id": "25773d75-36a6-4d49-8826-fe329f36175c",
+      "name": "Role Group Management",
+      "description": {
+        "content": "Operations related to user role groups (CRUD, listing, bulk actions).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e095f8e5-a188-441f-acbd-d0d2877afa5d",
+          "name": "List Role Groups (V2 - Paginated, Filtered)",
+          "request": {
+            "name": "List Role Groups (V2 - Paginated, Filtered)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchKey",
+                  "value": "<string>",
+                  "description": "Search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "Sort order (ASC or DESC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Field to sort role groups by (e.g., name)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "492438cf-9d87-4cea-a84f-13a2972c88bb",
+              "name": "Paginated list of role groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleGroups\": [\n    {\n      \"name\": \"string\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"apps\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"helm-app\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        },\n        {\n          \"entity\": \"apps\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"devtron-app\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        }\n      ],\n      \"id\": 4712,\n      \"description\": \"string\",\n      \"superAdmin\": false\n    },\n    {\n      \"name\": \"string\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"cluster\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"helm-app\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        },\n        {\n          \"entity\": \"chart-group\",\n          \"action\": \"string\",\n          \"team\": \"string\",\n          \"entityName\": \"string\",\n          \"environment\": \"string\",\n          \"accessType\": \"devtron-app\",\n          \"cluster\": \"string\",\n          \"namespace\": \"string\",\n          \"group\": \"string\",\n          \"kind\": \"string\",\n          \"resource\": \"string\",\n          \"workflow\": \"string\"\n        }\n      ],\n      \"id\": 3384,\n      \"description\": \"string\",\n      \"superAdmin\": false\n    }\n  ],\n  \"totalCount\": 2548\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d72d157-5afc-4d6b-9731-ce477ae530af",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5601,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5903f40c-d249-4515-a398-d2856926d00f",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8f251c9-781d-4a6c-a836-168cdd87aed9",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b71f15a6-e902-4961-a64c-40f1d3710514",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bb59f42-71ab-4935-9576-6db4d9599e0e",
+          "name": "Create Role Group (V2)",
+          "request": {
+            "name": "Create Role Group (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "177f40a6-0f9d-4486-88af-613de4f49c6a",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7aeb67d8-61f7-4885-84c7-15ef9630d9bb",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01fb255d-3125-4128-86c6-8b772b9c08c5",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86b03552-ec1e-400b-89dd-8695d9235123",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fecac785-98b5-4647-b1b4-e759f1953945",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba135272-7d3b-4851-b81a-be0f5ef4ab7a",
+          "name": "Update Role Group (V2)",
+          "request": {
+            "name": "Update Role Group (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "267b7c04-1859-4056-bcab-28fd21ff171a",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a30ebd5-7ad7-4d5e-a8de-40c2531749da",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4804751a-d6a4-4ff4-b2e0-948a4ee480e5",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "989a47ba-75e8-450c-ab42-6144e1363103",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c87ac133-8fef-4668-a16a-5ac141d09784",
+          "name": "List All Role Groups (V1)",
+          "request": {
+            "name": "List All Role Groups (V1)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc614119-8ded-4c0f-bd08-fbe726af3222",
+              "name": "List of all role groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"<string>\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"id\": 5344,\n    \"description\": \"<string>\",\n    \"superAdmin\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"roleFilters\": [\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"action\": \"<string>\",\n        \"team\": \"<string>\",\n        \"entityName\": \"<string>\",\n        \"environment\": \"<string>\",\n        \"accessType\": \"<string>\",\n        \"cluster\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"group\": \"<string>\",\n        \"kind\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"workflow\": \"<string>\"\n      }\n    ],\n    \"id\": 4963,\n    \"description\": \"<string>\",\n    \"superAdmin\": \"<boolean>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbad9b8f-6488-428c-b34a-4101b668ab16",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92e44ad0-d7fb-49df-a1a1-2c9430870aab",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cc48a52-7515-49af-9a69-f09144465fe8",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5749339-e18a-494a-a424-a7d49ec5b949",
+          "name": "Create Role Group",
+          "request": {
+            "name": "Create Role Group",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "285fd6d4-a477-482b-956e-25d7ea0d773e",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bea3e435-8b54-4a67-a67d-c490b4197713",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e013b02-7d01-451c-a50e-706944c5208a",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e882ae7-513a-49df-a386-bd58d7bc63b7",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31c7728d-3f68-4126-ab38-a9606dc9c4d8",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b8b67f-de47-4fda-9787-efe961ef430e",
+          "name": "Update Role Group",
+          "request": {
+            "name": "Update Role Group",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a3f8f32-3518-429d-ac7c-a3021b171600",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef74c852-37cb-409d-8f1c-0d57e666f36d",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0770ccad-d0fe-431e-9ea3-a3fcbaa3de34",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aec236a2-e146-4a27-8f05-7a7505c30ec7",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b12ba9a-1350-4175-84a0-777993446faa",
+          "name": "Get Role Group by ID",
+          "request": {
+            "name": "Get Role Group by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11a33fd2-2a09-419e-a456-ed554681901e",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4906275a-df83-4d50-87ac-5192be69a24d",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93369406-81d3-4ae0-864c-838d0fbeef7a",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02ab9965-6ffd-41b4-913d-daf77e6e9435",
+          "name": "Delete Role Group by ID",
+          "request": {
+            "name": "Delete Role Group by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "785d84bc-a694-4a2b-903f-8a530135c67c",
+              "name": "Generic success response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7022b676-3636-441b-9ac3-d3a5ede5ad27",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "052bb977-b27e-4aa9-9dbf-a7968586f7e4",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89bd74f2-4bf1-4761-9cac-16038b5338df",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "068c162e-4d49-4c65-8d81-3a01c9a99a3c",
+          "name": "Get Role Group by ID (V2)",
+          "request": {
+            "name": "Get Role Group by ID (V2)",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "v2",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Identifier (typically integer ID)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed850af9-4cad-4f53-8dd6-ceac6b13d6e1",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0167d226-130f-4b5a-bfe1-5a3484d3bbc3",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7bf0d6f-5739-476c-8cb6-77b89a422f69",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "v2",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Identifier (typically integer ID)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5951524-a116-460f-b607-91f5255111bd",
+          "name": "List All Detailed Role Groups",
+          "request": {
+            "name": "List All Detailed Role Groups",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "detailed",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37aac888-aa94-4991-b39d-aebee6faf892",
+              "name": "Paginated list of role groups.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "detailed",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"roleGroups\": [\n    {\n      \"name\": \"<string>\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"<string>\",\n          \"action\": \"<string>\",\n          \"team\": \"<string>\",\n          \"entityName\": \"<string>\",\n          \"environment\": \"<string>\",\n          \"accessType\": \"<string>\",\n          \"cluster\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"group\": \"<string>\",\n          \"kind\": \"<string>\",\n          \"resource\": \"<string>\",\n          \"workflow\": \"<string>\"\n        },\n        {\n          \"entity\": \"<string>\",\n          \"action\": \"<string>\",\n          \"team\": \"<string>\",\n          \"entityName\": \"<string>\",\n          \"environment\": \"<string>\",\n          \"accessType\": \"<string>\",\n          \"cluster\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"group\": \"<string>\",\n          \"kind\": \"<string>\",\n          \"resource\": \"<string>\",\n          \"workflow\": \"<string>\"\n        }\n      ],\n      \"id\": 9153,\n      \"description\": \"<string>\",\n      \"superAdmin\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"roleFilters\": [\n        {\n          \"entity\": \"<string>\",\n          \"action\": \"<string>\",\n          \"team\": \"<string>\",\n          \"entityName\": \"<string>\",\n          \"environment\": \"<string>\",\n          \"accessType\": \"<string>\",\n          \"cluster\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"group\": \"<string>\",\n          \"kind\": \"<string>\",\n          \"resource\": \"<string>\",\n          \"workflow\": \"<string>\"\n        },\n        {\n          \"entity\": \"<string>\",\n          \"action\": \"<string>\",\n          \"team\": \"<string>\",\n          \"entityName\": \"<string>\",\n          \"environment\": \"<string>\",\n          \"accessType\": \"<string>\",\n          \"cluster\": \"<string>\",\n          \"namespace\": \"<string>\",\n          \"group\": \"<string>\",\n          \"kind\": \"<string>\",\n          \"resource\": \"<string>\",\n          \"workflow\": \"<string>\"\n        }\n      ],\n      \"id\": 7609,\n      \"description\": \"<string>\",\n      \"superAdmin\": \"<boolean>\"\n    }\n  ],\n  \"totalCount\": 2065\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dce8258d-7a60-4bab-abdc-aa3dad7e5d94",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "detailed",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ddb7839-b5d5-468e-b843-deb05d5ac427",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "detailed",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9cb02e5-9ac4-4be6-b26f-ace6f649f0a3",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "detailed",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3795a70-f87f-47be-b470-59d14ffad6f8",
+          "name": "Search Role Groups by Name",
+          "request": {
+            "name": "Search Role Groups by Name",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name of the role group to search for."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fcf9235-313b-4298-aa7c-6d90213aae2c",
+              "name": "Response containing Role Group information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"roleFilters\": [\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"action\": \"<string>\",\n      \"team\": \"<string>\",\n      \"entityName\": \"<string>\",\n      \"environment\": \"<string>\",\n      \"accessType\": \"<string>\",\n      \"cluster\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"group\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"resource\": \"<string>\",\n      \"workflow\": \"<string>\"\n    }\n  ],\n  \"id\": 8058,\n  \"description\": \"<string>\",\n  \"superAdmin\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50a0dda5-577a-4774-bf61-a3194c511d57",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "059d040a-9b8e-4f76-9a77-0f8a2eeae18f",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9e784f7-a5de-49b7-9b19-5c353c809991",
+          "name": "Bulk Delete Role Groups",
+          "request": {
+            "name": "Bulk Delete Role Groups",
+            "description": {},
+            "url": {
+              "path": [
+                "user",
+                "role",
+                "group",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "585deaed-de74-4cf3-8425-5559516cbf30",
+              "name": "Generic success response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "551300db-2c09-4e3e-a884-f7a695d9e608",
+              "name": "Bad request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d30cf9b9-3c64-4269-bb21-160f594c98b1",
+              "name": "Unauthorized. User is not logged in or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb4051c4-a9ef-44ff-a0ae-2eac5c9f57a0",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84d6396e-dc71-4ddc-a9ee-04488abf0420",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "role",
+                    "group",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6183,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2fb7b98f-a83e-448b-9c75-f310dcb1b6e7",
+    "name": "Devtron APIs Specs Applications Role Group Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

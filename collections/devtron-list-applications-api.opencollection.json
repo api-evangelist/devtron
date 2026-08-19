@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications List Applications API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List application autocomplete",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/orchestrator/app/autocomplete",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "appName",
+                "value": "abc",
+                "type": "query",
+                "description": "app name, wildcard query"
+              },
+              {
+                "name": "teamId",
+                "value": "1",
+                "type": "query",
+                "description": "project id"
+              }
+            ]
+          },
+          "docs": "list of namespaces group by clusters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

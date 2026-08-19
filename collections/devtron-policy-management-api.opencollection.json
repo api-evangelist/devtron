@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Policy Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policy Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Default Policy and Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/admin/policy/default",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "team",
+                "value": "",
+                "type": "query",
+                "description": "Project Id"
+              },
+              {
+                "name": "app",
+                "value": "",
+                "type": "query",
+                "description": "Application Id"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query",
+                "description": "Environment Id"
+              }
+            ]
+          },
+          "docs": "Creates default policies and roles based on team, app, and environment. This is a specialized endpoint."
+        },
+        {
+          "info": {
+            "name": "Sync Orchestrator to Casbin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/sync/orchestratortocasbin"
+          },
+          "docs": "Synchronizes policies from orchestrator to Casbin. Requires admin privileges."
+        },
+        {
+          "info": {
+            "name": "Update Trigger Policy for Terminal Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/user/update/trigger/terminal"
+          },
+          "docs": "Updates trigger policies related to terminal access. Requires global update privileges."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

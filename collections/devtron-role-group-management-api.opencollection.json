@@ -1,0 +1,260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Role Group Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Role Group Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Role Groups (V2 - Paginated, Filtered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group/v2",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "searchKey",
+                "value": "",
+                "type": "query",
+                "description": "Search term."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort order (ASC or DESC)."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort role groups by (e.g., name)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              }
+            ]
+          },
+          "docs": "List Role Groups (V2 - Paginated, Filtered)"
+        },
+        {
+          "info": {
+            "name": "Create Role Group (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/user/role/group/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Role Group (V2)"
+        },
+        {
+          "info": {
+            "name": "Update Role Group (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/user/role/group/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Role Group (V2)"
+        },
+        {
+          "info": {
+            "name": "List All Role Groups (V1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group"
+          },
+          "docs": "List All Role Groups (V1)"
+        },
+        {
+          "info": {
+            "name": "Create Role Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/user/role/group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Role Group"
+        },
+        {
+          "info": {
+            "name": "Update Role Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/user/role/group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Role Group"
+        },
+        {
+          "info": {
+            "name": "Get Role Group by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Get Role Group by ID"
+        },
+        {
+          "info": {
+            "name": "Delete Role Group by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/user/role/group/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Delete Role Group by ID"
+        },
+        {
+          "info": {
+            "name": "Get Role Group by ID (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group/v2/:id",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier (typically integer ID)."
+              }
+            ]
+          },
+          "docs": "Get Role Group by ID (V2)"
+        },
+        {
+          "info": {
+            "name": "List All Detailed Role Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group/detailed/get"
+          },
+          "docs": "List All Detailed Role Groups"
+        },
+        {
+          "info": {
+            "name": "Search Role Groups by Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/role/group/search",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the role group to search for."
+              }
+            ]
+          },
+          "docs": "Search Role Groups by Name"
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Role Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/user/role/group/bulk"
+          },
+          "docs": "Bulk Delete Role Groups"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

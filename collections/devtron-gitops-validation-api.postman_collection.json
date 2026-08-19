@@ -1,0 +1,692 @@
+{
+  "item": [
+    {
+      "id": "e9aa48e6-f9d5-49ac-b41d-1e3f537aea12",
+      "name": "GitOps Validation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "167cfb24-b8d9-4281-af76-6809362ba396",
+          "name": "Validate gitops configuration by dry run",
+          "request": {
+            "name": "Validate gitops configuration by dry run",
+            "description": {
+              "content": "Validate gitops configuration by dry run",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"<string>\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aee548ab-edb2-45db-a1bc-607f68b1feb6",
+              "name": "Successfully return all validation stages results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"successfulStages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"validatedOn\": \"string\",\n  \"stageErrorMap\": [\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4baa5f2b-8095-4fb4-9bb6-0ae13bf8a584",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "513f2675-a564-431a-b313-fe8bd3c06158",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4e88d4c-b622-4c3f-b4b4-339df5c057eb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe51d8af-aed4-4780-bec3-1e8c1ffa6bfc",
+          "name": "create/save new configuration and validate them before saving",
+          "request": {
+            "name": "create/save new configuration and validate them before saving",
+            "description": {
+              "content": "create/save new configuration and validate them before saving",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"<string>\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c9bd64c-1195-440d-8923-54424b551ffb",
+              "name": "Successfully return all validation stages results and if validation is correct then saves the configuration in the backend",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"successfulStages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"validatedOn\": \"string\",\n  \"stageErrorMap\": [\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ab42e60-184f-451f-bccf-1192b2aa8c51",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e290ecc8-bd5e-4746-882e-199d6bbc08ec",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11cd3c5b-e8e2-4cea-8e3c-3c6193de9669",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "447193dc-8130-4f23-af88-2a28b3b6ea8e",
+          "name": "update configuration and validate them before saving(if last validation is within 30 seconds then do not validate)",
+          "request": {
+            "name": "update configuration and validate them before saving(if last validation is within 30 seconds then do not validate)",
+            "description": {
+              "content": "update configuration and validate them before saving(if last validation is within 30 seconds then do not validate)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"<string>\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b30e706b-1d5d-4e64-9e9c-6e0d8f3618fc",
+              "name": "Successfully return all validation stages results and if validation is correct then updates the configuration in the backend",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"successfulStages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"validatedOn\": \"string\",\n  \"stageErrorMap\": [\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"stage\": \"string\",\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6902e72-8e5e-4cfa-bb90-cb1ee819bebd",
+              "name": "Bad Request. Input Validation error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dc4b973-d467-46c8-bf39-be138dd9f26f",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e73ad6c-9381-4976-8d52-5356e70019f5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"provider\": \"github,gitlabs\",\n  \"username\": \"<string>\",\n  \"token\": \"<string>\",\n  \"gitLabGroupId\": \"<string>\",\n  \"gitHubOrgId\": \"<string>\",\n  \"host\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"azureProjectName\": \"<string>\",\n  \"userId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1811,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bae60952-1b63-4e60-955b-8f94b3e204f7",
+    "name": "Devtron APIs Specs Applications GitOps Validation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

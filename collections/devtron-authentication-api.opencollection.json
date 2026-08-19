@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Authentication API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/api/v1/session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates a user and returns a session token."
+        },
+        {
+          "info": {
+            "name": "Refresh Session Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/refresh"
+          },
+          "docs": "Handles token refresh (details depend on OIDC/OAuth flow)."
+        },
+        {
+          "info": {
+            "name": "Verify Authentication Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/devtron/auth/verify"
+          },
+          "docs": "Verify Authentication Status"
+        },
+        {
+          "info": {
+            "name": "Verify Authentication Status (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/devtron/auth/verify/v2"
+          },
+          "docs": "Verify Authentication Status (V2)"
+        },
+        {
+          "info": {
+            "name": "Check Logged-in User's Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/user/check/roles",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query",
+                "description": "Optional application name to filter roles for."
+              }
+            ]
+          },
+          "docs": "Check Logged-in User's Roles"
+        },
+        {
+          "info": {
+            "name": "OIDC Login Redirect (Informational)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/login"
+          },
+          "docs": "Initiates OIDC login flow. Handled by the OIDC client library."
+        },
+        {
+          "info": {
+            "name": "OIDC Login Redirect (Informational - Alternate Path)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/auth/login"
+          },
+          "docs": "Initiates OIDC login flow. Handled by the OIDC client library."
+        },
+        {
+          "info": {
+            "name": "OIDC Callback (Informational)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/auth/callback"
+          },
+          "docs": "Handles the callback from the OIDC provider. Handled by the OIDC client library."
+        },
+        {
+          "info": {
+            "name": "Dex Proxy (Informational)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/api/dex/:path",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path",
+                "description": "Path to be proxied to Dex."
+              }
+            ]
+          },
+          "docs": "Proxies requests to the Dex IdP. Handled by the Dex proxy mechanism."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

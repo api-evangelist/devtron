@@ -1,0 +1,975 @@
+{
+  "item": [
+    {
+      "id": "aec169e9-331b-492d-8d4a-9bab204dfc00",
+      "name": "Environment Management",
+      "description": {
+        "content": "Operations for creating, updating, and deleting environments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7abe31db-d03f-4e89-a7bb-acf8b3df41ca",
+          "name": "Create Environment",
+          "request": {
+            "name": "Create Environment",
+            "description": {
+              "content": "Create a new environment within a cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": true,\n  \"default\": false,\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "419e7465-58ea-41a4-9d99-aec3b79657eb",
+              "name": "Successfully created environment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": true,\n  \"default\": false,\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9466,\n  \"environment_name\": \"string\",\n  \"cluster_id\": 3434,\n  \"cluster_name\": \"string\",\n  \"active\": false,\n  \"default\": false,\n  \"prometheus_endpoint\": \"string\",\n  \"namespace\": \"string\",\n  \"isClusterCdActive\": true,\n  \"environmentIdentifier\": \"string\",\n  \"description\": \"string\",\n  \"appCount\": 7834,\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"helm\",\n    \"helm\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c58081f-b8fa-4462-a72f-4ed87ee3b28e",
+              "name": "Bad Request (e.g., validation error)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": true,\n  \"default\": false,\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b4ae1e7-d2c6-4812-8e35-8ea68fc06747",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": true,\n  \"default\": false,\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c619f51-be24-4713-b56a-0ccd82ba86dd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": true,\n  \"default\": false,\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "336a29d2-29ec-42d2-b3b9-15b48d892e74",
+          "name": "Update Environment",
+          "request": {
+            "name": "Update Environment",
+            "description": {
+              "content": "Update an existing environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d8f7e90-74b4-4cb0-9b38-7606248d9064",
+              "name": "Successfully updated environment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6042,\n  \"environment_name\": \"string\",\n  \"cluster_id\": 967,\n  \"cluster_name\": \"string\",\n  \"active\": false,\n  \"default\": true,\n  \"prometheus_endpoint\": \"string\",\n  \"namespace\": \"string\",\n  \"isClusterCdActive\": false,\n  \"environmentIdentifier\": \"string\",\n  \"description\": \"string\",\n  \"appCount\": 9763,\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"helm\",\n    \"argo_cd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e81ab0c-41cb-400d-9691-6704c6001660",
+              "name": "Bad Request (e.g., validation error, or ID not found)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f1fce8a-c7a5-4996-aee1-a45b91efbb18",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffe070a1-d400-4c9d-9937-090de1bf7795",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0070c18c-c0be-4b35-83e7-2efe11d8c6cd",
+          "name": "Get Environment by ID",
+          "request": {
+            "name": "Get Environment by ID",
+            "description": {
+              "content": "Get detailed information for a specific environment by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) ID of the environment"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1195c75-c6fe-47ca-94ff-ac62ac6c359c",
+              "name": "Successfully retrieved environment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6042,\n  \"environment_name\": \"string\",\n  \"cluster_id\": 967,\n  \"cluster_name\": \"string\",\n  \"active\": false,\n  \"default\": true,\n  \"prometheus_endpoint\": \"string\",\n  \"namespace\": \"string\",\n  \"isClusterCdActive\": false,\n  \"environmentIdentifier\": \"string\",\n  \"description\": \"string\",\n  \"appCount\": 9763,\n  \"isVirtualEnvironment\": false,\n  \"allowedDeploymentTypes\": [\n    \"helm\",\n    \"argo_cd\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ef1d143-a2c1-47e6-b188-b8e53613fbb9",
+              "name": "Bad Request (e.g., invalid ID)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b98696ad-0e3f-4cdd-979f-edc7b2b36479",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8a8da66-a53f-44dc-9d4e-0bd73a8ae686",
+              "name": "Environment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54656382-6a7e-4d0d-9a57-ff97baaa94f5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79887169-e8a6-49cd-9ea5-0807790ef341",
+          "name": "Delete Environment (via POST)",
+          "request": {
+            "name": "Delete Environment (via POST)",
+            "description": {
+              "content": "Delete an existing environment using POST method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "env",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"environmentIdentifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appCount\": \"<integer>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfc64b3c-a693-4d6e-886a-db2ee481aa7e",
+              "name": "Successfully deleted the environment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"environmentIdentifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appCount\": \"<integer>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Environment deleted successfully.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48ffac3a-7aa5-49a9-8f45-9e1916a5a804",
+              "name": "Bad Request. Input Validation(decode) error/wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"environmentIdentifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appCount\": \"<integer>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ef41138-cc90-4db8-b09f-a9583930fe60",
+              "name": "Unauthorized User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"environmentIdentifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appCount\": \"<integer>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56866812-cb46-448d-b318-3f29d3f4dceb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "env",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"environment_name\": \"<string>\",\n  \"cluster_id\": \"<integer>\",\n  \"cluster_name\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"default\": \"<boolean>\",\n  \"prometheus_endpoint\": \"<string>\",\n  \"namespace\": \"<string>\",\n  \"isClusterCdActive\": \"<boolean>\",\n  \"environmentIdentifier\": \"<string>\",\n  \"description\": \"<string>\",\n  \"appCount\": \"<integer>\",\n  \"isVirtualEnvironment\": \"<boolean>\",\n  \"allowedDeploymentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5020,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "92b44087-c955-4a27-8105-044204eea053",
+    "name": "Devtron APIs Specs Applications Environment Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Notifications API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns all notification settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/notification",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "value can be regex search string."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "value can be regex search string."
+              }
+            ]
+          },
+          "docs": "Returns all notification settings"
+        },
+        {
+          "info": {
+            "name": "Creates a new NotificationSetting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/notification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create NotificationSetting api."
+        },
+        {
+          "info": {
+            "name": "Update  NotificationSetting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/notification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update NotificationSetting api either recipients or events(trigger/success/failed)."
+        },
+        {
+          "info": {
+            "name": "Delete NotificationSetting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost/orchestrator/notification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "delete notification setting."
+        },
+        {
+          "info": {
+            "name": "used to fetch providers(recipients)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/notification/recipient",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "value can be regex search string."
+              }
+            ]
+          },
+          "docs": "recipients fetch by string search, it will return slacks providers and email ids"
+        },
+        {
+          "info": {
+            "name": "get all NotificationSettingConfig list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/notification/channel"
+          },
+          "docs": "get all NotificationSettingConfig list"
+        },
+        {
+          "info": {
+            "name": "Creates a new NotificationSettingConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/notification/channel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create NotificationSettingConfig, Slack or SES"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

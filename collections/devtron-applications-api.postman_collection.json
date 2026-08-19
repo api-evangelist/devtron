@@ -1,0 +1,772 @@
+{
+  "item": [
+    {
+      "id": "6cd6174c-4541-410b-8ac8-6a9b85c305b0",
+      "name": "Applications",
+      "description": {
+        "content": "Application management operations including creation, listing, and updates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9538b1b7-6f6e-4224-9b39-fc368301c076",
+          "name": "Create a new application",
+          "request": {
+            "name": "Create a new application",
+            "description": {
+              "content": "create new application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "beb34548-3d04-4391-8879-0daf0fbfb212",
+              "name": "App create response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3581,\n  \"status\": \"string\",\n  \"result\": {\n    \"appName\": \"<string>\",\n    \"id\": 8616,\n    \"teamId\": \"<integer>\",\n    \"templateId\": \"<integer>\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\",\n        \"propagate\": \"<boolean>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\",\n        \"propagate\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a7e2ba5-a2af-426d-92d8-259d53101f79",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1642,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e306135-2c70-4770-baa2-056b4c2b46f7",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7232a3da-dde3-41e7-abdc-4bbaef3d1853",
+          "name": "Update application projects and labels",
+          "request": {
+            "name": "Update application projects and labels",
+            "description": {
+              "content": "update application projects and labels",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfb76d58-4200-4c55-b0e4-7b4e93eef09a",
+              "name": "App update response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3581,\n  \"status\": \"string\",\n  \"result\": {\n    \"appName\": \"<string>\",\n    \"id\": 8616,\n    \"teamId\": \"<integer>\",\n    \"templateId\": \"<integer>\",\n    \"labels\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\",\n        \"propagate\": \"<boolean>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\",\n        \"propagate\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79b7366c-e6fb-47e9-a714-d07d2f5c4e4c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a71ef82a-0d12-484a-8f25-f7a94a182241",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appName\": \"<string>\",\n  \"teamId\": \"<integer>\",\n  \"templateId\": \"<integer>\",\n  \"labels\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"propagate\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e699846f-aa5a-4a8f-8189-3a532dd7179c",
+          "name": "List applications",
+          "request": {
+            "name": "List applications",
+            "description": {
+              "content": "app listing, collection of deployed applications or undeployed or incomplete configured apps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"appNameSearch\": \"<string>\",\n  \"sortBy\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"environments\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"teams\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"statuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c5a55d0a-98ea-480d-bd86-3b851a5206e4",
+              "name": "App create response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"appNameSearch\": \"<string>\",\n  \"sortBy\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"environments\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"teams\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"statuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7634,\n  \"status\": \"string\",\n  \"result\": {\n    \"appCount\": 4222,\n    \"appContainers\": [\n      {\n        \"appId\": 5405,\n        \"appName\": \"string\",\n        \"environments\": [\n          {\n            \"appId\": 1484,\n            \"appName\": \"string\",\n            \"environmentId\": 2689,\n            \"environmentName\": \"string\",\n            \"cdStageStatus\": \"string\",\n            \"dataSource\": \"string\",\n            \"ciArtifactId\": 7566,\n            \"deleted\": true,\n            \"status\": \"string\",\n            \"appStatus\": \"string\",\n            \"postStageStatus\": \"string\",\n            \"preStageStatus\": \"string\",\n            \"lastDeployedTime\": \"string\"\n          },\n          {\n            \"appId\": 5389,\n            \"appName\": \"string\",\n            \"environmentId\": 9974,\n            \"environmentName\": \"string\",\n            \"cdStageStatus\": \"string\",\n            \"dataSource\": \"string\",\n            \"ciArtifactId\": 2268,\n            \"deleted\": true,\n            \"status\": \"string\",\n            \"appStatus\": \"string\",\n            \"postStageStatus\": \"string\",\n            \"preStageStatus\": \"string\",\n            \"lastDeployedTime\": \"string\"\n          }\n        ]\n      },\n      {\n        \"appId\": 9450,\n        \"appName\": \"string\",\n        \"environments\": [\n          {\n            \"appId\": 9497,\n            \"appName\": \"string\",\n            \"environmentId\": 6463,\n            \"environmentName\": \"string\",\n            \"cdStageStatus\": \"string\",\n            \"dataSource\": \"string\",\n            \"ciArtifactId\": 8292,\n            \"deleted\": false,\n            \"status\": \"string\",\n            \"appStatus\": \"string\",\n            \"postStageStatus\": \"string\",\n            \"preStageStatus\": \"string\",\n            \"lastDeployedTime\": \"string\"\n          },\n          {\n            \"appId\": 2079,\n            \"appName\": \"string\",\n            \"environmentId\": 4994,\n            \"environmentName\": \"string\",\n            \"cdStageStatus\": \"string\",\n            \"dataSource\": \"string\",\n            \"ciArtifactId\": 1378,\n            \"deleted\": true,\n            \"status\": \"string\",\n            \"appStatus\": \"string\",\n            \"postStageStatus\": \"string\",\n            \"preStageStatus\": \"string\",\n            \"lastDeployedTime\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"deploymentGroup\": {\n      \"id\": 3103,\n      \"ciPipelineId\": 9708,\n      \"environmentId\": 5160,\n      \"appCount\": 9769,\n      \"name\": \"string\",\n      \"noOfApps\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48444b09-2e19-4e50-a715-3cd849ce14ed",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"appNameSearch\": \"<string>\",\n  \"sortBy\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"environments\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"teams\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"statuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5283f8c2-9a8f-4ab0-8e0d-00b1a26dbbd6",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"appNameSearch\": \"<string>\",\n  \"sortBy\": \"<string>\",\n  \"sortOrder\": \"<string>\",\n  \"environments\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"teams\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"statuses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "068cdfca-f851-43d8-be45-ed73c1d62124",
+          "name": "Update project for app",
+          "request": {
+            "name": "Update project for app",
+            "description": {
+              "content": "update project for app",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orchestrator",
+                "app",
+                "edit",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"teamId\": \"<integer>\",\n  \"appId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0511ec85-0c3a-4b0d-ac23-38bf16e7389f",
+              "name": "App update response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teamId\": \"<integer>\",\n  \"appId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1491,\n  \"status\": \"string\",\n  \"result\": {\n    \"teamId\": \"<integer>\",\n    \"appId\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1de2606a-9f5e-4606-96da-58d525dddca7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teamId\": \"<integer>\",\n  \"appId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21717757-c07b-4210-8a7d-13c9c78f8a0c",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orchestrator",
+                    "app",
+                    "edit",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teamId\": \"<integer>\",\n  \"appId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4983,\n  \"status\": \"string\",\n  \"result\": {},\n  \"errors\": [\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    },\n    {\n      \"userMessage\": \"string\",\n      \"internalMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4c4a07c0-f73e-48a4-ade7-6660a78bcd06",
+    "name": "Devtron APIs Specs Applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

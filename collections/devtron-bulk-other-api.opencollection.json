@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications bulk_other API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bulk_other",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Readme for Bulk Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/batch/:apiVersion/:kind/readme",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "apiVersion",
+                "value": "",
+                "type": "path",
+                "description": "apiVersion of the resource"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "path",
+                "description": "kind of the resource"
+              }
+            ]
+          },
+          "docs": "Returns Readme for bulk update for different resource in the url"
+        },
+        {
+          "info": {
+            "name": "Dry Run for Bulk Application Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/batch/v1beta1/application/dryrun",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns details(id, name, envId) of all apps to be impacted with bulk update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

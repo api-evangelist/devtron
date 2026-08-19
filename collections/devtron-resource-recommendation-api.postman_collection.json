@@ -1,0 +1,320 @@
+{
+  "item": [
+    {
+      "id": "3ce4b2cf-c9ee-4a44-9da0-5a70e3f48a0e",
+      "name": "Resource Recommendation",
+      "description": {
+        "content": "Operations related to resource recommendations for Kubernetes workloads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11d6dfe3-97d2-4f2d-8241-7f9ef5aa90c9",
+          "name": "Sync Cluster Resource Recommendations",
+          "request": {
+            "name": "Sync Cluster Resource Recommendations",
+            "description": {
+              "content": "This API will be used to sync resource recommendations for a cluster",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "recommendation",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clusterId\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e748cc8-65ef-4080-92b6-3a81d04c878e",
+              "name": "Cluster resource recommendation sync response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "recommendation",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clusterId\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "382eeb7b-3e50-4967-ae7f-f714f14e737d",
+          "name": "Get Cluster Resource Recommendation Details",
+          "request": {
+            "name": "Get Cluster Resource Recommendation Details",
+            "description": {
+              "content": "This API will fetch resource recommendations metadata for a cluster",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                ":clusterId",
+                "recommendation",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "clusterId",
+                  "description": "(Required) ID of the target cluster"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "deba7ee1-7160-4b9e-a0d7-c762306aea55",
+              "name": "Cluster resource recommendation details response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    ":clusterId",
+                    "recommendation",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "clusterId",
+                      "description": "(Required) ID of the target cluster"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"supportedGVKs\": [\n    {\n      \"group\": \"apps\",\n      \"version\": \"v1\",\n      \"kind\": \"Deployment\"\n    },\n    {\n      \"group\": \"apps\",\n      \"version\": \"v1\",\n      \"kind\": \"Deployment\"\n    }\n  ],\n  \"lastScannedOn\": \"2021-02-18T22:58:31.461Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9df68413-4c99-4cf8-9b09-ddc63f1eade7",
+          "name": "Get Cluster Resource Recommendation List",
+          "request": {
+            "name": "Get Cluster Resource Recommendation List",
+            "description": {
+              "content": "This API will be used for fetching all workloads and their resource recommendations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "k8s",
+                "resource",
+                "recommendation",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\",\n  \"clusterId\": \"<number>\",\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"<string>\",\n      \"groupVersionKind\": {\n        \"group\": \"<string>\",\n        \"version\": \"<string>\",\n        \"kind\": \"<string>\"\n      },\n      \"namespace\": \"<string>\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"<string>\"\n    },\n    \"patch\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "99f45b9b-f716-48f7-a9cb-a8e5f2aad284",
+              "name": "Cluster resource recommendation list response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "k8s",
+                    "resource",
+                    "recommendation",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"my-app/env-1\",\n  \"clusterId\": 1,\n  \"k8sRequest\": {\n    \"resourceIdentifier\": {\n      \"name\": \"my-deployment\",\n      \"groupVersionKind\": {\n        \"group\": \"apps\",\n        \"version\": \"v1\",\n        \"kind\": \"Deployment\"\n      },\n      \"namespace\": \"default\"\n    },\n    \"podLogsRequest\": {\n      \"containerName\": \"my-container\"\n    },\n    \"patch\": \"[{\\\"op\\\": \\\"replace\\\", \\\"path\\\": \\\"/spec/replicas\\\", \\\"value\\\": 3}]\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"headers\": [\n    \"namespace\",\n    \"kind\"\n  ],\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"kind\": \"string\",\n      \"apiVersion\": \"string\",\n      \"containerName\": \"string\",\n      \"cpuRequest\": {\n        \"current\": \"string\",\n        \"delta\": 7771.832782658483,\n        \"recommended\": \"string\"\n      },\n      \"cpuLimit\": {\n        \"current\": \"string\",\n        \"delta\": 2119.4661006580905,\n        \"recommended\": \"string\"\n      },\n      \"memoryRequest\": {\n        \"current\": \"string\",\n        \"delta\": 8373.701525884759,\n        \"recommended\": \"string\"\n      },\n      \"memoryLimit\": {\n        \"current\": \"string\",\n        \"delta\": 6722.126010969983,\n        \"recommended\": \"string\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"namespace\": \"string\",\n      \"kind\": \"string\",\n      \"apiVersion\": \"string\",\n      \"containerName\": \"string\",\n      \"cpuRequest\": {\n        \"current\": \"string\",\n        \"delta\": 2188.4867573062393,\n        \"recommended\": \"string\"\n      },\n      \"cpuLimit\": {\n        \"current\": \"string\",\n        \"delta\": 2075.5925943869315,\n        \"recommended\": \"string\"\n      },\n      \"memoryRequest\": {\n        \"current\": \"string\",\n        \"delta\": 4430.995824022943,\n        \"recommended\": \"string\"\n      },\n      \"memoryLimit\": {\n        \"current\": \"string\",\n        \"delta\": 237.56508291690957,\n        \"recommended\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8720b68-22ab-475c-9260-a14358dce7ef",
+    "name": "Devtron APIs Specs Applications Resource Recommendation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

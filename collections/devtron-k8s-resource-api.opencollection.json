@@ -1,0 +1,293 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications K8s Resource API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "K8s Resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Resource Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for fetching the manifest of a specified Kubernetes resource."
+        },
+        {
+          "info": {
+            "name": "Update Resource Manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost/orchestrator/k8s/resource",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for editing the manifest of a specified Kubernetes resource."
+        },
+        {
+          "info": {
+            "name": "Create Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for applying a desired manifest to create a Kubernetes resource."
+        },
+        {
+          "info": {
+            "name": "Delete Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for deleting a specified Kubernetes resource."
+        },
+        {
+          "info": {
+            "name": "Get Resource Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for fetching events for Kubernetes resources."
+        },
+        {
+          "info": {
+            "name": "Get Pod Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/k8s/pods/logs/:podName",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "podName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the pod."
+              },
+              {
+                "name": "containerName",
+                "value": "",
+                "type": "query",
+                "description": "Name of the container within the pod."
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "Application ID."
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "query",
+                "description": "Cluster ID."
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query",
+                "description": "Namespace of the pod. Required if clusterId is passed."
+              },
+              {
+                "name": "follow",
+                "value": "",
+                "type": "query",
+                "description": "Whether to follow the log stream."
+              },
+              {
+                "name": "sinceSeconds",
+                "value": "",
+                "type": "query",
+                "description": "Return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs."
+              },
+              {
+                "name": "tailLines",
+                "value": "",
+                "type": "query",
+                "description": "If set, the number of lines from the end of the logs to show."
+              }
+            ]
+          },
+          "docs": "This API is used for fetching logs for a specified container within a pod."
+        },
+        {
+          "info": {
+            "name": "Get Pod Exec Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/k8s/pod/exec/session/:identifier/:namespace/:pod/:shell/:container",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path",
+                "description": "Application ID or Cluster ID. Example '2|devtroncd|devtron' or '3'."
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path",
+                "description": "Namespace of the pod."
+              },
+              {
+                "name": "pod",
+                "value": "",
+                "type": "path",
+                "description": "Name of the pod."
+              },
+              {
+                "name": "shell",
+                "value": "",
+                "type": "path",
+                "description": "Shell to invoke."
+              },
+              {
+                "name": "container",
+                "value": "",
+                "type": "path",
+                "description": "Name of the container."
+              }
+            ]
+          },
+          "docs": "This API establishes a session for executing commands in a pod's container (terminal access)."
+        },
+        {
+          "info": {
+            "name": "Get API Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/k8s/api-resources/:clusterId",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the cluster."
+              }
+            ]
+          },
+          "docs": "Get all available API resources for a given cluster ID."
+        },
+        {
+          "info": {
+            "name": "List Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resource/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used for fetching a list of Kubernetes resources based on the request criteria."
+        },
+        {
+          "info": {
+            "name": "Rotates the Pods",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resources/rotate",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "Application ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used to rotate (restart) pods for the provided resources."
+        },
+        {
+          "info": {
+            "name": "Apply Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost/orchestrator/k8s/resources/apply",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API is used to apply (create or update) Kubernetes resources in a cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

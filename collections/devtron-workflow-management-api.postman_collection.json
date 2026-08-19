@@ -1,0 +1,661 @@
+{
+  "item": [
+    {
+      "id": "8c48204d-0203-4773-845b-859d69c2ea74",
+      "name": "Workflow Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "508441e2-99a7-406e-93de-0c910f442f83",
+          "name": "Create an application workflow",
+          "request": {
+            "name": "Create an application workflow",
+            "description": {
+              "content": "Creates a new workflow for a given application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "workflow"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2383158-0d8e-49e6-a1a6-267d5aae68a2",
+              "name": "Successfully created workflow.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7685,\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"id\": 8856,\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"id\": 7269,\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bd9169b-947a-45d4-a9d8-cfa82f213fd4",
+              "name": "Bad Request. Validation error or wrong request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29d65fbf-1ff0-4420-b8e9-7ad926f4906c",
+              "name": "Unauthorized User.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03f4eb91-eec6-449b-b5d6-5dad1f493070",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1f1b64a-0fc0-4a8e-8a3b-16b8108a3afb",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<integer>\",\n  \"tree\": [\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    },\n    {\n      \"appWorkflowId\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"componentId\": \"<integer>\",\n      \"parentId\": \"<integer>\",\n      \"parentType\": \"<string>\",\n      \"deploymentAppDeleteRequest\": \"<boolean>\",\n      \"isLast\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcae9e7c-3365-46e0-a333-5eb56a4b6053",
+          "name": "Delete an application workflow",
+          "request": {
+            "name": "Delete an application workflow",
+            "description": {
+              "content": "Deletes an existing workflow for a given application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "workflow",
+                ":app-wf-id",
+                "app",
+                ":app-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "app-wf-id",
+                  "description": "(Required) ID of the application workflow to delete."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "app-id",
+                  "description": "(Required) ID of the application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authentication token.",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e83f6449-5c9a-4c1a-a8cb-879e81773a59",
+              "name": "Successfully deleted workflow.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    ":app-wf-id",
+                    "app",
+                    ":app-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-wf-id",
+                      "description": "(Required) ID of the application workflow to delete."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-id",
+                      "description": "(Required) ID of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78f02d13-15c4-4c8c-939c-fab18c5ceb49",
+              "name": "Bad Request. Invalid path parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    ":app-wf-id",
+                    "app",
+                    ":app-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-wf-id",
+                      "description": "(Required) ID of the application workflow to delete."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-id",
+                      "description": "(Required) ID of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "708d2192-b424-4897-9121-6538aaeb5531",
+              "name": "Unauthorized User.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    ":app-wf-id",
+                    "app",
+                    ":app-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-wf-id",
+                      "description": "(Required) ID of the application workflow to delete."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-id",
+                      "description": "(Required) ID of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5477189-cc7f-4648-b21d-353f759e266d",
+              "name": "Forbidden. User does not have permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    ":app-wf-id",
+                    "app",
+                    ":app-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-wf-id",
+                      "description": "(Required) ID of the application workflow to delete."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-id",
+                      "description": "(Required) ID of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0450af79-41d0-465f-a4b9-4ec07dd32cd2",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "app",
+                    "workflow",
+                    ":app-wf-id",
+                    "app",
+                    ":app-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-wf-id",
+                      "description": "(Required) ID of the application workflow to delete."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "app-id",
+                      "description": "(Required) ID of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authentication token.",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5958,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost/orchestrator",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4b090f2a-e1ca-4656-9a77-abd219f4ed65",
+    "name": "Devtron APIs Specs Applications Workflow Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Application management operations including creation, listing, and updates",
+      "type": "text/plain"
+    }
+  }
+}

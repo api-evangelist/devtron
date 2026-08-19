@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Helm Charts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Helm Charts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deployed charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/orchestrator/app-store/installed-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "envs",
+                "value": "",
+                "type": "query",
+                "description": "environment ids"
+              },
+              {
+                "name": "chartRepoId",
+                "value": "",
+                "type": "query",
+                "description": "chart repo ids"
+              },
+              {
+                "name": "appStoreName",
+                "value": "",
+                "type": "query",
+                "description": "chart name"
+              },
+              {
+                "name": "appName",
+                "value": "",
+                "type": "query",
+                "description": "chart name as app name for devtron"
+              },
+              {
+                "name": "onlyDeprecated",
+                "value": "",
+                "type": "query",
+                "description": "show only deprecated or all"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "offset for result set"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "total request size."
+              }
+            ]
+          },
+          "docs": "deployed chart listing, with search filters"
+        },
+        {
+          "info": {
+            "name": "Fetch notes.txt for deployed helm charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/orchestrator/app-store/installed-app/notes",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "env-id",
+                "value": "",
+                "type": "query",
+                "description": "it is an environment id of app"
+              },
+              {
+                "name": "installed-app-id",
+                "value": "",
+                "type": "query",
+                "description": "it is a installed application id"
+              }
+            ]
+          },
+          "docs": "Used to fetch notes.txt for helm charts deployed via gitOps"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

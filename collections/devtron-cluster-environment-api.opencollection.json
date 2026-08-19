@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Devtron APIs Specs Applications Cluster Environment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cluster Environment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List clusters with their environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/env/clusters"
+          },
+          "docs": "Provides a list of all clusters and the environments within each."
+        },
+        {
+          "info": {
+            "name": "List environments for a specific cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost/orchestrator/cluster/:cluster_id/env",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cluster_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the cluster"
+              }
+            ]
+          },
+          "docs": "Provides a list of all environments for a given cluster ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
