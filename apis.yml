@@ -57,6 +57,8 @@ apis:
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -104,7 +106,8 @@ apis:
   description: The bulk_other API from Devtron — 2 operation(s) for bulk_other.
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
-  tags:
+  tags: []
+  tags_raw:
   - bulk_other
   properties:
   - type: OpenAPI
@@ -394,6 +397,8 @@ apis:
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -538,6 +543,8 @@ apis:
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
