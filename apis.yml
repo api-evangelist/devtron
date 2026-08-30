@@ -144,6 +144,8 @@ apis:
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
+  - Bulk Update
+  tags_raw:
   - BulkUpdate
   properties:
   - type: OpenAPI
