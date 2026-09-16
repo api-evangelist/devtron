@@ -1,17 +1,13 @@
 aid: devtron
 name: Devtron
-description: >-
-  Devtron is an open-source, AI-native Kubernetes management and software
-  delivery platform that unifies application, infrastructure, and cost
-  management for engineering, DevOps, and SRE teams. It provides Kubernetes-native
-  CI/CD, GitOps (ArgoCD/FluxCD), multi-cluster operations, security and compliance
-  governance, observability, and FinOps in a single interface, with 100+ tool
-  integrations and an agentic SRE assistant. Devtron exposes a programmable
-  orchestrator REST API (OpenAPI 3.0, 110 operations) covering application, job,
-  Helm chart, deployment, bulk-action, RBAC, SSO, cluster/environment and
-  notification management, authenticated with RBAC-scoped API tokens. Backed by
-  Insight Partners. Enriched by the API Evangelist pipeline from Devtron's public
-  developer surface.
+description: Devtron is an open-source, AI-native Kubernetes management and software delivery platform
+  that unifies application, infrastructure, and cost management for engineering, DevOps, and SRE teams.
+  It provides Kubernetes-native CI/CD, GitOps (ArgoCD/FluxCD), multi-cluster operations, security and
+  compliance governance, observability, and FinOps in a single interface, with 100+ tool integrations
+  and an agentic SRE assistant. Devtron exposes a programmable orchestrator REST API (OpenAPI 3.0, 110
+  operations) covering application, job, Helm chart, deployment, bulk-action, RBAC, SSO, cluster/environment
+  and notification management, authenticated with RBAC-scoped API tokens. Backed by Insight Partners.
+  Enriched by the API Evangelist pipeline from Devtron's public developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/devtron/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -47,7 +43,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-09-16'
 image: https://avatars.githubusercontent.com/u/60952665?v=4
 tags:
 - Company
@@ -289,8 +285,7 @@ apis:
     url: asyncapi/devtron-notifications-webhooks.yml
 - aid: devtron:devtron-deployment-history-api
   name: Devtron Deployment History API
-  description: >-
-    Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
+  description: Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
@@ -313,7 +308,7 @@ apis:
   - type: Webhooks
     url: asyncapi/devtron-notifications-webhooks.yml
 - aid: devtron:devtron-devtron-server-version-api
-  name: Devtron Devtron Server version API
+  name: Devtron Server version API
   description: The Devtron Server version API from Devtron — 1 operation(s) for devtron server version.
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
@@ -792,7 +787,10 @@ common:
   url: agentic-access/devtron-agentic-access.yml
 - type: X-MCPServerCandidate
   url: mcp/devtron-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: AgentSkill
   url: skills/_index.yml
 - type: Webhooks
