@@ -137,32 +137,6 @@ apis:
     url: agentic-access/devtron-agentic-access.yml
   - type: Webhooks
     url: asyncapi/devtron-notifications-webhooks.yml
-- aid: devtron:devtron-bulkupdate-api
-  name: Devtron BulkUpdate API
-  description: The BulkUpdate API from Devtron — 5 operation(s) for bulkupdate.
-  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
-  baseURL: https://devtron.example.com/orchestrator
-  tags:
-  - Bulk Update
-  tags_raw:
-  - BulkUpdate
-  properties:
-  - type: OpenAPI
-    url: openapi/devtron-bulkupdate-api-openapi.yml
-  - type: Authentication
-    url: authentication/devtron-authentication.yml
-  - type: Conventions
-    url: conventions/devtron-conventions.yml
-  - type: ErrorCatalog
-    url: errors/devtron-problem-types.yml
-  - type: DataModel
-    url: data-model/devtron-data-model.yml
-  - type: Conformance
-    url: conformance/devtron-conformance.yml
-  - type: AgenticAccess
-    url: agentic-access/devtron-agentic-access.yml
-  - type: Webhooks
-    url: asyncapi/devtron-notifications-webhooks.yml
 - aid: devtron:devtron-cache-management-api
   name: Devtron Cache Management API
   description: Endpoints for managing authentication and authorization caches.
@@ -285,7 +259,8 @@ apis:
     url: asyncapi/devtron-notifications-webhooks.yml
 - aid: devtron:devtron-deployment-history-api
   name: Devtron Deployment History API
-  description: Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
+  description: >-
+    Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator
   tags:
@@ -729,6 +704,30 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/devtron-workflow-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/devtron-authentication.yml
+  - type: Conventions
+    url: conventions/devtron-conventions.yml
+  - type: ErrorCatalog
+    url: errors/devtron-problem-types.yml
+  - type: DataModel
+    url: data-model/devtron-data-model.yml
+  - type: Conformance
+    url: conformance/devtron-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/devtron-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/devtron-notifications-webhooks.yml
+- aid: devtron:devtron-bulk-update-api
+  name: Devtron Bulk Update API
+  description: The Bulk Update API from Devtron — 5 operation(s) for bulk update.
+  humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
+  baseURL: https://devtron.example.com/orchestrator
+  tags:
+  - Bulk Update
+  properties:
+  - type: OpenAPI
+    url: openapi/devtron-bulk-update-api-openapi.yml
   - type: Authentication
     url: authentication/devtron-authentication.yml
   - type: Conventions
