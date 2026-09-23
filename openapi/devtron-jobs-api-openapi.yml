@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Jobs API
+  title: Devtron APIs Specs Jobs API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
+  description: Job management operations for creating, cloning, and retrieving jobs
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -100,6 +100,49 @@ paths:
       - Jobs
 components:
   schemas:
+    jobCiPipeline:
+      type: object
+      properties:
+        ciPipelineId:
+          type: integer
+        status:
+          type: string
+        lastRunAt:
+          type: string
+          format: date-time
+        lastSuccessAt:
+          type: string
+          format: date-time
+    jobContainer:
+      type: object
+      properties:
+        jobId:
+          type: integer
+        jobName:
+          type: string
+        description:
+          type: string
+        ciPipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/jobCiPipeline'
+    gitMaterial:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        id:
+          type: integer
+        gitProviderId:
+          type: integer
+        checkoutPath:
+          type: string
+        fetchSubmodules:
+          type: boolean
+        isUsedInCiConfig:
+          type: boolean
     JobList:
       type: object
       properties:
@@ -135,50 +178,6 @@ components:
           type: integer
           description: used to give the number of jobs we want
           example: 20
-    ActionResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Used to give the id of job once its created
-          example: 25
-        appName:
-          type: string
-          description: Used to give the name of job once its created
-          example: my-job-1
-        material:
-          type: array
-          items:
-            $ref: '#/components/schemas/gitMaterial'
-        teamId:
-          type: integer
-          description: Used to give the team id
-          example: 1
-        templateId:
-          type: integer
-          description: Used to give the templateId
-          example: 0
-        description:
-          type: string
-          description: Used to give the description of the job once it is made.
-          example: This is my first Job
-        isJob:
-          type: boolean
-          description: used to tell whether it is a job or an app
-          example: true
-    jobCiPipeline:
-      type: object
-      properties:
-        ciPipelineId:
-          type: integer
-        status:
-          type: string
-        lastRunAt:
-          type: string
-          format: date-time
-        lastSuccessAt:
-          type: string
-          format: date-time
     CreateJob:
       type: object
       properties:
@@ -216,19 +215,37 @@ components:
           type: string
           description: Used to give the description of the job once it is made.
           example: This is my first Job
-    jobContainer:
+    ActionResponse:
       type: object
       properties:
-        jobId:
+        id:
           type: integer
-        jobName:
+          description: Used to give the id of job once its created
+          example: 25
+        appName:
           type: string
-        description:
-          type: string
-        ciPipelines:
+          description: Used to give the name of job once its created
+          example: my-job-1
+        material:
           type: array
           items:
-            $ref: '#/components/schemas/jobCiPipeline'
+            $ref: '#/components/schemas/gitMaterial'
+        teamId:
+          type: integer
+          description: Used to give the team id
+          example: 1
+        templateId:
+          type: integer
+          description: Used to give the templateId
+          example: 0
+        description:
+          type: string
+          description: Used to give the description of the job once it is made.
+          example: This is my first Job
+        isJob:
+          type: boolean
+          description: used to tell whether it is a job or an app
+          example: true
     JobListResponse:
       type: object
       properties:
@@ -238,23 +255,6 @@ components:
             $ref: '#/components/schemas/jobContainer'
         jobCount:
           type: integer
-    gitMaterial:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-        id:
-          type: integer
-        gitProviderId:
-          type: integer
-        checkoutPath:
-          type: string
-        fetchSubmodules:
-          type: boolean
-        isUsedInCiConfig:
-          type: boolean
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

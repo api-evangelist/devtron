@@ -1,11 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Labels API
+  title: Devtron APIs Specs Labels API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -16,7 +15,14 @@ paths:
   /app/labels/list:
     get:
       summary: List Application Labels
-      description: "Retrieves a list of application labels. By default, returns all labels. \nUse the `showPropagatedOnly` parameter to filter for labels where propagate = true.\n\n**Required Token Permission:**\n- Must have **View** access to the applications in scope.\n"
+      description: 'Retrieves a list of application labels. By default, returns all labels.
+
+        Use the `showPropagatedOnly` parameter to filter for labels where propagate = true.
+
+
+        **Required Token Permission:**
+
+        - Must have **View** access to the applications in scope.'
       operationId: getAppLabels
       tags:
       - Labels

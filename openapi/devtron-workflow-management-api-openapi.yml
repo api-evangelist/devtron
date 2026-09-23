@@ -1,11 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Workflow Management API
+  title: Devtron APIs Specs Workflow Management API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -122,34 +121,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AppWorkflowDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the workflow.
-          readOnly: true
-        name:
-          type: string
-          description: Name of the workflow.
-        appId:
-          type: integer
-          description: ID of the application this workflow belongs to.
-        tree:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppWorkflowMappingDto'
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     AppWorkflowMappingDto:
       type: object
       properties:
@@ -178,6 +149,34 @@ components:
         isLast:
           type: boolean
           description: Indicates if this is the last node in its branch of the tree.
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    AppWorkflowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the workflow.
+          readOnly: true
+        name:
+          type: string
+          description: Name of the workflow.
+        appId:
+          type: integer
+          description: ID of the application this workflow belongs to.
+        tree:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppWorkflowMappingDto'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

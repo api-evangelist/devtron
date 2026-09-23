@@ -1,11 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications K8s API
+  title: Devtron APIs Specs K8s API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -36,27 +35,19 @@ paths:
       - K8s
 components:
   schemas:
-    ManifestResponse:
-      type: object
-      required:
-      - manifest
-      properties:
-        recommendedManifest:
-          $ref: '#/components/schemas/K8sManifest'
-        manifest:
-          $ref: '#/components/schemas/K8sManifest'
-    ResourceGetResponse:
+    ResourceRequestObject:
       type: object
       properties:
-        manifestResponse:
-          $ref: '#/components/schemas/ManifestResponse'
-        secretViewAccess:
-          type: boolean
-          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
-          example: true
-      required:
-      - manifestResponse
-      - secretViewAccess
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
     K8sRequestObject:
       type: object
       properties:
@@ -87,10 +78,15 @@ components:
           type: string
           description: JSON patch or strategic merge patch to apply to the resource.
           example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    K8sManifest:
+    ManifestResponse:
       type: object
-      description: Kubernetes manifest of the resource
-      additionalProperties: true
+      required:
+      - manifest
+      properties:
+        recommendedManifest:
+          $ref: '#/components/schemas/K8sManifest'
+        manifest:
+          $ref: '#/components/schemas/K8sManifest'
     GroupVersionKind:
       type: object
       properties:
@@ -110,19 +106,22 @@ components:
       - group
       - version
       - kind
-    ResourceRequestObject:
+    K8sManifest:
+      type: object
+      description: Kubernetes manifest of the resource
+      additionalProperties: true
+    ResourceGetResponse:
       type: object
       properties:
-        appId:
-          type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
+          type: boolean
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

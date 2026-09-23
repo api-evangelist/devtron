@@ -1,11 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Change Chart API
+  title: Devtron APIs Specs Change Chart API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server

@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Resource Recommendation API
+  title: Devtron APIs Specs Resource Recommendation API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
+  description: Operations related to resource recommendations for Kubernetes workloads.
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -83,65 +83,6 @@ paths:
       - Resource Recommendation
 components:
   schemas:
-    ResourceRequestObject:
-      type: object
-      properties:
-        appId:
-          type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
-    ResourceRecommendation:
-      type: object
-      description: Resource recommendation details for a workload
-      required:
-      - current
-      properties:
-        delta:
-          type: number
-          format: float64
-          description: percentage of change in resource recommendation
-        current:
-          type: string
-          description: current value of the resource recommendation
-        recommended:
-          type: string
-          description: recommended value of the resource recommendation
-    K8sRequestObject:
-      type: object
-      properties:
-        resourceIdentifier:
-          type: object
-          properties:
-            groupVersionKind:
-              $ref: '#/components/schemas/GroupVersionKind'
-            namespace:
-              type: string
-              description: Namespace of the resource.
-              example: default
-            name:
-              type: string
-              description: Name of the resource.
-              example: my-deployment
-          required:
-          - name
-          - groupVersionKind
-        podLogsRequest:
-          type: object
-          properties:
-            containerName:
-              type: string
-              description: Name of the container for which logs are requested.
-              example: my-container
-        patch:
-          type: string
-          description: JSON patch or strategic merge patch to apply to the resource.
-          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
     SyncResourceRecommendation:
       type: object
       description: Request object for syncing resource recommendations for a cluster
@@ -151,40 +92,6 @@ components:
         clusterId:
           type: number
           description: ID of the target cluster
-    GroupVersionKind:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group of the API resource.
-          example: apps
-        version:
-          type: string
-          description: Version of the API resource.
-          example: v1
-        kind:
-          type: string
-          description: Kind of the API resource.
-          example: Deployment
-      required:
-      - group
-      - version
-      - kind
-    ResourceRecommendationDetails:
-      type: object
-      description: Details of resource recommendations for a cluster
-      required:
-      - supportedGVKs
-      properties:
-        supportedGVKs:
-          type: array
-          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
-          items:
-            $ref: '#/components/schemas/GroupVersionKind'
-        lastScannedOn:
-          type: string
-          format: date-time
-          description: Timestamp of the last scan for resource recommendations
     ClusterResourceRecommendationList:
       type: object
       properties:
@@ -230,6 +137,99 @@ components:
                 $ref: '#/components/schemas/ResourceRecommendation'
               memoryLimit:
                 $ref: '#/components/schemas/ResourceRecommendation'
+    ResourceRequestObject:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
+    GroupVersionKind:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
+    ResourceRecommendation:
+      type: object
+      description: Resource recommendation details for a workload
+      required:
+      - current
+      properties:
+        delta:
+          type: number
+          format: float64
+          description: percentage of change in resource recommendation
+        current:
+          type: string
+          description: current value of the resource recommendation
+        recommended:
+          type: string
+          description: recommended value of the resource recommendation
+    ResourceRecommendationDetails:
+      type: object
+      description: Details of resource recommendations for a cluster
+      required:
+      - supportedGVKs
+      properties:
+        supportedGVKs:
+          type: array
+          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
+          items:
+            $ref: '#/components/schemas/GroupVersionKind'
+        lastScannedOn:
+          type: string
+          format: date-time
+          description: Timestamp of the last scan for resource recommendations
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

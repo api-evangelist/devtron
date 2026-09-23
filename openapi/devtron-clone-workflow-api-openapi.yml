@@ -1,11 +1,10 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Clone Workflow API
+  title: Devtron APIs Specs Clone Workflow API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -37,30 +36,6 @@ paths:
       - Clone Workflow
 components:
   schemas:
-    CloneApplicationWorkflowRequest:
-      type: object
-      properties:
-        appId:
-          type: integer
-          description: ID of the application
-        appName:
-          type: string
-          description: Name of the application
-        sourceEnvironmentId:
-          type: integer
-          description: ID of the source environment
-        sourceEnvironmentName:
-          type: string
-          description: Name of the source environment
-        targetEnvironmentId:
-          type: integer
-          description: ID of the target environment
-        targetEnvironmentName:
-          type: string
-          description: Name of the target environment
-        cloneEnvInSameWorkflow:
-          type: boolean
-          description: Flag indicating if the environment should be cloned in the same workflow
     StandardResponse:
       type: object
       properties:
@@ -92,6 +67,30 @@ components:
       - code
       - status
       - result
+    CloneApplicationWorkflowRequest:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: ID of the application
+        appName:
+          type: string
+          description: Name of the application
+        sourceEnvironmentId:
+          type: integer
+          description: ID of the source environment
+        sourceEnvironmentName:
+          type: string
+          description: Name of the source environment
+        targetEnvironmentId:
+          type: integer
+          description: ID of the target environment
+        targetEnvironmentName:
+          type: string
+          description: Name of the target environment
+        cloneEnvInSameWorkflow:
+          type: boolean
+          description: Flag indicating if the environment should be cloned in the same workflow
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Environment Management API
+  title: Devtron APIs Specs Environment Management API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
+  description: Operations for creating, updating, and deleting environments
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -190,6 +190,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     EnvironmentUpdateRequest:
       type: object
       required:
@@ -231,58 +242,6 @@ components:
             enum:
             - helm
             - argo_cd
-    EnvironmentDetail:
-      type: object
-      properties:
-        id:
-          type: integer
-        environment_name:
-          type: string
-          description: Name of the Environment
-        cluster_id:
-          type: integer
-          description: Id of the target Cluster
-        cluster_name:
-          type: string
-          description: Name of the cluster
-        active:
-          type: boolean
-        default:
-          type: boolean
-        prometheus_endpoint:
-          type: string
-          description: Prometheus Endpoint of cluster
-        namespace:
-          type: string
-          description: Name of the Namespace pointing to environment
-        isClusterCdActive:
-          type: boolean
-        environmentIdentifier:
-          type: string
-        description:
-          type: string
-        appCount:
-          type: integer
-        isVirtualEnvironment:
-          type: boolean
-        allowedDeploymentTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - helm
-            - argo_cd
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     EnvironmentCreateRequest:
       type: object
       required:
@@ -317,6 +276,47 @@ components:
         isVirtualEnvironment:
           type: boolean
           default: false
+        allowedDeploymentTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - helm
+            - argo_cd
+    EnvironmentDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+        environment_name:
+          type: string
+          description: Name of the Environment
+        cluster_id:
+          type: integer
+          description: Id of the target Cluster
+        cluster_name:
+          type: string
+          description: Name of the cluster
+        active:
+          type: boolean
+        default:
+          type: boolean
+        prometheus_endpoint:
+          type: string
+          description: Prometheus Endpoint of cluster
+        namespace:
+          type: string
+          description: Name of the Namespace pointing to environment
+        isClusterCdActive:
+          type: boolean
+        environmentIdentifier:
+          type: string
+        description:
+          type: string
+        appCount:
+          type: integer
+        isVirtualEnvironment:
+          type: boolean
         allowedDeploymentTypes:
           type: array
           items:

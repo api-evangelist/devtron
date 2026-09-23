@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Deployment History API
+  title: Devtron APIs Specs Deployment History API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
+  description: Retrieves the deployment history for a specific CD pipeline based on various filter criteria.
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -131,8 +131,9 @@ paths:
                               type: boolean
                               example: true
                             userApprovalMetadata:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                             gitTriggers:
                               type: object
                               additionalProperties:
@@ -155,8 +156,9 @@ paths:
 
                                       '
                                   Changes:
-                                    type: string
-                                    nullable: true
+                                    type:
+                                    - string
+                                    - 'null'
                                   WebhookData:
                                     type: object
                                     properties:
@@ -167,8 +169,9 @@ paths:
                                         type: string
                                         example: ''
                                       data:
-                                        type: string
-                                        nullable: true
+                                        type:
+                                        - string
+                                        - 'null'
                                   CiConfigureSourceValue:
                                     type: string
                                     example: main
@@ -287,7 +290,22 @@ paths:
                             Commit: fc94fa4bad21460e822ce896b5166273aa3df1a8
                             Author: Gireesh Naidu <111440205+gireesh-naidu@users.noreply.github.com>
                             Date: '2024-07-23T18:13:18+05:30'
-                            Message: "fix: getting 500 while updating the branch of linked CI (#1424)\n\n* fix: sync ci pipeline materials for linked pipelines\r\n\r\n* fix: sync ci pipeline materials for linked pipelines\r\n\r\n* fix: null column fix\r\n\r\n* fix: null column fix\r\n\r\n* fix: able to delete ci pipeline though it has linked ci's using API"
+                            Message: 'fix: getting 500 while updating the branch of linked CI (#1424)
+
+
+                              * fix: sync ci pipeline materials for linked pipelines
+
+
+                              * fix: sync ci pipeline materials for linked pipelines
+
+
+                              * fix: null column fix
+
+
+                              * fix: null column fix
+
+
+                              * fix: able to delete ci pipeline though it has linked ci''s using API'
                             Changes: null
                             WebhookData:
                               id: 0
@@ -424,7 +442,6 @@ paths:
   /orchestrator/app/history/deployed-component/list/{appId}/{pipelineId}:
     get:
       summary: fetch deployed history details list
-      description: fetch deployed history details list
       operationId: FetchHistoryListByDeployedConfigurationDetail
       tags:
       - Deployment History
@@ -554,32 +571,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    HistoryComponentValuesDto:
-      type: object
+    Error:
+      required:
+      - code
+      - message
       properties:
-        fieldName:
-          type: object
-          properties:
-            displayName:
-              type: string
-            value:
-              type: string
-    HistoryComponentListDto:
-      type: object
-      properties:
-        id:
+        code:
           type: integer
-        deployedOn:
+          description: Error code
+        message:
           type: string
-          format: timestamp
-        deployedBy:
-          type: string
-        deploymentStatus:
-          type: string
-    HistoryConfigurationListDto:
-      type: array
-      items:
-        $ref: '#/components/schemas/HistoryConfiguration'
+          description: Error message
     HistoryConfiguration:
       type: object
       properties:
@@ -596,17 +598,32 @@ components:
           type: array
           items:
             type: string
-    Error:
-      required:
-      - code
-      - message
+    HistoryComponentListDto:
+      type: object
       properties:
-        code:
+        id:
           type: integer
-          description: Error code
-        message:
+        deployedOn:
           type: string
-          description: Error message
+          format: timestamp
+        deployedBy:
+          type: string
+        deploymentStatus:
+          type: string
+    HistoryConfigurationListDto:
+      type: array
+      items:
+        $ref: '#/components/schemas/HistoryConfiguration'
+    HistoryComponentValuesDto:
+      type: object
+      properties:
+        fieldName:
+          type: object
+          properties:
+            displayName:
+              type: string
+            value:
+              type: string
     HistoryComponentDetailDto:
       type: object
       properties:

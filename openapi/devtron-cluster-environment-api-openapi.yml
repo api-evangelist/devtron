@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications Cluster Environment API
+  title: Devtron APIs Specs Cluster Environment API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
+  description: Operations related to clusters and environments
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
@@ -99,6 +99,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     ClusterWithEnvironments:
       type: object
       properties:
@@ -142,17 +153,6 @@ components:
         active:
           type: boolean
           description: Whether the environment is active
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

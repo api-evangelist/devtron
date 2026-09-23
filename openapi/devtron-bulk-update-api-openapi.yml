@@ -1,16 +1,15 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.0.0
-  title: Devtron APIs Specs Applications BulkUpdate API
+  title: Devtron APIs Specs Bulk Update API
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  description: Application management operations including creation, listing, and updates
 servers:
 - url: http://localhost/orchestrator
   description: Local development server
 tags:
-- name: BulkUpdate
+- name: Bulk Update
   x-displayName: BulkUpdate
 paths:
   /batch/v1beta1/hibernate:
@@ -20,7 +19,7 @@ paths:
       operationId: BulkHibernate
       security: []
       tags:
-      - BulkUpdate
+      - Bulk Update
       requestBody:
         description: A JSON object containing information about applications and environments to hibernate.
         required: true
@@ -60,7 +59,7 @@ paths:
       operationId: BulkUnHibernate
       security: []
       tags:
-      - BulkUpdate
+      - Bulk Update
       requestBody:
         description: A JSON object containing information about applications and environments to un-hibernate.
         required: true
@@ -100,7 +99,7 @@ paths:
       operationId: BulkDeploy
       security: []
       tags:
-      - BulkUpdate
+      - Bulk Update
       requestBody:
         description: A JSON object containing information for bulk deployment.
         required: true
@@ -140,7 +139,7 @@ paths:
       operationId: BulkBuildTrigger
       security: []
       tags:
-      - BulkUpdate
+      - Bulk Update
       requestBody:
         description: A JSON object containing information for bulk build trigger.
         required: true
@@ -180,7 +179,7 @@ paths:
       operationId: BulkUpdate
       security: []
       tags:
-      - BulkUpdate
+      - Bulk Update
       requestBody:
         description: A JSON object containing information about update changes and by which apps will be filtered for bulk editing.
         required: true
@@ -215,112 +214,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    CmAndSecretBulkUpdateResponseForOneApp:
-      type: object
-      properties:
-        appId:
-          type: integer
-          description: Id of the concerned app
-        appName:
-          type: string
-          description: Name of the concerned app
-        envId:
-          type: integer
-          description: Env ID of the concerned app
-        names:
-          type: array
-          items:
-            type: string
-          description: Names of all configmaps/secrets
-        message:
-          type: string
-          description: App-level message for the concerned app
-    DeploymentTemplateBulkUpdateResponseForOneApp:
-      type: object
-      properties:
-        appId:
-          type: integer
-          description: Id of the concerned app
-        appName:
-          type: string
-          description: Name of the concerned app
-        envId:
-          type: integer
-          description: Env ID of the concerned app
-        message:
-          type: string
-          description: App-level message for the concerned app
-    CmAndSecretBulkUpdateResponse:
-      type: object
-      properties:
-        message:
-          type: array
-          items:
-            type: string
-          description: All top-level messages in response of bulk update action
-        failure:
-          type: array
-          items:
-            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
-          description: Details of all apps on which bulk update failed
-        successful:
-          type: array
-          items:
-            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
-          description: Details of all apps on which bulk update applied successfully
-    BulkActionSuccessDetail:
-      type: object
-      properties:
-        appId:
-          type: integer
-        appName:
-          type: string
-        envId:
-          type: integer
-        message:
-          type: string
-    BulkUpdateResponse:
-      type: object
-      properties:
-        deploymentTemplate:
-          $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponse'
-        configMap:
-          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
-        secret:
-          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
-    BulkDeployRequest:
-      type: object
-      required:
-      - envIds
-      properties:
-        includes:
-          $ref: '#/components/schemas/NameIncludesExcludes'
-        excludes:
-          $ref: '#/components/schemas/NameIncludesExcludes'
-        envIds:
-          type: array
-          items:
-            type: integer
-          description: All Env Id's for the bulk deployment
-        appIds:
-          type: array
-          items:
-            type: integer
-          description: All App Id's for the bulk deployment (alternative to includes/excludes by name)
-        projectIds:
-          type: array
-          items:
-            type: integer
-          description: All Project Id's for the bulk deployment
-        artifactId:
-          type: integer
-          description: ID of the CI artifact to be deployed
-        releaseId:
-          type: integer
-          description: ID of the release to be deployed
-        deploymentStrategy:
-          type: string
-          description: Deployment strategy to use (e.g., blue-green, canary, recreate)
     Error:
       required:
       - code
@@ -332,53 +225,24 @@ components:
         message:
           type: string
           description: Error message
-    BulkUpdateScript:
-      type: object
-      required:
-      - ApiVersion
-      - Kind
-      - Spec
-      properties:
-        apiVersion:
-          type: string
-          description: Api version from url
-          example:
-          - v1beta1
-        kind:
-          type: string
-          description: Kind
-          example:
-          - application
-        spec:
-          $ref: '#/components/schemas/BulkUpdatePayload'
-    Spec:
+    DeploymentTemplateBulkUpdateResponse:
       type: object
       properties:
-        patchData:
-          type: string
-          description: string with details of the patch to be used for updating
-    BulkBuildTriggerRequest:
-      type: object
-      required:
-      - ciPipelineId
-      properties:
-        includes:
-          $ref: '#/components/schemas/NameIncludesExcludes'
-        excludes:
-          $ref: '#/components/schemas/NameIncludesExcludes'
-        appIds:
+        message:
           type: array
           items:
-            type: integer
-          description: All App Id's for the bulk build trigger (alternative to includes/excludes by name)
-        projectIds:
+            type: string
+          description: All top-level messages in response of bulk update action
+        failure:
           type: array
           items:
-            type: integer
-          description: All Project Id's for the bulk build trigger
-        ciPipelineId:
-          type: integer
-          description: ID of the CI pipeline to trigger builds for
+            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update failed
+        successful:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+          description: Details of all apps on which bulk update applied successfully
     BulkUpdatePayload:
       type: object
       properties:
@@ -441,25 +305,40 @@ components:
           type: integer
         message:
           type: string
-    BulkActionResponse:
+    BulkDeployRequest:
       type: object
+      required:
+      - envIds
       properties:
-        message:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        envIds:
           type: array
           items:
-            type: string
-          description: Top-level messages in response of the bulk action
-        failure:
+            type: integer
+          description: All Env Id's for the bulk deployment
+        appIds:
           type: array
           items:
-            $ref: '#/components/schemas/BulkActionFailureDetail'
-          description: Details of all items on which the bulk action failed
-        successful:
+            type: integer
+          description: All App Id's for the bulk deployment (alternative to includes/excludes by name)
+        projectIds:
           type: array
           items:
-            $ref: '#/components/schemas/BulkActionSuccessDetail'
-          description: Details of all items on which the bulk action applied successfully
-    DeploymentTemplateBulkUpdateResponse:
+            type: integer
+          description: All Project Id's for the bulk deployment
+        artifactId:
+          type: integer
+          description: ID of the CI artifact to be deployed
+        releaseId:
+          type: integer
+          description: ID of the release to be deployed
+        deploymentStrategy:
+          type: string
+          description: Deployment strategy to use (e.g., blue-green, canary, recreate)
+    CmAndSecretBulkUpdateResponse:
       type: object
       properties:
         message:
@@ -470,13 +349,115 @@ components:
         failure:
           type: array
           items:
-            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
           description: Details of all apps on which bulk update failed
         successful:
           type: array
           items:
-            $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponseForOneApp'
+            $ref: '#/components/schemas/CmAndSecretBulkUpdateResponseForOneApp'
           description: Details of all apps on which bulk update applied successfully
+    CmAndSecretBulkUpdateResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the concerned app
+        appName:
+          type: string
+          description: Name of the concerned app
+        envId:
+          type: integer
+          description: Env ID of the concerned app
+        names:
+          type: array
+          items:
+            type: string
+          description: Names of all configmaps/secrets
+        message:
+          type: string
+          description: App-level message for the concerned app
+    DeploymentTemplateBulkUpdateResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the concerned app
+        appName:
+          type: string
+          description: Name of the concerned app
+        envId:
+          type: integer
+          description: Env ID of the concerned app
+        message:
+          type: string
+          description: App-level message for the concerned app
+    BulkActionSuccessDetail:
+      type: object
+      properties:
+        appId:
+          type: integer
+        appName:
+          type: string
+        envId:
+          type: integer
+        message:
+          type: string
+    Spec:
+      type: object
+      properties:
+        patchData:
+          type: string
+          description: string with details of the patch to be used for updating
+    BulkUpdateResponse:
+      type: object
+      properties:
+        deploymentTemplate:
+          $ref: '#/components/schemas/DeploymentTemplateBulkUpdateResponse'
+        configMap:
+          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
+        secret:
+          $ref: '#/components/schemas/CmAndSecretBulkUpdateResponse'
+    BulkBuildTriggerRequest:
+      type: object
+      required:
+      - ciPipelineId
+      properties:
+        includes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        excludes:
+          $ref: '#/components/schemas/NameIncludesExcludes'
+        appIds:
+          type: array
+          items:
+            type: integer
+          description: All App Id's for the bulk build trigger (alternative to includes/excludes by name)
+        projectIds:
+          type: array
+          items:
+            type: integer
+          description: All Project Id's for the bulk build trigger
+        ciPipelineId:
+          type: integer
+          description: ID of the CI pipeline to trigger builds for
+    BulkUpdateScript:
+      type: object
+      required:
+      - ApiVersion
+      - Kind
+      - Spec
+      properties:
+        apiVersion:
+          type: string
+          description: Api version from url
+          example:
+          - v1beta1
+        kind:
+          type: string
+          description: Kind
+          example:
+          - application
+        spec:
+          $ref: '#/components/schemas/BulkUpdatePayload'
     BulkActionRequest:
       type: object
       properties:
@@ -499,6 +480,24 @@ components:
           items:
             type: integer
           description: All Project Id's for the bulk action
+    BulkActionResponse:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: string
+          description: Top-level messages in response of the bulk action
+        failure:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkActionFailureDetail'
+          description: Details of all items on which the bulk action failed
+        successful:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkActionSuccessDetail'
+          description: Details of all items on which the bulk action applied successfully
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:
