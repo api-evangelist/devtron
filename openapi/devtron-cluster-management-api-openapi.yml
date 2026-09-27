@@ -251,17 +251,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      required:
-      - code
-      - message
+    PrometheusAuthGet:
+      type: object
       properties:
-        code:
-          type: integer
-          description: Error code
-        message:
+        userName:
           type: string
-          description: Error message
+        password:
+          type: string
+        tlsClientCert:
+          type: string
+        tlsClientKey:
+          type: string
     DefaultClusterComponentAdd:
       type: object
       properties:
@@ -275,38 +275,12 @@ components:
           type: string
         configuration:
           $ref: '#/components/schemas/ComponentConfiguration'
-    ClusterBean:
+    Kubeconfig:
       type: object
+      description: Kube config of target cluster
       properties:
-        id:
-          type: integer
-          description: Id of the cluster
-        cluster_name:
-          type: string
-          description: Name of the cluster
-        server_url:
-          type: string
-          description: Server Url of the cluster
-        prometheus_url:
-          type: string
-          description: Prometheus Endpoint of cluster
-        active:
-          type: boolean
         config:
-          type: object
-          properties:
-            bearer_token:
-              type: string
-              description: it will be empty while fetching, and if no change while updating
-        prometheusAuth:
-          $ref: '#/components/schemas/PrometheusAuthGet'
-        defaultClusterComponents:
-          type: array
-          items:
-            $ref: '#/components/schemas/DefaultClusterComponentGet'
-        k8sversion:
           type: string
-          description: K8s version of the cluster
     ValidateClusterBean:
       type: object
       required:
@@ -361,6 +335,14 @@ components:
           type: string
         insecure-skip-tls-verify:
           type: boolean
+    ComponentConfiguration:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - yaml
+          - json
     ClusterAuthDetail:
       type: object
       properties:
@@ -373,11 +355,20 @@ components:
         errorInConnecting:
           type: string
           description: error message if cluster failed to connect
-    Kubeconfig:
+    DefaultClusterComponentGet:
       type: object
-      description: Kube config of target cluster
       properties:
-        config:
+        name:
+          type: string
+        appId:
+          type: integer
+        installedAppId:
+          type: integer
+        envId:
+          type: integer
+        envname:
+          type: string
+        status:
           type: string
     PrometheusAuthAdd:
       type: object
@@ -399,17 +390,60 @@ components:
           properties:
             token:
               type: string
-    PrometheusAuthGet:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    UserInfos:
       type: object
       properties:
         userName:
           type: string
-        password:
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        errorInConnecting:
           type: string
-        tlsClientCert:
+    ClusterBean:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Id of the cluster
+        cluster_name:
           type: string
-        tlsClientKey:
+          description: Name of the cluster
+        server_url:
           type: string
+          description: Server Url of the cluster
+        prometheus_url:
+          type: string
+          description: Prometheus Endpoint of cluster
+        active:
+          type: boolean
+        config:
+          type: object
+          properties:
+            bearer_token:
+              type: string
+              description: it will be empty while fetching, and if no change while updating
+        prometheusAuth:
+          $ref: '#/components/schemas/PrometheusAuthGet'
+        defaultClusterComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefaultClusterComponentGet'
+        k8sversion:
+          type: string
+          description: K8s version of the cluster
     ErrorResponse:
       type: object
       properties:
@@ -435,40 +469,6 @@ components:
                 type:
                 - string
                 - 'null'
-    DefaultClusterComponentGet:
-      type: object
-      properties:
-        name:
-          type: string
-        appId:
-          type: integer
-        installedAppId:
-          type: integer
-        envId:
-          type: integer
-        envname:
-          type: string
-        status:
-          type: string
-    ComponentConfiguration:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - yaml
-          - json
-    UserInfos:
-      type: object
-      properties:
-        userName:
-          type: string
-        config:
-          type: object
-          additionalProperties:
-            type: string
-        errorInConnecting:
-          type: string
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

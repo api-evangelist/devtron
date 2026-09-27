@@ -83,6 +83,19 @@ paths:
       - Resource Recommendation
 components:
   schemas:
+    ResourceRequestObject:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
     SyncResourceRecommendation:
       type: object
       description: Request object for syncing resource recommendations for a cluster
@@ -92,6 +105,21 @@ components:
         clusterId:
           type: number
           description: ID of the target cluster
+    ResourceRecommendationDetails:
+      type: object
+      description: Details of resource recommendations for a cluster
+      required:
+      - supportedGVKs
+      properties:
+        supportedGVKs:
+          type: array
+          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
+          items:
+            $ref: '#/components/schemas/GroupVersionKind'
+        lastScannedOn:
+          type: string
+          format: date-time
+          description: Timestamp of the last scan for resource recommendations
     ClusterResourceRecommendationList:
       type: object
       properties:
@@ -137,19 +165,25 @@ components:
                 $ref: '#/components/schemas/ResourceRecommendation'
               memoryLimit:
                 $ref: '#/components/schemas/ResourceRecommendation'
-    ResourceRequestObject:
+    GroupVersionKind:
       type: object
       properties:
-        appId:
+        group:
           type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
     K8sRequestObject:
       type: object
       properties:
@@ -180,25 +214,6 @@ components:
           type: string
           description: JSON patch or strategic merge patch to apply to the resource.
           example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    GroupVersionKind:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group of the API resource.
-          example: apps
-        version:
-          type: string
-          description: Version of the API resource.
-          example: v1
-        kind:
-          type: string
-          description: Kind of the API resource.
-          example: Deployment
-      required:
-      - group
-      - version
-      - kind
     ResourceRecommendation:
       type: object
       description: Resource recommendation details for a workload
@@ -215,21 +230,6 @@ components:
         recommended:
           type: string
           description: recommended value of the resource recommendation
-    ResourceRecommendationDetails:
-      type: object
-      description: Details of resource recommendations for a cluster
-      required:
-      - supportedGVKs
-      properties:
-        supportedGVKs:
-          type: array
-          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
-          items:
-            $ref: '#/components/schemas/GroupVersionKind'
-        lastScannedOn:
-          type: string
-          format: date-time
-          description: Timestamp of the last scan for resource recommendations
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

@@ -48,6 +48,38 @@ components:
           example: 1
         k8sRequest:
           $ref: '#/components/schemas/K8sRequestObject'
+    K8sManifest:
+      type: object
+      description: Kubernetes manifest of the resource
+      additionalProperties: true
+    GroupVersionKind:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
+    ManifestResponse:
+      type: object
+      required:
+      - manifest
+      properties:
+        recommendedManifest:
+          $ref: '#/components/schemas/K8sManifest'
+        manifest:
+          $ref: '#/components/schemas/K8sManifest'
     K8sRequestObject:
       type: object
       properties:
@@ -78,38 +110,6 @@ components:
           type: string
           description: JSON patch or strategic merge patch to apply to the resource.
           example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    ManifestResponse:
-      type: object
-      required:
-      - manifest
-      properties:
-        recommendedManifest:
-          $ref: '#/components/schemas/K8sManifest'
-        manifest:
-          $ref: '#/components/schemas/K8sManifest'
-    GroupVersionKind:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group of the API resource.
-          example: apps
-        version:
-          type: string
-          description: Version of the API resource.
-          example: v1
-        kind:
-          type: string
-          description: Kind of the API resource.
-          example: Deployment
-      required:
-      - group
-      - version
-      - kind
-    K8sManifest:
-      type: object
-      description: Kubernetes manifest of the resource
-      additionalProperties: true
     ResourceGetResponse:
       type: object
       properties:

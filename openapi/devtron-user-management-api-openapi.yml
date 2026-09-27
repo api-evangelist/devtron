@@ -260,213 +260,39 @@ paths:
           $ref: '#/components/responses/InternalServerError'
       security: []
 components:
-  responses:
-    InternalServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    NotAcceptable:
-      description: Not Acceptable. Request cannot be processed.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    UserInfoResponse:
-      description: Response containing User Information.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserInfo'
-    Forbidden:
-      description: Forbidden. User does not have permission.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    UserListingResponse:
-      description: Paginated list of users.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              users:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserInfo'
-              totalCount:
-                type: integer
-                format: int32
-    Unauthorized:
-      description: Unauthorized. User is not logged in or token is invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    GenericSuccess:
-      description: Generic success response.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              success:
-                type: boolean
-                example: true
-    BadRequest:
-      description: Bad request. Invalid input parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    SearchKeyQuery:
-      name: searchKey
-      in: query
-      required: false
-      description: Search term.
-      schema:
-        type: string
-    OffsetQuery:
-      name: offset
-      in: query
-      required: false
-      description: Offset for pagination.
-      schema:
-        type: integer
-        format: int32
-        minimum: 0
-    SortByQueryUser:
-      name: sortBy
-      in: query
-      required: false
-      description: Field to sort users by (e.g., email_id, last_login).
-      schema:
-        type: string
-        enum:
-        - email_id
-        - last_login
-    SortOrderQuery:
-      name: sortOrder
-      in: query
-      required: false
-      description: Sort order (ASC or DESC).
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
-    SizeQuery:
-      name: size
-      in: query
-      required: false
-      description: Number of items per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        default: 20
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Identifier (typically integer ID).
-      schema:
-        type: integer
-        format: int32
-  requestBodies:
-    UserInfo:
-      description: User Information object
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserInfo'
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        status:
-          type: string
-        result:
-          type:
-          - object
-          - 'null'
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              userMessage:
-                type:
-                - string
-                - 'null'
-              internalMessage:
-                type:
-                - string
-                - 'null'
     UserRoleGroup:
       type: object
       description: Associates a user with a role group.
       properties:
         roleGroup:
           $ref: '#/components/schemas/RoleGroup'
-    UserInfo:
+    RoleGroup:
       type: object
       properties:
         id:
           type: integer
           format: int32
-          description: User ID. Should not be set for new user creation if auto-generated. Not allowed to be system-admin-userid (1 or 2) by validation.
-        email_id:
+          readOnly: true
+        name:
           type: string
-          format: email
-          description: User's email address. Cannot be system admin user email by validation.
-        roles:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: List of direct roles assigned to the user (deprecated in favor of roleFilters and userRoleGroups).
-        accessToken:
+          description: Name of the Role group
+        description:
           type:
           - string
           - 'null'
-          description: Access token for the user (typically not part of create/update payload, but in response).
-          readOnly: true
+          description: Descrition fo Role group
         roleFilters:
           type: array
+          description: Role filters
           items:
             $ref: '#/components/schemas/RoleFilter'
-        groups:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: Deprecated field for user groups. Use userRoleGroups instead.
-        userRoleGroups:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UserRoleGroup'
         superAdmin:
           type: boolean
-          description: Indicates if the user has super admin privileges.
-        lastLoginTime:
-          type: string
-          format: date-time
-          readOnly: true
-          description: The time the user last logged in.
+          description: Indicates if this role group grants super admin privileges.
       required:
-      - email_id
+      - name
+      - roleFilters
     RoleFilter:
       type: object
       description: Defines a specific permission filter for a role.
@@ -539,32 +365,206 @@ components:
       required:
       - entity
       - action
-    RoleGroup:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type:
+          - object
+          - 'null'
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type:
+                - string
+                - 'null'
+              internalMessage:
+                type:
+                - string
+                - 'null'
+    UserInfo:
       type: object
       properties:
         id:
           type: integer
           format: int32
-          readOnly: true
-        name:
+          description: User ID. Should not be set for new user creation if auto-generated. Not allowed to be system-admin-userid (1 or 2) by validation.
+        email_id:
           type: string
-          description: Name of the Role group
-        description:
+          format: email
+          description: User's email address. Cannot be system admin user email by validation.
+        roles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: List of direct roles assigned to the user (deprecated in favor of roleFilters and userRoleGroups).
+        accessToken:
           type:
           - string
           - 'null'
-          description: Descrition fo Role group
+          description: Access token for the user (typically not part of create/update payload, but in response).
+          readOnly: true
         roleFilters:
           type: array
-          description: Role filters
           items:
             $ref: '#/components/schemas/RoleFilter'
+        groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Deprecated field for user groups. Use userRoleGroups instead.
+        userRoleGroups:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UserRoleGroup'
         superAdmin:
           type: boolean
-          description: Indicates if this role group grants super admin privileges.
+          description: Indicates if the user has super admin privileges.
+        lastLoginTime:
+          type: string
+          format: date-time
+          readOnly: true
+          description: The time the user last logged in.
       required:
-      - name
-      - roleFilters
+      - email_id
+  responses:
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotAcceptable:
+      description: Not Acceptable. Request cannot be processed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    GenericSuccess:
+      description: Generic success response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+    UserInfoResponse:
+      description: Response containing User Information.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserInfo'
+    BadRequest:
+      description: Bad request. Invalid input parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UserListingResponse:
+      description: Paginated list of users.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              users:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfo'
+              totalCount:
+                type: integer
+                format: int32
+  parameters:
+    OffsetQuery:
+      name: offset
+      in: query
+      required: false
+      description: Offset for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Identifier (typically integer ID).
+      schema:
+        type: integer
+        format: int32
+    SearchKeyQuery:
+      name: searchKey
+      in: query
+      required: false
+      description: Search term.
+      schema:
+        type: string
+    SortOrderQuery:
+      name: sortOrder
+      in: query
+      required: false
+      description: Sort order (ASC or DESC).
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    SizeQuery:
+      name: size
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 20
+    SortByQueryUser:
+      name: sortBy
+      in: query
+      required: false
+      description: Field to sort users by (e.g., email_id, last_login).
+      schema:
+        type: string
+        enum:
+        - email_id
+        - last_login
+  requestBodies:
+    UserInfo:
+      description: User Information object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserInfo'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

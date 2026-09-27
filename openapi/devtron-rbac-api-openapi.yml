@@ -38,8 +38,8 @@ paths:
       security: []
 components:
   responses:
-    InternalServerError:
-      description: Internal server error.
+    Forbidden:
+      description: Forbidden. User does not have permission.
       content:
         application/json:
           schema:
@@ -50,13 +50,37 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Forbidden:
-      description: Forbidden. User does not have permission.
+    InternalServerError:
+      description: Internal server error.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    RbacRoleDto:
+      type: object
+      description: Represents a default RBAC role.
+      properties:
+        id:
+          type: integer
+          format: int32
+        roleName:
+          type: string
+        roleDisplayName:
+          type: string
+        roleDescription:
+          type: string
+        entity:
+          type: string
+          enum:
+          - apps
+          - cluster
+          - chart-group
+          - jobs
+        accessType:
+          type:
+          - string
+          - 'null'
     ErrorResponse:
       type: object
       properties:
@@ -82,30 +106,6 @@ components:
                 type:
                 - string
                 - 'null'
-    RbacRoleDto:
-      type: object
-      description: Represents a default RBAC role.
-      properties:
-        id:
-          type: integer
-          format: int32
-        roleName:
-          type: string
-        roleDisplayName:
-          type: string
-        roleDescription:
-          type: string
-        entity:
-          type: string
-          enum:
-          - apps
-          - cluster
-          - chart-group
-          - jobs
-        accessType:
-          type:
-          - string
-          - 'null'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

@@ -571,17 +571,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      required:
-      - code
-      - message
+    HistoryComponentListDto:
+      type: object
       properties:
-        code:
+        id:
           type: integer
-          description: Error code
-        message:
+        deployedOn:
           type: string
-          description: Error message
+          format: timestamp
+        deployedBy:
+          type: string
+        deploymentStatus:
+          type: string
     HistoryConfiguration:
       type: object
       properties:
@@ -598,32 +599,6 @@ components:
           type: array
           items:
             type: string
-    HistoryComponentListDto:
-      type: object
-      properties:
-        id:
-          type: integer
-        deployedOn:
-          type: string
-          format: timestamp
-        deployedBy:
-          type: string
-        deploymentStatus:
-          type: string
-    HistoryConfigurationListDto:
-      type: array
-      items:
-        $ref: '#/components/schemas/HistoryConfiguration'
-    HistoryComponentValuesDto:
-      type: object
-      properties:
-        fieldName:
-          type: object
-          properties:
-            displayName:
-              type: string
-            value:
-              type: string
     HistoryComponentDetailDto:
       type: object
       properties:
@@ -638,6 +613,31 @@ components:
               type: string
             value:
               type: string
+    HistoryComponentValuesDto:
+      type: object
+      properties:
+        fieldName:
+          type: object
+          properties:
+            displayName:
+              type: string
+            value:
+              type: string
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    HistoryConfigurationListDto:
+      type: array
+      items:
+        $ref: '#/components/schemas/HistoryConfiguration'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

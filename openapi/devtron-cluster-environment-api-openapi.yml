@@ -99,17 +99,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     ClusterWithEnvironments:
       type: object
       properties:
@@ -153,6 +142,17 @@ components:
         active:
           type: boolean
           description: Whether the environment is active
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

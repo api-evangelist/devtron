@@ -96,8 +96,8 @@ paths:
       security: []
 components:
   responses:
-    InternalServerError:
-      description: Internal server error.
+    Forbidden:
+      description: Forbidden. User does not have permission.
       content:
         application/json:
           schema:
@@ -108,8 +108,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Forbidden:
-      description: Forbidden. User does not have permission.
+    InternalServerError:
+      description: Internal server error.
       content:
         application/json:
           schema:

@@ -211,17 +211,20 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
+    providers:
+      type: object
       required:
-      - code
-      - message
+      - dest
       properties:
-        code:
-          type: integer
-          description: Error code
-        message:
+        dest:
           type: string
-          description: Error message
+          description: channel destination name
+        rule:
+          type: string
+          description: rule
+        configId:
+          type: integer
+          description: config id
     NotificationConfigResponse:
       type: object
       properties:
@@ -235,6 +238,66 @@ components:
           items:
             $ref: '#/components/schemas/configs'
           description: config holds for either slack or ses
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    NotificationConfig:
+      type: object
+      required:
+      - channel
+      properties:
+        channel:
+          type: string
+          description: channel type
+          enum:
+          - slack
+          - ses
+        configs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
+    NotificationSetting:
+      type: object
+      required:
+      - configName
+      properties:
+        id:
+          type: integer
+          description: Unique id
+        configName:
+          type: string
+          description: Unique name of group
+        appId:
+          type: integer
+          description: app id
+        envId:
+          type: integer
+          description: env id
+        pipelineIds:
+          type: array
+          items:
+            type: integer
+        eventTypeIds:
+          type: array
+          items:
+            type: integer
+        pipelineType:
+          type: string
+          description: pipeline type CI or CD
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/providers'
+          description: role filters objects
     configs:
       type: object
       required:
@@ -271,69 +334,6 @@ components:
         userId:
           type: integer
           description: project id, only fill in case of type is slack
-    NotificationSetting:
-      type: object
-      required:
-      - configName
-      properties:
-        id:
-          type: integer
-          description: Unique id
-        configName:
-          type: string
-          description: Unique name of group
-        appId:
-          type: integer
-          description: app id
-        envId:
-          type: integer
-          description: env id
-        pipelineIds:
-          type: array
-          items:
-            type: integer
-        eventTypeIds:
-          type: array
-          items:
-            type: integer
-        pipelineType:
-          type: string
-          description: pipeline type CI or CD
-        providers:
-          type: array
-          items:
-            $ref: '#/components/schemas/providers'
-          description: role filters objects
-    NotificationConfig:
-      type: object
-      required:
-      - channel
-      properties:
-        channel:
-          type: string
-          description: channel type
-          enum:
-          - slack
-          - ses
-        configs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
-    providers:
-      type: object
-      required:
-      - dest
-      properties:
-        dest:
-          type: string
-          description: channel destination name
-        rule:
-          type: string
-          description: rule
-        configId:
-          type: integer
-          description: config id
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

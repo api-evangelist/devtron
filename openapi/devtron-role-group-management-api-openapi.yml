@@ -267,7 +267,142 @@ paths:
           $ref: '#/components/responses/InternalServerError'
       security: []
 components:
+  parameters:
+    SortOrderQuery:
+      name: sortOrder
+      in: query
+      required: false
+      description: Sort order (ASC or DESC).
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    SizeQuery:
+      name: size
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 20
+    OffsetQuery:
+      name: offset
+      in: query
+      required: false
+      description: Offset for pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    SortByQueryRoleGroup:
+      name: sortBy
+      in: query
+      required: false
+      description: Field to sort role groups by (e.g., name).
+      schema:
+        type: string
+        enum:
+        - name
+    PathId:
+      name: id
+      in: path
+      required: true
+      description: Identifier (typically integer ID).
+      schema:
+        type: integer
+        format: int32
+    SearchKeyQuery:
+      name: searchKey
+      in: query
+      required: false
+      description: Search term.
+      schema:
+        type: string
+  responses:
+    RoleGroupListingResponse:
+      description: Paginated list of role groups.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              roleGroups:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleGroup'
+              totalCount:
+                type: integer
+                format: int32
+    RoleGroupResponse:
+      description: Response containing Role Group information.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoleGroup'
+    Forbidden:
+      description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    GenericSuccess:
+      description: Generic success response.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+    BadRequest:
+      description: Bad request. Invalid input parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    RoleGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          readOnly: true
+        name:
+          type: string
+          description: Name of the Role group
+        description:
+          type:
+          - string
+          - 'null'
+          description: Descrition fo Role group
+        roleFilters:
+          type: array
+          description: Role filters
+          items:
+            $ref: '#/components/schemas/RoleFilter'
+        superAdmin:
+          type: boolean
+          description: Indicates if this role group grants super admin privileges.
+      required:
+      - name
+      - roleFilters
     RoleFilter:
       type: object
       description: Defines a specific permission filter for a role.
@@ -340,32 +475,6 @@ components:
       required:
       - entity
       - action
-    RoleGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          readOnly: true
-        name:
-          type: string
-          description: Name of the Role group
-        description:
-          type:
-          - string
-          - 'null'
-          description: Descrition fo Role group
-        roleFilters:
-          type: array
-          description: Role filters
-          items:
-            $ref: '#/components/schemas/RoleFilter'
-        superAdmin:
-          type: boolean
-          description: Indicates if this role group grants super admin privileges.
-      required:
-      - name
-      - roleFilters
     ErrorResponse:
       type: object
       properties:
@@ -391,115 +500,6 @@ components:
                 type:
                 - string
                 - 'null'
-  responses:
-    GenericSuccess:
-      description: Generic success response.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              success:
-                type: boolean
-                example: true
-    InternalServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    RoleGroupListingResponse:
-      description: Paginated list of role groups.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              roleGroups:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RoleGroup'
-              totalCount:
-                type: integer
-                format: int32
-    Unauthorized:
-      description: Unauthorized. User is not logged in or token is invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Forbidden:
-      description: Forbidden. User does not have permission.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    RoleGroupResponse:
-      description: Response containing Role Group information.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/RoleGroup'
-    BadRequest:
-      description: Bad request. Invalid input parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    SortOrderQuery:
-      name: sortOrder
-      in: query
-      required: false
-      description: Sort order (ASC or DESC).
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
-    OffsetQuery:
-      name: offset
-      in: query
-      required: false
-      description: Offset for pagination.
-      schema:
-        type: integer
-        format: int32
-        minimum: 0
-    SearchKeyQuery:
-      name: searchKey
-      in: query
-      required: false
-      description: Search term.
-      schema:
-        type: string
-    SizeQuery:
-      name: size
-      in: query
-      required: false
-      description: Number of items per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        default: 20
-    SortByQueryRoleGroup:
-      name: sortBy
-      in: query
-      required: false
-      description: Field to sort role groups by (e.g., name).
-      schema:
-        type: string
-        enum:
-        - name
-    PathId:
-      name: id
-      in: path
-      required: true
-      description: Identifier (typically integer ID).
-      schema:
-        type: integer
-        format: int32
   requestBodies:
     RoleGroup:
       description: Role Group object

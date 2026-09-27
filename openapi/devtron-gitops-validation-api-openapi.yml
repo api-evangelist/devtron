@@ -131,6 +131,17 @@ paths:
       - GitOps Validation
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     GitOpsConfigDto:
       type: object
       properties:
@@ -185,17 +196,6 @@ components:
               error:
                 type: string
           description: map of stage and their respective errors
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

@@ -45,6 +45,10 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-09-16'
 image: https://avatars.githubusercontent.com/u/60952665?v=4
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-25
+x-docs-hosting: github-pages
 tags:
 - Company
 - DevOps
@@ -113,7 +117,7 @@ apis:
   - type: Webhooks
     url: asyncapi/devtron-notifications-webhooks.yml
 - aid: devtron:devtron-bulk-other-api
-  name: Devtron bulk_other API
+  name: Devtron Bulk Other API
   description: The bulk_other API from Devtron — 2 operation(s) for bulk_other.
   humanURL: https://apidocs.devtron.ai/specs/swagger/openapi.html
   baseURL: https://devtron.example.com/orchestrator

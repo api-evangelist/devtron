@@ -128,27 +128,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
       security: []
 components:
-  requestBodies:
-    SSOLoginDto:
-      description: SSO Login Configuration object
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SSOLoginDto'
   responses:
-    InternalServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized. User is not logged in or token is invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     SSOLoginConfigResponse:
       description: Response for SSO Login Configuration.
       content:
@@ -157,6 +137,18 @@ components:
             $ref: '#/components/schemas/SSOLoginDto'
     Forbidden:
       description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
       content:
         application/json:
           schema:
@@ -224,6 +216,14 @@ components:
                 type:
                 - string
                 - 'null'
+  requestBodies:
+    SSOLoginDto:
+      description: SSO Login Configuration object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SSOLoginDto'
   parameters:
     PathId:
       name: id
