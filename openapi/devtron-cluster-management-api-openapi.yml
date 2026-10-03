@@ -251,16 +251,31 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    PrometheusAuthGet:
+    UserInfos:
       type: object
       properties:
         userName:
           type: string
-        password:
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        errorInConnecting:
           type: string
-        tlsClientCert:
+    DefaultClusterComponentGet:
+      type: object
+      properties:
+        name:
           type: string
-        tlsClientKey:
+        appId:
+          type: integer
+        installedAppId:
+          type: integer
+        envId:
+          type: integer
+        envname:
+          type: string
+        status:
           type: string
     DefaultClusterComponentAdd:
       type: object
@@ -275,12 +290,38 @@ components:
           type: string
         configuration:
           $ref: '#/components/schemas/ComponentConfiguration'
-    Kubeconfig:
+    ClusterAuthDetail:
       type: object
-      description: Kube config of target cluster
       properties:
-        config:
+        clusterId:
+          type: integer
+          description: cluster id
+        clusterName:
           type: string
+          description: cluster name
+        errorInConnecting:
+          type: string
+          description: error message if cluster failed to connect
+    PrometheusAuthAdd:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - basic
+          - bearer
+        basic:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+        bearer:
+          type: object
+          properties:
+            token:
+              type: string
     ValidateClusterBean:
       type: object
       required:
@@ -335,61 +376,17 @@ components:
           type: string
         insecure-skip-tls-verify:
           type: boolean
-    ComponentConfiguration:
+    PrometheusAuthGet:
       type: object
       properties:
-        type:
+        userName:
           type: string
-          enum:
-          - yaml
-          - json
-    ClusterAuthDetail:
-      type: object
-      properties:
-        clusterId:
-          type: integer
-          description: cluster id
-        clusterName:
+        password:
           type: string
-          description: cluster name
-        errorInConnecting:
+        tlsClientCert:
           type: string
-          description: error message if cluster failed to connect
-    DefaultClusterComponentGet:
-      type: object
-      properties:
-        name:
+        tlsClientKey:
           type: string
-        appId:
-          type: integer
-        installedAppId:
-          type: integer
-        envId:
-          type: integer
-        envname:
-          type: string
-        status:
-          type: string
-    PrometheusAuthAdd:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - basic
-          - bearer
-        basic:
-          type: object
-          properties:
-            username:
-              type: string
-            password:
-              type: string
-        bearer:
-          type: object
-          properties:
-            token:
-              type: string
     Error:
       required:
       - code
@@ -401,17 +398,14 @@ components:
         message:
           type: string
           description: Error message
-    UserInfos:
+    ComponentConfiguration:
       type: object
       properties:
-        userName:
+        type:
           type: string
-        config:
-          type: object
-          additionalProperties:
-            type: string
-        errorInConnecting:
-          type: string
+          enum:
+          - yaml
+          - json
     ClusterBean:
       type: object
       properties:
@@ -469,6 +463,12 @@ components:
                 type:
                 - string
                 - 'null'
+    Kubeconfig:
+      type: object
+      description: Kube config of target cluster
+      properties:
+        config:
+          type: string
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

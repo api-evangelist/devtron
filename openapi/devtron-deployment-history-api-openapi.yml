@@ -571,34 +571,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    HistoryComponentListDto:
-      type: object
-      properties:
-        id:
-          type: integer
-        deployedOn:
-          type: string
-          format: timestamp
-        deployedBy:
-          type: string
-        deploymentStatus:
-          type: string
-    HistoryConfiguration:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-          enum:
-          - DEPLOYMENT_TEMPLATE
-          - CONFIGMAP
-          - SECRET
-          - PIPELINE_STRATEGY
-        childList:
-          type: array
-          items:
-            type: string
     HistoryComponentDetailDto:
       type: object
       properties:
@@ -634,6 +606,34 @@ components:
         message:
           type: string
           description: Error message
+    HistoryConfiguration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          enum:
+          - DEPLOYMENT_TEMPLATE
+          - CONFIGMAP
+          - SECRET
+          - PIPELINE_STRATEGY
+        childList:
+          type: array
+          items:
+            type: string
+    HistoryComponentListDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        deployedOn:
+          type: string
+          format: timestamp
+        deployedBy:
+          type: string
+        deploymentStatus:
+          type: string
     HistoryConfigurationListDto:
       type: array
       items:

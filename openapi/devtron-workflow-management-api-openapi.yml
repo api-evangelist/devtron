@@ -121,23 +121,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AppWorkflowDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: ID of the workflow.
-          readOnly: true
-        name:
-          type: string
-          description: Name of the workflow.
-        appId:
-          type: integer
-          description: ID of the application this workflow belongs to.
-        tree:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppWorkflowMappingDto'
     Error:
       required:
       - code
@@ -177,6 +160,23 @@ components:
         isLast:
           type: boolean
           description: Indicates if this is the last node in its branch of the tree.
+    AppWorkflowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the workflow.
+          readOnly: true
+        name:
+          type: string
+          description: Name of the workflow.
+        appId:
+          type: integer
+          description: ID of the application this workflow belongs to.
+        tree:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppWorkflowMappingDto'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

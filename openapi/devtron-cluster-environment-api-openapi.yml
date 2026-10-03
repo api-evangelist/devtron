@@ -99,6 +99,35 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    Environment:
+      type: object
+      properties:
+        environmentId:
+          type: integer
+          description: Environment ID
+        environmentName:
+          type: string
+          description: Name of the environment
+        environmentIdentifier:
+          type: string
+          description: Unique identifier for the environment
+        namespace:
+          type: string
+          description: Namespace associated with the environment
+        active:
+          type: boolean
+          description: Whether the environment is active
     ClusterWithEnvironments:
       type: object
       properties:
@@ -124,35 +153,6 @@ components:
         k8sVersion:
           type: string
           description: Kubernetes version of the cluster
-    Environment:
-      type: object
-      properties:
-        environmentId:
-          type: integer
-          description: Environment ID
-        environmentName:
-          type: string
-          description: Name of the environment
-        environmentIdentifier:
-          type: string
-          description: Unique identifier for the environment
-        namespace:
-          type: string
-          description: Namespace associated with the environment
-        active:
-          type: boolean
-          description: Whether the environment is active
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

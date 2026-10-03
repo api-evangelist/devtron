@@ -131,6 +131,27 @@ paths:
       - GitOps Validation
 components:
   schemas:
+    DetailedError:
+      type: object
+      properties:
+        successfulStages:
+          type: array
+          items:
+            type: string
+          description: All successful stages
+        validatedOn:
+          type: string
+          description: Timestamp of validation
+        stageErrorMap:
+          type: array
+          items:
+            type: object
+            properties:
+              stage:
+                type: string
+              error:
+                type: string
+          description: map of stage and their respective errors
     Error:
       required:
       - code
@@ -175,27 +196,6 @@ components:
         userId:
           type: integer
           description: User Id of GitOps provider
-    DetailedError:
-      type: object
-      properties:
-        successfulStages:
-          type: array
-          items:
-            type: string
-          description: All successful stages
-        validatedOn:
-          type: string
-          description: Timestamp of validation
-        stageErrorMap:
-          type: array
-          items:
-            type: object
-            properties:
-              stage:
-                type: string
-              error:
-                type: string
-          description: map of stage and their respective errors
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:
