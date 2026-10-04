@@ -211,6 +211,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     NotificationConfig:
       type: object
       required:
@@ -260,44 +271,6 @@ components:
           items:
             $ref: '#/components/schemas/providers'
           description: role filters objects
-    providers:
-      type: object
-      required:
-      - dest
-      properties:
-        dest:
-          type: string
-          description: channel destination name
-        rule:
-          type: string
-          description: rule
-        configId:
-          type: integer
-          description: config id
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
-    NotificationConfigResponse:
-      type: object
-      properties:
-        slackConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
-        sesConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
     configs:
       type: object
       required:
@@ -334,6 +307,33 @@ components:
         userId:
           type: integer
           description: project id, only fill in case of type is slack
+    providers:
+      type: object
+      required:
+      - dest
+      properties:
+        dest:
+          type: string
+          description: channel destination name
+        rule:
+          type: string
+          description: rule
+        configId:
+          type: integer
+          description: config id
+    NotificationConfigResponse:
+      type: object
+      properties:
+        slackConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
+        sesConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

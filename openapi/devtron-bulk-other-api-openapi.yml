@@ -96,31 +96,68 @@ paths:
       - bulk_other
 components:
   schemas:
-    BulkUpdateScript:
+    CmAndSecretImpactedObjectsResponseForOneApp:
+      type: object
+      properties:
+        appId:
+          type: integer
+          description: Id of the impacted app
+        appName:
+          type: string
+          description: Name of the impacted app
+        envId:
+          type: string
+          description: Env Id of the impacted app
+        names:
+          type: array
+          items:
+            type: string
+            description: Names of all configmaps/secrets impacted
+    NameIncludesExcludes:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+          description: All strings of app names to be included/excluded
+    BulkUpdateSeeExampleResponse:
       type: object
       required:
-      - ApiVersion
-      - Kind
-      - Spec
+      - Script
       properties:
-        apiVersion:
+        resource:
           type: string
-          description: Api version from url
-          example:
-          - v1beta1
-        kind:
+          description: Resource from url path, i.e. {apiVersion} & {kind}
+        script:
+          $ref: '#/components/schemas/BulkUpdateScript'
+          description: Input Script for bulk update
+        readMe:
           type: string
-          description: Kind
-          example:
-          - application
-        spec:
-          $ref: '#/components/schemas/BulkUpdatePayload'
-    Tasks:
+          description: Readme for bulk update
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    DeploymentTemplateImpactedObjectsResponseForOneApp:
       type: object
       properties:
-        spec:
-          $ref: '#/components/schemas/Spec'
-          description: Spec of the Task
+        appId:
+          type: integer
+          description: Id of the impacted app
+        appName:
+          type: string
+          description: Name of the impacted app
+        envId:
+          type: string
+          description: Env Id of the impacted app
     Spec:
       type: object
       properties:
@@ -164,18 +201,31 @@ components:
                 description: Name of All Secrets to be updated
             tasks:
               $ref: '#/components/schemas/Spec'
-    DeploymentTemplateImpactedObjectsResponseForOneApp:
+    Tasks:
       type: object
       properties:
-        appId:
-          type: integer
-          description: Id of the impacted app
-        appName:
+        spec:
+          $ref: '#/components/schemas/Spec'
+          description: Spec of the Task
+    BulkUpdateScript:
+      type: object
+      required:
+      - ApiVersion
+      - Kind
+      - Spec
+      properties:
+        apiVersion:
           type: string
-          description: Name of the impacted app
-        envId:
+          description: Api version from url
+          example:
+          - v1beta1
+        kind:
           type: string
-          description: Env Id of the impacted app
+          description: Kind
+          example:
+          - application
+        spec:
+          $ref: '#/components/schemas/BulkUpdatePayload'
     ImpactedObjectsResponse:
       type: object
       properties:
@@ -191,56 +241,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CmAndSecretImpactedObjectsResponseForOneApp'
-    NameIncludesExcludes:
-      type: object
-      properties:
-        names:
-          type: array
-          items:
-            type: string
-          description: All strings of app names to be included/excluded
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
-    BulkUpdateSeeExampleResponse:
-      type: object
-      required:
-      - Script
-      properties:
-        resource:
-          type: string
-          description: Resource from url path, i.e. {apiVersion} & {kind}
-        script:
-          $ref: '#/components/schemas/BulkUpdateScript'
-          description: Input Script for bulk update
-        readMe:
-          type: string
-          description: Readme for bulk update
-    CmAndSecretImpactedObjectsResponseForOneApp:
-      type: object
-      properties:
-        appId:
-          type: integer
-          description: Id of the impacted app
-        appName:
-          type: string
-          description: Name of the impacted app
-        envId:
-          type: string
-          description: Env Id of the impacted app
-        names:
-          type: array
-          items:
-            type: string
-            description: Names of all configmaps/secrets impacted
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

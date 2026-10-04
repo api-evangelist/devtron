@@ -100,50 +100,36 @@ paths:
       - Jobs
 components:
   schemas:
-    jobCiPipeline:
+    gitMaterial:
       type: object
       properties:
-        ciPipelineId:
-          type: integer
-        status:
+        name:
           type: string
-        lastRunAt:
+        url:
           type: string
-          format: date-time
-        lastSuccessAt:
-          type: string
-          format: date-time
-    ActionResponse:
-      type: object
-      properties:
         id:
           type: integer
-          description: Used to give the id of job once its created
-          example: 25
-        appName:
+        gitProviderId:
+          type: integer
+        checkoutPath:
           type: string
-          description: Used to give the name of job once its created
-          example: my-job-1
-        material:
-          type: array
-          items:
-            $ref: '#/components/schemas/gitMaterial'
-        teamId:
+        fetchSubmodules:
+          type: boolean
+        isUsedInCiConfig:
+          type: boolean
+    jobContainer:
+      type: object
+      properties:
+        jobId:
           type: integer
-          description: Used to give the team id
-          example: 1
-        templateId:
-          type: integer
-          description: Used to give the templateId
-          example: 0
+        jobName:
+          type: string
         description:
           type: string
-          description: Used to give the description of the job once it is made.
-          example: This is my first Job
-        isJob:
-          type: boolean
-          description: used to tell whether it is a job or an app
-          example: true
+        ciPipelines:
+          type: array
+          items:
+            $ref: '#/components/schemas/jobCiPipeline'
     CreateJob:
       type: object
       properties:
@@ -181,36 +167,6 @@ components:
           type: string
           description: Used to give the description of the job once it is made.
           example: This is my first Job
-    jobContainer:
-      type: object
-      properties:
-        jobId:
-          type: integer
-        jobName:
-          type: string
-        description:
-          type: string
-        ciPipelines:
-          type: array
-          items:
-            $ref: '#/components/schemas/jobCiPipeline'
-    gitMaterial:
-      type: object
-      properties:
-        name:
-          type: string
-        url:
-          type: string
-        id:
-          type: integer
-        gitProviderId:
-          type: integer
-        checkoutPath:
-          type: string
-        fetchSubmodules:
-          type: boolean
-        isUsedInCiConfig:
-          type: boolean
     JobList:
       type: object
       properties:
@@ -255,6 +211,50 @@ components:
             $ref: '#/components/schemas/jobContainer'
         jobCount:
           type: integer
+    ActionResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Used to give the id of job once its created
+          example: 25
+        appName:
+          type: string
+          description: Used to give the name of job once its created
+          example: my-job-1
+        material:
+          type: array
+          items:
+            $ref: '#/components/schemas/gitMaterial'
+        teamId:
+          type: integer
+          description: Used to give the team id
+          example: 1
+        templateId:
+          type: integer
+          description: Used to give the templateId
+          example: 0
+        description:
+          type: string
+          description: Used to give the description of the job once it is made.
+          example: This is my first Job
+        isJob:
+          type: boolean
+          description: used to tell whether it is a job or an app
+          example: true
+    jobCiPipeline:
+      type: object
+      properties:
+        ciPipelineId:
+          type: integer
+        status:
+          type: string
+        lastRunAt:
+          type: string
+          format: date-time
+        lastSuccessAt:
+          type: string
+          format: date-time
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

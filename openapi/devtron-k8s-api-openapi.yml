@@ -35,52 +35,6 @@ paths:
       - K8s
 components:
   schemas:
-    ResourceGetResponse:
-      type: object
-      properties:
-        manifestResponse:
-          $ref: '#/components/schemas/ManifestResponse'
-        secretViewAccess:
-          type: boolean
-          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
-          example: true
-      required:
-      - manifestResponse
-      - secretViewAccess
-    K8sRequestObject:
-      type: object
-      properties:
-        resourceIdentifier:
-          type: object
-          properties:
-            groupVersionKind:
-              $ref: '#/components/schemas/GroupVersionKind'
-            namespace:
-              type: string
-              description: Namespace of the resource.
-              example: default
-            name:
-              type: string
-              description: Name of the resource.
-              example: my-deployment
-          required:
-          - name
-          - groupVersionKind
-        podLogsRequest:
-          type: object
-          properties:
-            containerName:
-              type: string
-              description: Name of the container for which logs are requested.
-              example: my-container
-        patch:
-          type: string
-          description: JSON patch or strategic merge patch to apply to the resource.
-          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    K8sManifest:
-      type: object
-      description: Kubernetes manifest of the resource
-      additionalProperties: true
     ResourceRequestObject:
       type: object
       properties:
@@ -122,6 +76,52 @@ components:
       - group
       - version
       - kind
+    K8sManifest:
+      type: object
+      description: Kubernetes manifest of the resource
+      additionalProperties: true
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
+    ResourceGetResponse:
+      type: object
+      properties:
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
+          type: boolean
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

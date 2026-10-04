@@ -190,22 +190,20 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    EnvironmentUpdateRequest:
+    EnvironmentDetail:
       type: object
-      required:
-      - id
-      - environment_name
-      - cluster_id
       properties:
         id:
           type: integer
         environment_name:
           type: string
           description: Name of the Environment
-          maxLength: 50
         cluster_id:
           type: integer
           description: Id of the target Cluster
+        cluster_name:
+          type: string
+          description: Name of the cluster
         active:
           type: boolean
         default:
@@ -216,12 +214,14 @@ components:
         namespace:
           type: string
           description: Name of the Namespace pointing to environment
-          maxLength: 50
         isClusterCdActive:
           type: boolean
+        environmentIdentifier:
+          type: string
         description:
           type: string
-          maxLength: 40
+        appCount:
+          type: integer
         isVirtualEnvironment:
           type: boolean
         allowedDeploymentTypes:
@@ -231,17 +231,6 @@ components:
             enum:
             - helm
             - argo_cd
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     EnvironmentCreateRequest:
       type: object
       required:
@@ -283,20 +272,33 @@ components:
             enum:
             - helm
             - argo_cd
-    EnvironmentDetail:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    EnvironmentUpdateRequest:
       type: object
+      required:
+      - id
+      - environment_name
+      - cluster_id
       properties:
         id:
           type: integer
         environment_name:
           type: string
           description: Name of the Environment
+          maxLength: 50
         cluster_id:
           type: integer
           description: Id of the target Cluster
-        cluster_name:
-          type: string
-          description: Name of the cluster
         active:
           type: boolean
         default:
@@ -307,14 +309,12 @@ components:
         namespace:
           type: string
           description: Name of the Namespace pointing to environment
+          maxLength: 50
         isClusterCdActive:
           type: boolean
-        environmentIdentifier:
-          type: string
         description:
           type: string
-        appCount:
-          type: integer
+          maxLength: 40
         isVirtualEnvironment:
           type: boolean
         allowedDeploymentTypes:

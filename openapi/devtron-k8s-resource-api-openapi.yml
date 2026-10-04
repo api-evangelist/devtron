@@ -411,6 +411,45 @@ paths:
       - K8s Resource
 components:
   schemas:
+    RotatePodResponse:
+      type: object
+      properties:
+        containsError:
+          type: boolean
+          description: True if any error occurred during the rotation of one or more pods.
+          example: false
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              groupVersionKind:
+                $ref: '#/components/schemas/GroupVersionKind'
+              namespace:
+                type: string
+                description: Namespace of the resource.
+              name:
+                type: string
+                description: Name of the resource.
+              errorResponse:
+                type:
+                - string
+                - 'null'
+                description: Error message if rotation failed for this specific resource. Otherwise null.
+                example: failed to find resource
+    ResourceRequestObject:
+      type: object
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
     RotatePodRequest:
       type: object
       properties:
@@ -440,60 +479,25 @@ components:
       required:
       - clusterId
       - resources
-    RotatePodResponse:
+    GroupVersionKind:
       type: object
       properties:
-        containsError:
-          type: boolean
-          description: True if any error occurred during the rotation of one or more pods.
-          example: false
-        responses:
-          type: array
-          items:
-            type: object
-            properties:
-              groupVersionKind:
-                $ref: '#/components/schemas/GroupVersionKind'
-              namespace:
-                type: string
-                description: Namespace of the resource.
-              name:
-                type: string
-                description: Name of the resource.
-              errorResponse:
-                type:
-                - string
-                - 'null'
-                description: Error message if rotation failed for this specific resource. Otherwise null.
-                example: failed to find resource
-    LogsResponseObject:
-      type: object
-      properties:
-        id:
+        group:
           type: string
-          description: Identifier for the log entry (if provided by the stream).
-        type:
+          description: Group of the API resource.
+          example: apps
+        version:
           type: string
-          description: Type of the log entry (e.g., 'stdout', 'stderr').
-        data:
+          description: Version of the API resource.
+          example: v1
+        kind:
           type: string
-          description: The actual log line content.
-        time:
-          type: string
-          format: date-time
-          description: Timestamp of the log entry.
-    ResourceGetResponse:
-      type: object
-      properties:
-        manifestResponse:
-          $ref: '#/components/schemas/ManifestResponse'
-        secretViewAccess:
-          type: boolean
-          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
-          example: true
+          description: Kind of the API resource.
+          example: Deployment
       required:
-      - manifestResponse
-      - secretViewAccess
+      - group
+      - version
+      - kind
     EventSource:
       type: object
       properties:
@@ -501,21 +505,58 @@ components:
           type: string
         host:
           type: string
+    K8sApiResource:
+      type: object
+      properties:
+        gvk:
+          $ref: '#/components/schemas/GroupVersionKind'
+        namespaced:
+          type: boolean
+          description: Whether this API resource is namespace-scoped or cluster-scoped.
+          example: true
+    ApplyResourcesResponse:
+      type: object
+      properties:
+        kind:
+          type: string
+          description: Kind of the resource that was applied.
+          example: Deployment
+        name:
+          type: string
+          description: Name of the resource that was applied.
+          example: my-app
+        error:
+          type:
+          - string
+          - 'null'
+          description: Error message if applying this specific resource failed. Otherwise null.
+          example: null
+        isUpdate:
+          type: boolean
+          description: True if the resource was updated, false if it was created (or no change).
+          example: true
+      required:
+      - kind
+      - name
+      - isUpdate
     K8sManifest:
       type: object
       description: Kubernetes manifest of the resource
       additionalProperties: true
-    GetAllApiResourcesResponse:
+    ObjectMeta:
       type: object
       properties:
-        apiResources:
-          type: array
-          items:
-            $ref: '#/components/schemas/K8sApiResource'
-        allowedAll:
-          type: boolean
-          description: Whether all API resources are allowed for this user.
-          example: true
+        name:
+          type: string
+        namespace:
+          type: string
+        uid:
+          type: string
+        resourceVersion:
+          type: string
+        creationTimestamp:
+          type: string
+          format: date-time
     EventsResponseObject:
       type: object
       description: Represents a Kubernetes Event object.
@@ -571,6 +612,22 @@ components:
           $ref: '#/components/schemas/K8sManifest'
         manifest:
           $ref: '#/components/schemas/K8sManifest'
+    LogsResponseObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the log entry (if provided by the stream).
+        type:
+          type: string
+          description: Type of the log entry (e.g., 'stdout', 'stderr').
+        data:
+          type: string
+          description: The actual log line content.
+        time:
+          type: string
+          format: date-time
+          description: Timestamp of the log entry.
     K8sRequestObject:
       type: object
       properties:
@@ -601,74 +658,6 @@ components:
           type: string
           description: JSON patch or strategic merge patch to apply to the resource.
           example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    ObjectReference:
-      type: object
-      properties:
-        kind:
-          type: string
-        namespace:
-          type: string
-        name:
-          type: string
-        uid:
-          type: string
-        apiVersion:
-          type: string
-        resourceVersion:
-          type: string
-    ApplyResourcesResponse:
-      type: object
-      properties:
-        kind:
-          type: string
-          description: Kind of the resource that was applied.
-          example: Deployment
-        name:
-          type: string
-          description: Name of the resource that was applied.
-          example: my-app
-        error:
-          type:
-          - string
-          - 'null'
-          description: Error message if applying this specific resource failed. Otherwise null.
-          example: null
-        isUpdate:
-          type: boolean
-          description: True if the resource was updated, false if it was created (or no change).
-          example: true
-      required:
-      - kind
-      - name
-      - isUpdate
-    GroupVersionKind:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group of the API resource.
-          example: apps
-        version:
-          type: string
-          description: Version of the API resource.
-          example: v1
-        kind:
-          type: string
-          description: Kind of the API resource.
-          example: Deployment
-      required:
-      - group
-      - version
-      - kind
-    K8sApiResource:
-      type: object
-      properties:
-        gvk:
-          $ref: '#/components/schemas/GroupVersionKind'
-        namespaced:
-          type: boolean
-          description: Whether this API resource is namespace-scoped or cluster-scoped.
-          example: true
     TerminalMessage:
       type: object
       properties:
@@ -684,6 +673,44 @@ components:
           type: string
           description: ID of the terminal session.
           example: unique-session-id-123
+    ObjectReference:
+      type: object
+      properties:
+        kind:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+        apiVersion:
+          type: string
+        resourceVersion:
+          type: string
+    ResourceGetResponse:
+      type: object
+      properties:
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
+          type: boolean
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
+    GetAllApiResourcesResponse:
+      type: object
+      properties:
+        apiResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/K8sApiResource'
+        allowedAll:
+          type: boolean
+          description: Whether all API resources are allowed for this user.
+          example: true
     ClusterResourceListResponse:
       type: object
       description: Represents a list of resources with dynamic headers and corresponding data.
@@ -716,33 +743,6 @@ components:
               NAMESPACE: kube-system
               KIND: Service
               AGE: 10h
-    ObjectMeta:
-      type: object
-      properties:
-        name:
-          type: string
-        namespace:
-          type: string
-        uid:
-          type: string
-        resourceVersion:
-          type: string
-        creationTimestamp:
-          type: string
-          format: date-time
-    ResourceRequestObject:
-      type: object
-      properties:
-        appId:
-          type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
     ApplyResourcesRequest:
       type: object
       properties:

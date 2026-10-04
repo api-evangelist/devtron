@@ -129,6 +129,31 @@ paths:
       security: []
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type:
+          - object
+          - 'null'
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type:
+                - string
+                - 'null'
+              internalMessage:
+                type:
+                - string
+                - 'null'
     SSOLoginDto:
       type: object
       properties:
@@ -160,40 +185,9 @@ components:
       - url
       - config
       - active
-    ErrorResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        status:
-          type: string
-        result:
-          type:
-          - object
-          - 'null'
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              userMessage:
-                type:
-                - string
-                - 'null'
-              internalMessage:
-                type:
-                - string
-                - 'null'
   responses:
-    Forbidden:
-      description: Forbidden. User does not have permission.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Unauthorized. User is not logged in or token is invalid.
+    BadRequest:
+      description: Bad request. Invalid input parameters.
       content:
         application/json:
           schema:
@@ -204,26 +198,24 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Forbidden. User does not have permission.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
     SSOLoginConfigResponse:
       description: Response for SSO Login Configuration.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/SSOLoginDto'
-    BadRequest:
-      description: Bad request. Invalid input parameters.
+    Unauthorized:
+      description: Unauthorized. User is not logged in or token is invalid.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  requestBodies:
-    SSOLoginDto:
-      description: SSO Login Configuration object
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SSOLoginDto'
   parameters:
     PathId:
       name: id
@@ -233,6 +225,14 @@ components:
       schema:
         type: integer
         format: int32
+  requestBodies:
+    SSOLoginDto:
+      description: SSO Login Configuration object
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SSOLoginDto'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

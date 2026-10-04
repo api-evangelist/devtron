@@ -251,8 +251,8 @@ components:
                 - string
                 - 'null'
   responses:
-    InternalServerError:
-      description: Internal server error.
+    BadRequest:
+      description: Bad request. Invalid input parameters.
       content:
         application/json:
           schema:
@@ -263,8 +263,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad request. Invalid input parameters.
+    InternalServerError:
+      description: Internal server error.
       content:
         application/json:
           schema:

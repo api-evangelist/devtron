@@ -83,65 +83,6 @@ paths:
       - Resource Recommendation
 components:
   schemas:
-    ResourceRecommendation:
-      type: object
-      description: Resource recommendation details for a workload
-      required:
-      - current
-      properties:
-        delta:
-          type: number
-          format: float64
-          description: percentage of change in resource recommendation
-        current:
-          type: string
-          description: current value of the resource recommendation
-        recommended:
-          type: string
-          description: recommended value of the resource recommendation
-    K8sRequestObject:
-      type: object
-      properties:
-        resourceIdentifier:
-          type: object
-          properties:
-            groupVersionKind:
-              $ref: '#/components/schemas/GroupVersionKind'
-            namespace:
-              type: string
-              description: Namespace of the resource.
-              example: default
-            name:
-              type: string
-              description: Name of the resource.
-              example: my-deployment
-          required:
-          - name
-          - groupVersionKind
-        podLogsRequest:
-          type: object
-          properties:
-            containerName:
-              type: string
-              description: Name of the container for which logs are requested.
-              example: my-container
-        patch:
-          type: string
-          description: JSON patch or strategic merge patch to apply to the resource.
-          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    ResourceRequestObject:
-      type: object
-      properties:
-        appId:
-          type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
     ClusterResourceRecommendationList:
       type: object
       properties:
@@ -187,21 +128,49 @@ components:
                 $ref: '#/components/schemas/ResourceRecommendation'
               memoryLimit:
                 $ref: '#/components/schemas/ResourceRecommendation'
-    ResourceRecommendationDetails:
+    ResourceRequestObject:
       type: object
-      description: Details of resource recommendations for a cluster
-      required:
-      - supportedGVKs
       properties:
-        supportedGVKs:
-          type: array
-          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
-          items:
-            $ref: '#/components/schemas/GroupVersionKind'
-        lastScannedOn:
+        appId:
           type: string
-          format: date-time
-          description: Timestamp of the last scan for resource recommendations
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
     GroupVersionKind:
       type: object
       properties:
@@ -221,6 +190,37 @@ components:
       - group
       - version
       - kind
+    ResourceRecommendation:
+      type: object
+      description: Resource recommendation details for a workload
+      required:
+      - current
+      properties:
+        delta:
+          type: number
+          format: float64
+          description: percentage of change in resource recommendation
+        current:
+          type: string
+          description: current value of the resource recommendation
+        recommended:
+          type: string
+          description: recommended value of the resource recommendation
+    ResourceRecommendationDetails:
+      type: object
+      description: Details of resource recommendations for a cluster
+      required:
+      - supportedGVKs
+      properties:
+        supportedGVKs:
+          type: array
+          description: List of supported workload Group, Version, and Kind (GVK) for resource recommendations
+          items:
+            $ref: '#/components/schemas/GroupVersionKind'
+        lastScannedOn:
+          type: string
+          format: date-time
+          description: Timestamp of the last scan for resource recommendations
     SyncResourceRecommendation:
       type: object
       description: Request object for syncing resource recommendations for a cluster

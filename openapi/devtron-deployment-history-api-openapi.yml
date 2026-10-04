@@ -571,30 +571,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    HistoryComponentDetailDto:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistoryComponentValuesDto'
-        codeEditorValue:
-          type: object
-          properties:
-            displayName:
-              type: string
-            value:
-              type: string
-    HistoryComponentValuesDto:
-      type: object
-      properties:
-        fieldName:
-          type: object
-          properties:
-            displayName:
-              type: string
-            value:
-              type: string
     Error:
       required:
       - code
@@ -606,6 +582,16 @@ components:
         message:
           type: string
           description: Error message
+    HistoryComponentValuesDto:
+      type: object
+      properties:
+        fieldName:
+          type: object
+          properties:
+            displayName:
+              type: string
+            value:
+              type: string
     HistoryConfiguration:
       type: object
       properties:
@@ -638,6 +624,20 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/HistoryConfiguration'
+    HistoryComponentDetailDto:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistoryComponentValuesDto'
+        codeEditorValue:
+          type: object
+          properties:
+            displayName:
+              type: string
+            value:
+              type: string
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:
