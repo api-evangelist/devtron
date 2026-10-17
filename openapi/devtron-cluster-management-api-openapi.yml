@@ -251,31 +251,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        status:
-          type: string
-        result:
-          type:
-          - object
-          - 'null'
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              userMessage:
-                type:
-                - string
-                - 'null'
-              internalMessage:
-                type:
-                - string
-                - 'null'
     Error:
       required:
       - code
@@ -287,6 +262,29 @@ components:
         message:
           type: string
           description: Error message
+    ClusterAuthDetail:
+      type: object
+      properties:
+        clusterId:
+          type: integer
+          description: cluster id
+        clusterName:
+          type: string
+          description: cluster name
+        errorInConnecting:
+          type: string
+          description: error message if cluster failed to connect
+    UserInfos:
+      type: object
+      properties:
+        userName:
+          type: string
+        config:
+          type: object
+          additionalProperties:
+            type: string
+        errorInConnecting:
+          type: string
     ClusterBean:
       type: object
       properties:
@@ -319,18 +317,6 @@ components:
         k8sversion:
           type: string
           description: K8s version of the cluster
-    ClusterAuthDetail:
-      type: object
-      properties:
-        clusterId:
-          type: integer
-          description: cluster id
-        clusterName:
-          type: string
-          description: cluster name
-        errorInConnecting:
-          type: string
-          description: error message if cluster failed to connect
     ComponentConfiguration:
       type: object
       properties:
@@ -393,6 +379,21 @@ components:
           type: string
         insecure-skip-tls-verify:
           type: boolean
+    DefaultClusterComponentGet:
+      type: object
+      properties:
+        name:
+          type: string
+        appId:
+          type: integer
+        installedAppId:
+          type: integer
+        envId:
+          type: integer
+        envname:
+          type: string
+        status:
+          type: string
     PrometheusAuthGet:
       type: object
       properties:
@@ -404,12 +405,19 @@ components:
           type: string
         tlsClientKey:
           type: string
-    Kubeconfig:
+    DefaultClusterComponentAdd:
       type: object
-      description: Kube config of target cluster
       properties:
-        config:
+        id:
           type: string
+        name:
+          type: string
+        version:
+          type: string
+        status:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/ComponentConfiguration'
     PrometheusAuthAdd:
       type: object
       properties:
@@ -430,44 +438,36 @@ components:
           properties:
             token:
               type: string
-    DefaultClusterComponentAdd:
+    ErrorResponse:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        version:
-          type: string
+        code:
+          type: integer
+          format: int32
         status:
           type: string
-        configuration:
-          $ref: '#/components/schemas/ComponentConfiguration'
-    UserInfos:
+        result:
+          type:
+          - object
+          - 'null'
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type:
+                - string
+                - 'null'
+              internalMessage:
+                type:
+                - string
+                - 'null'
+    Kubeconfig:
       type: object
+      description: Kube config of target cluster
       properties:
-        userName:
-          type: string
         config:
-          type: object
-          additionalProperties:
-            type: string
-        errorInConnecting:
-          type: string
-    DefaultClusterComponentGet:
-      type: object
-      properties:
-        name:
-          type: string
-        appId:
-          type: integer
-        installedAppId:
-          type: integer
-        envId:
-          type: integer
-        envname:
-          type: string
-        status:
           type: string
 x-tagGroups:
 - name: Common Devtron automation APIs

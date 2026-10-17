@@ -211,6 +211,19 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    NotificationConfigResponse:
+      type: object
+      properties:
+        slackConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
+        sesConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
     Error:
       required:
       - code
@@ -222,22 +235,6 @@ components:
         message:
           type: string
           description: Error message
-    NotificationConfig:
-      type: object
-      required:
-      - channel
-      properties:
-        channel:
-          type: string
-          description: channel type
-          enum:
-          - slack
-          - ses
-        configs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
     NotificationSetting:
       type: object
       required:
@@ -271,6 +268,22 @@ components:
           items:
             $ref: '#/components/schemas/providers'
           description: role filters objects
+    NotificationConfig:
+      type: object
+      required:
+      - channel
+      properties:
+        channel:
+          type: string
+          description: channel type
+          enum:
+          - slack
+          - ses
+        configs:
+          type: array
+          items:
+            $ref: '#/components/schemas/configs'
+          description: config holds for either slack or ses
     configs:
       type: object
       required:
@@ -321,19 +334,6 @@ components:
         configId:
           type: integer
           description: config id
-    NotificationConfigResponse:
-      type: object
-      properties:
-        slackConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
-        sesConfigs:
-          type: array
-          items:
-            $ref: '#/components/schemas/configs'
-          description: config holds for either slack or ses
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

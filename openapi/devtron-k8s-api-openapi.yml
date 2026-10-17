@@ -35,19 +35,18 @@ paths:
       - K8s
 components:
   schemas:
-    ResourceRequestObject:
+    ResourceGetResponse:
       type: object
       properties:
-        appId:
-          type: string
-          description: Application ID. Used when the request is context-specific to an application.
-          example: my-app/env-1
-        clusterId:
-          type: number
-          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
-          example: 1
-        k8sRequest:
-          $ref: '#/components/schemas/K8sRequestObject'
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
+          type: boolean
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
     ManifestResponse:
       type: object
       required:
@@ -57,6 +56,10 @@ components:
           $ref: '#/components/schemas/K8sManifest'
         manifest:
           $ref: '#/components/schemas/K8sManifest'
+    K8sManifest:
+      type: object
+      description: Kubernetes manifest of the resource
+      additionalProperties: true
     GroupVersionKind:
       type: object
       properties:
@@ -76,10 +79,19 @@ components:
       - group
       - version
       - kind
-    K8sManifest:
+    ResourceRequestObject:
       type: object
-      description: Kubernetes manifest of the resource
-      additionalProperties: true
+      properties:
+        appId:
+          type: string
+          description: Application ID. Used when the request is context-specific to an application.
+          example: my-app/env-1
+        clusterId:
+          type: number
+          description: Cluster ID. Used when the request is for a direct cluster resource (appId is not supplied).
+          example: 1
+        k8sRequest:
+          $ref: '#/components/schemas/K8sRequestObject'
     K8sRequestObject:
       type: object
       properties:
@@ -110,18 +122,6 @@ components:
           type: string
           description: JSON patch or strategic merge patch to apply to the resource.
           example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    ResourceGetResponse:
-      type: object
-      properties:
-        manifestResponse:
-          $ref: '#/components/schemas/ManifestResponse'
-        secretViewAccess:
-          type: boolean
-          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
-          example: true
-      required:
-      - manifestResponse
-      - secretViewAccess
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

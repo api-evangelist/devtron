@@ -582,16 +582,6 @@ components:
         message:
           type: string
           description: Error message
-    HistoryComponentValuesDto:
-      type: object
-      properties:
-        fieldName:
-          type: object
-          properties:
-            displayName:
-              type: string
-            value:
-              type: string
     HistoryConfiguration:
       type: object
       properties:
@@ -608,22 +598,20 @@ components:
           type: array
           items:
             type: string
-    HistoryComponentListDto:
-      type: object
-      properties:
-        id:
-          type: integer
-        deployedOn:
-          type: string
-          format: timestamp
-        deployedBy:
-          type: string
-        deploymentStatus:
-          type: string
     HistoryConfigurationListDto:
       type: array
       items:
         $ref: '#/components/schemas/HistoryConfiguration'
+    HistoryComponentValuesDto:
+      type: object
+      properties:
+        fieldName:
+          type: object
+          properties:
+            displayName:
+              type: string
+            value:
+              type: string
     HistoryComponentDetailDto:
       type: object
       properties:
@@ -638,6 +626,18 @@ components:
               type: string
             value:
               type: string
+    HistoryComponentListDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        deployedOn:
+          type: string
+          format: timestamp
+        deployedBy:
+          type: string
+        deploymentStatus:
+          type: string
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

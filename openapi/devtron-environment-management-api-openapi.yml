@@ -190,6 +190,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     EnvironmentDetail:
       type: object
       properties:
@@ -222,6 +233,47 @@ components:
           type: string
         appCount:
           type: integer
+        isVirtualEnvironment:
+          type: boolean
+        allowedDeploymentTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - helm
+            - argo_cd
+    EnvironmentUpdateRequest:
+      type: object
+      required:
+      - id
+      - environment_name
+      - cluster_id
+      properties:
+        id:
+          type: integer
+        environment_name:
+          type: string
+          description: Name of the Environment
+          maxLength: 50
+        cluster_id:
+          type: integer
+          description: Id of the target Cluster
+        active:
+          type: boolean
+        default:
+          type: boolean
+        prometheus_endpoint:
+          type: string
+          description: Prometheus Endpoint of cluster
+        namespace:
+          type: string
+          description: Name of the Namespace pointing to environment
+          maxLength: 50
+        isClusterCdActive:
+          type: boolean
+        description:
+          type: string
+          maxLength: 40
         isVirtualEnvironment:
           type: boolean
         allowedDeploymentTypes:
@@ -265,58 +317,6 @@ components:
         isVirtualEnvironment:
           type: boolean
           default: false
-        allowedDeploymentTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - helm
-            - argo_cd
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
-    EnvironmentUpdateRequest:
-      type: object
-      required:
-      - id
-      - environment_name
-      - cluster_id
-      properties:
-        id:
-          type: integer
-        environment_name:
-          type: string
-          description: Name of the Environment
-          maxLength: 50
-        cluster_id:
-          type: integer
-          description: Id of the target Cluster
-        active:
-          type: boolean
-        default:
-          type: boolean
-        prometheus_endpoint:
-          type: string
-          description: Prometheus Endpoint of cluster
-        namespace:
-          type: string
-          description: Name of the Namespace pointing to environment
-          maxLength: 50
-        isClusterCdActive:
-          type: boolean
-        description:
-          type: string
-          maxLength: 40
-        isVirtualEnvironment:
-          type: boolean
         allowedDeploymentTypes:
           type: array
           items:

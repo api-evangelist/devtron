@@ -173,6 +173,39 @@ paths:
       - Metadata
 components:
   schemas:
+    AppMetaInfo:
+      type: object
+      required:
+      - appId
+      - projectId
+      - appName
+      - projectName
+      - createdOn
+      - createdBy
+      - labels
+      properties:
+        appId:
+          type: integer
+          description: app id
+        projectId:
+          type: integer
+          description: team/project id
+        appName:
+          type: string
+          description: app name
+        projectName:
+          type: string
+          description: team/project name
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppLabel'
+        createdOn:
+          type: string
+          description: app creation date
+        createdBy:
+          type: string
+          description: app created by
     AppLabel:
       type: object
       required:
@@ -213,39 +246,6 @@ components:
                 type:
                 - string
                 - 'null'
-    AppMetaInfo:
-      type: object
-      required:
-      - appId
-      - projectId
-      - appName
-      - projectName
-      - createdOn
-      - createdBy
-      - labels
-      properties:
-        appId:
-          type: integer
-          description: app id
-        projectId:
-          type: integer
-          description: team/project id
-        appName:
-          type: string
-          description: app name
-        projectName:
-          type: string
-          description: team/project name
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppLabel'
-        createdOn:
-          type: string
-          description: app creation date
-        createdBy:
-          type: string
-          description: app created by
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

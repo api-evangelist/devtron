@@ -131,6 +131,17 @@ paths:
       - GitOps Validation
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     GitOpsConfigDto:
       type: object
       properties:
@@ -164,17 +175,6 @@ components:
         userId:
           type: integer
           description: User Id of GitOps provider
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     DetailedError:
       type: object
       properties:

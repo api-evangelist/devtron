@@ -121,6 +121,17 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: integer
+          description: Error code
+        message:
+          type: string
+          description: Error message
     AppWorkflowMappingDto:
       type: object
       properties:
@@ -149,17 +160,6 @@ components:
         isLast:
           type: boolean
           description: Indicates if this is the last node in its branch of the tree.
-    Error:
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: integer
-          description: Error code
-        message:
-          type: string
-          description: Error message
     AppWorkflowDto:
       type: object
       properties:

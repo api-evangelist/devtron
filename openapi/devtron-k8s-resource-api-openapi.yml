@@ -411,32 +411,57 @@ paths:
       - K8s Resource
 components:
   schemas:
-    RotatePodResponse:
+    TerminalMessage:
       type: object
       properties:
-        containsError:
+        Op:
+          type: string
+          description: Operation type for the terminal session.
+          example: stdin
+        Data:
+          type: string
+          description: Data for the terminal session (e.g., command or output).
+          example: ls -l
+        SessionID:
+          type: string
+          description: ID of the terminal session.
+          example: unique-session-id-123
+    ObjectReference:
+      type: object
+      properties:
+        kind:
+          type: string
+        namespace:
+          type: string
+        name:
+          type: string
+        uid:
+          type: string
+        apiVersion:
+          type: string
+        resourceVersion:
+          type: string
+    ResourceGetResponse:
+      type: object
+      properties:
+        manifestResponse:
+          $ref: '#/components/schemas/ManifestResponse'
+        secretViewAccess:
           type: boolean
-          description: True if any error occurred during the rotation of one or more pods.
-          example: false
-        responses:
-          type: array
-          items:
-            type: object
-            properties:
-              groupVersionKind:
-                $ref: '#/components/schemas/GroupVersionKind'
-              namespace:
-                type: string
-                description: Namespace of the resource.
-              name:
-                type: string
-                description: Name of the resource.
-              errorResponse:
-                type:
-                - string
-                - 'null'
-                description: Error message if rotation failed for this specific resource. Otherwise null.
-                example: failed to find resource
+          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
+          example: true
+      required:
+      - manifestResponse
+      - secretViewAccess
+    ManifestResponse:
+      type: object
+      required:
+      - manifest
+      properties:
+        recommendedManifest:
+          $ref: '#/components/schemas/K8sManifest'
+        manifest:
+          $ref: '#/components/schemas/K8sManifest'
     ResourceRequestObject:
       type: object
       properties:
@@ -450,61 +475,22 @@ components:
           example: 1
         k8sRequest:
           $ref: '#/components/schemas/K8sRequestObject'
-    RotatePodRequest:
+    ApplyResourcesRequest:
       type: object
       properties:
         clusterId:
           type: number
-          description: ID of the cluster where resources reside.
+          description: ID of the cluster where resources will be applied.
           example: 1
-        resources:
-          type: array
-          items:
-            type: object
-            properties:
-              groupVersionKind:
-                $ref: '#/components/schemas/GroupVersionKind'
-              namespace:
-                type: string
-                description: Namespace of the resource.
-                example: production
-              name:
-                type: string
-                description: Name of the resource (e.g., Deployment, StatefulSet name).
-                example: my-app-deployment
-            required:
-            - name
-            - groupVersionKind
-            - namespace
+        manifest:
+          type: string
+          description: 'A string containing one or more Kubernetes resource manifests, separated by ''---''.
+
+            '
+          example: "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: my-cm\ndata:\n  key: value\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: my-app\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: my-app\n  template:\n    metadata:\n      labels:\n        app: my-app\n    spec:\n      containers:\n      - name: nginx\n        image: nginx\n"
       required:
       - clusterId
-      - resources
-    GroupVersionKind:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group of the API resource.
-          example: apps
-        version:
-          type: string
-          description: Version of the API resource.
-          example: v1
-        kind:
-          type: string
-          description: Kind of the API resource.
-          example: Deployment
-      required:
-      - group
-      - version
-      - kind
-    EventSource:
-      type: object
-      properties:
-        component:
-          type: string
-        host:
-          type: string
+      - manifest
     K8sApiResource:
       type: object
       properties:
@@ -539,10 +525,40 @@ components:
       - kind
       - name
       - isUpdate
+    GroupVersionKind:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group of the API resource.
+          example: apps
+        version:
+          type: string
+          description: Version of the API resource.
+          example: v1
+        kind:
+          type: string
+          description: Kind of the API resource.
+          example: Deployment
+      required:
+      - group
+      - version
+      - kind
     K8sManifest:
       type: object
       description: Kubernetes manifest of the resource
       additionalProperties: true
+    GetAllApiResourcesResponse:
+      type: object
+      properties:
+        apiResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/K8sApiResource'
+        allowedAll:
+          type: boolean
+          description: Whether all API resources are allowed for this user.
+          example: true
     ObjectMeta:
       type: object
       properties:
@@ -557,6 +573,91 @@ components:
         creationTimestamp:
           type: string
           format: date-time
+    K8sRequestObject:
+      type: object
+      properties:
+        resourceIdentifier:
+          type: object
+          properties:
+            groupVersionKind:
+              $ref: '#/components/schemas/GroupVersionKind'
+            namespace:
+              type: string
+              description: Namespace of the resource.
+              example: default
+            name:
+              type: string
+              description: Name of the resource.
+              example: my-deployment
+          required:
+          - name
+          - groupVersionKind
+        podLogsRequest:
+          type: object
+          properties:
+            containerName:
+              type: string
+              description: Name of the container for which logs are requested.
+              example: my-container
+        patch:
+          type: string
+          description: JSON patch or strategic merge patch to apply to the resource.
+          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
+    ClusterResourceListResponse:
+      type: object
+      description: Represents a list of resources with dynamic headers and corresponding data.
+      properties:
+        headers:
+          type: array
+          items:
+            type: string
+          description: An array of strings representing the column headers for the resource list.
+          example:
+          - NAME
+          - NAMESPACE
+          - KIND
+          - AGE
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+            description: 'An array of objects. Each object represents a resource, and its keys correspond to the ''headers''. The values are the resource''s data for those headers.
+
+              '
+            example:
+            - NAME: my-pod-1
+              NAMESPACE: default
+              KIND: Pod
+              AGE: 2d
+            - NAME: my-service-abc
+              NAMESPACE: kube-system
+              KIND: Service
+              AGE: 10h
+    EventSource:
+      type: object
+      properties:
+        component:
+          type: string
+        host:
+          type: string
+    LogsResponseObject:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the log entry (if provided by the stream).
+        type:
+          type: string
+          description: Type of the log entry (e.g., 'stdout', 'stderr').
+        data:
+          type: string
+          description: The actual log line content.
+        time:
+          type: string
+          format: date-time
+          description: Timestamp of the log entry.
     EventsResponseObject:
       type: object
       description: Represents a Kubernetes Event object.
@@ -603,162 +704,61 @@ components:
         reportingInstance:
           type: string
           example: node-1
-    ManifestResponse:
-      type: object
-      required:
-      - manifest
-      properties:
-        recommendedManifest:
-          $ref: '#/components/schemas/K8sManifest'
-        manifest:
-          $ref: '#/components/schemas/K8sManifest'
-    LogsResponseObject:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier for the log entry (if provided by the stream).
-        type:
-          type: string
-          description: Type of the log entry (e.g., 'stdout', 'stderr').
-        data:
-          type: string
-          description: The actual log line content.
-        time:
-          type: string
-          format: date-time
-          description: Timestamp of the log entry.
-    K8sRequestObject:
-      type: object
-      properties:
-        resourceIdentifier:
-          type: object
-          properties:
-            groupVersionKind:
-              $ref: '#/components/schemas/GroupVersionKind'
-            namespace:
-              type: string
-              description: Namespace of the resource.
-              example: default
-            name:
-              type: string
-              description: Name of the resource.
-              example: my-deployment
-          required:
-          - name
-          - groupVersionKind
-        podLogsRequest:
-          type: object
-          properties:
-            containerName:
-              type: string
-              description: Name of the container for which logs are requested.
-              example: my-container
-        patch:
-          type: string
-          description: JSON patch or strategic merge patch to apply to the resource.
-          example: '[{"op": "replace", "path": "/spec/replicas", "value": 3}]'
-    TerminalMessage:
-      type: object
-      properties:
-        Op:
-          type: string
-          description: Operation type for the terminal session.
-          example: stdin
-        Data:
-          type: string
-          description: Data for the terminal session (e.g., command or output).
-          example: ls -l
-        SessionID:
-          type: string
-          description: ID of the terminal session.
-          example: unique-session-id-123
-    ObjectReference:
-      type: object
-      properties:
-        kind:
-          type: string
-        namespace:
-          type: string
-        name:
-          type: string
-        uid:
-          type: string
-        apiVersion:
-          type: string
-        resourceVersion:
-          type: string
-    ResourceGetResponse:
-      type: object
-      properties:
-        manifestResponse:
-          $ref: '#/components/schemas/ManifestResponse'
-        secretViewAccess:
-          type: boolean
-          description: Indicates whether a user can see obscured secret values or not. True if the user has permission, false otherwise.
-          example: true
-      required:
-      - manifestResponse
-      - secretViewAccess
-    GetAllApiResourcesResponse:
-      type: object
-      properties:
-        apiResources:
-          type: array
-          items:
-            $ref: '#/components/schemas/K8sApiResource'
-        allowedAll:
-          type: boolean
-          description: Whether all API resources are allowed for this user.
-          example: true
-    ClusterResourceListResponse:
-      type: object
-      description: Represents a list of resources with dynamic headers and corresponding data.
-      properties:
-        headers:
-          type: array
-          items:
-            type: string
-          description: An array of strings representing the column headers for the resource list.
-          example:
-          - NAME
-          - NAMESPACE
-          - KIND
-          - AGE
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: string
-            description: 'An array of objects. Each object represents a resource, and its keys correspond to the ''headers''. The values are the resource''s data for those headers.
-
-              '
-            example:
-            - NAME: my-pod-1
-              NAMESPACE: default
-              KIND: Pod
-              AGE: 2d
-            - NAME: my-service-abc
-              NAMESPACE: kube-system
-              KIND: Service
-              AGE: 10h
-    ApplyResourcesRequest:
+    RotatePodRequest:
       type: object
       properties:
         clusterId:
           type: number
-          description: ID of the cluster where resources will be applied.
+          description: ID of the cluster where resources reside.
           example: 1
-        manifest:
-          type: string
-          description: 'A string containing one or more Kubernetes resource manifests, separated by ''---''.
-
-            '
-          example: "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: my-cm\ndata:\n  key: value\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: my-app\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: my-app\n  template:\n    metadata:\n      labels:\n        app: my-app\n    spec:\n      containers:\n      - name: nginx\n        image: nginx\n"
+        resources:
+          type: array
+          items:
+            type: object
+            properties:
+              groupVersionKind:
+                $ref: '#/components/schemas/GroupVersionKind'
+              namespace:
+                type: string
+                description: Namespace of the resource.
+                example: production
+              name:
+                type: string
+                description: Name of the resource (e.g., Deployment, StatefulSet name).
+                example: my-app-deployment
+            required:
+            - name
+            - groupVersionKind
+            - namespace
       required:
       - clusterId
-      - manifest
+      - resources
+    RotatePodResponse:
+      type: object
+      properties:
+        containsError:
+          type: boolean
+          description: True if any error occurred during the rotation of one or more pods.
+          example: false
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              groupVersionKind:
+                $ref: '#/components/schemas/GroupVersionKind'
+              namespace:
+                type: string
+                description: Namespace of the resource.
+              name:
+                type: string
+                description: Name of the resource.
+              errorResponse:
+                type:
+                - string
+                - 'null'
+                description: Error message if rotation failed for this specific resource. Otherwise null.
+                example: failed to find resource
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:

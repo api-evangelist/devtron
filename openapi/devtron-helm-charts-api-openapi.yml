@@ -152,6 +152,31 @@ paths:
       - Helm Charts
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        result:
+          type:
+          - object
+          - 'null'
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              userMessage:
+                type:
+                - string
+                - 'null'
+              internalMessage:
+                type:
+                - string
+                - 'null'
     ChartInfo:
       type: object
       required:
@@ -210,31 +235,6 @@ components:
         deprecated:
           type: boolean
           description: is deprecated or not
-    ErrorResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        status:
-          type: string
-        result:
-          type:
-          - object
-          - 'null'
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              userMessage:
-                type:
-                - string
-                - 'null'
-              internalMessage:
-                type:
-                - string
-                - 'null'
 x-tagGroups:
 - name: Common Devtron automation APIs
   tags:
